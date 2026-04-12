@@ -109,4 +109,4 @@ func main() {
 }
 ```
 
-![](https://img-blog.csdnimg.cn/20210118173824843.png)
+![](/images/posts/golang-go-web/20210118173824843.png)

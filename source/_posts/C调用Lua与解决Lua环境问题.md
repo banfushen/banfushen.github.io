@@ -73,22 +73,22 @@ print("你终于动手了")
 
 **3.编译c文件，然后发现报错了，原因时找不到头文件的，也就是环境没指定好**
 
-![](https://img-blog.csdnimg.cn/20200812142708412.png)
+![](/images/posts/clualua/20200812142708412.png)
 
 **4.简单查找一下**
 
-![](https://img-blog.csdnimg.cn/20200812142804341.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/clualua/20200812142804341.png)
 
 **4.然后编译，-I参数是用来指定头文件目录 （是i），然后发现报错了**
 
-![](https://img-blog.csdnimg.cn/20200812142853903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/clualua/20200812142853903.png)
 
 这个报错是说没找到这些东西，因为这些都在lualib库里，查找一下，指定一下即可。
 
-![](https://img-blog.csdnimg.cn/20200812143354735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/clualua/20200812143354735.png)
 
 **5.我是直接sudo cp /usr/lib/x86_64-linux-gnu/liblua5.3.so.0 . 将库拷贝到本目录，然后改名为liblua5.3.so。然后编译，-l参数就是用来指定程序要链接的库，-l参数紧接着就是库名 （l），没报错。运行。结果如下**
 
-![](https://img-blog.csdnimg.cn/20200812152425666.png)
+![](/images/posts/clualua/20200812152425666.png)
 
 因为使用lua也有一段时间了，以前一直感觉C与lua交互是不难的，但是感觉是感觉，只有自己实际操作了，才有权力去说难不难。今天尝试了，的确不难。还是需要尽量都是自己去尝试了，才下结论。**“有剑不用，和没有剑，不是用一个概念”**

@@ -126,7 +126,7 @@ banfushen@ma100:~/perf_cpu/FlameGraph$ pwd
 #### 对perf.data生成火焰图(按照上面来说就是一个进程的)
 
 `perf script |/home/banfushen/perf_cpu/FlameGraph/stackcollapse-perf.pl|/home/banfushen/perf_cpu/FlameGraph/flamegraph.pl > output.svg`
-![\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-68Nci8QI-1644756192593)(_v_images/20211214172626556_19376.png)\]](https://img-blog.csdnimg.cn/cedfefcf300a468b9c32fc84ffc19bfb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQmFuRlM=,size_20,color_FFFFFF,t_70,g_se,x_16)
+![](/images/posts/perfprofile/cedfefcf300a468b9c32fc84ffc19bfb.png)
 
 #### 对单个线程生成火焰图
 
@@ -150,13 +150,13 @@ root@ma100:/home/banfushen/perf_cpu/multi_thread# perf script -h
 
 `perf script -v --tid <tid> 指定线程`
 `perf script -v --tid 2283471|/home/banfushen/perf_cpu/FlameGraph/stackcollapse-perf.pl|/home/banfushen/perf_cpu/FlameGraph/flamegraph.pl > output1.svg`
-![\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-UAKuRRSC-1644756192594)(_v_images/20211214172949738_20703.png)\]](https://img-blog.csdnimg.cn/db320151507f4c3a8ecb2e5258e0e704.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQmFuRlM=,size_20,color_FFFFFF,t_70,g_se,x_16)
+![](/images/posts/perfprofile/db320151507f4c3a8ecb2e5258e0e704.png)
 
 #### 对多个线程生成火焰图
 
 `perf script -v --tid <tid[,tid...]> 指定多个线程`
 `perf script -v --tid 2283472,2283471|/home/banfushen/perf_cpu/FlameGraph/stackcollapse-perf.pl|/home/banfushen/perf_cpu/FlameGraph/flamegraph.pl > output3.svg`
-![\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-y7qrS028-1644756192595)(_v_images/20211214173120899_8466.png)\]](https://img-blog.csdnimg.cn/6fbc37032b3c4efba64387ab5f115c22.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQmFuRlM=,size_20,color_FFFFFF,t_70,g_se,x_16)
+![](/images/posts/perfprofile/6fbc37032b3c4efba64387ab5f115c22.png)
 参考资料:
 [perf Examples](https://www.brendangregg.com/perf.html)
 [perf性能分析](https://melonshell.github.io/2019/10/09/tool1_perf/)

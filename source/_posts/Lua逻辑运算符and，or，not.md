@@ -58,7 +58,7 @@ print(true or false and false)
 
 **输出：**
 
-![](https://img-blog.csdnimg.cn/20190415115145741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/luaandornot/20190415115145741.png)
 
 **lua三目运算符：**
 

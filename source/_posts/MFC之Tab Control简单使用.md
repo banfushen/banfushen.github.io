@@ -11,7 +11,7 @@ tags:
 
 **1.在工具栏中选择Tab Control控件，将控件大小拉满整个对话框，如图：**
 
-![](https://img-blog.csdnimg.cn/20190109152640207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/mfctab-control/20190109152640207.png)
 
 **2.在对话框类中声明一个 CTabCtrl变量：**
 
@@ -21,15 +21,15 @@ CTabCtrl m_tab;
 
 DDX_Control(pDX, IDC_TAB1, m_tab);    //IDC_TAB1为控件ID
 
-![](https://img-blog.csdnimg.cn/20190109160421504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/mfctab-control/20190109160421504.png)
 
 **3.选择资源视图插入两个测试页面，右键点击Dialog，选择插入Dialog中，作为Tab Control控件切换的界面，然后将插入的对话框的Border属性设置为None，Style设置为Child，设置后的效果如下图所示：**
 
-![](https://img-blog.csdnimg.cn/20190109162504991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/mfctab-control/20190109162504991.png)
 
 **4.为创建的两个话框建立类，如DlgSS、DlgFinance。添加类的方法：右击对话框界面，在弹出框中选择添加类；**
 
-![](https://img-blog.csdnimg.cn/20190109162658726.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/mfctab-control/20190109162658726.png)
 
 **5.在Tab Control控件所在的对话框类的头文件中添加插入的页面对话框的头文件，然后添加以下内容：**
 
@@ -97,12 +97,12 @@ int m_FuncTab;
 
 **7.为Tab Control添加消息处理程序，双击Tab Control控件，自动进入消息处理程序代码：**
 
-![](https://img-blog.csdnimg.cn/20190109171224342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/mfctab-control/20190109171224342.png)
 
 **8.运行结果如图：**
 
-![](https://img-blog.csdnimg.cn/20190110101036693.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/mfctab-control/20190110101036693.png)
 
-![](https://img-blog.csdnimg.cn/20190110101045142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/mfctab-control/20190110101045142.png)
 
 本文参考的资料有：http://blog.csdn.net/hustspy1990/article/details/5425365

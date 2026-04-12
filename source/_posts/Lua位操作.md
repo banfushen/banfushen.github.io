@@ -13,10 +13,10 @@ tags:
 
 lua位操作其实和c语言一样，例子如下:
 
-![](https://img-blog.csdnimg.cn/20200707200527919.png)
+![](/images/posts/lua/20200707200527919.png)
 
 结果为:
 
-![](https://img-blog.csdnimg.cn/20200707200654971.png)
+![](/images/posts/lua/20200707200654971.png)
 
 实际应用可以看看我的另一篇博客，《使用redis做排行榜相同积分情况下，如何使用到达时间来排序》

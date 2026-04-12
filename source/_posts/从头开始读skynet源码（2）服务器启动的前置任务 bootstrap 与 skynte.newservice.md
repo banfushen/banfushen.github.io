@@ -34,7 +34,7 @@ start(config->thread);
 
 查询配置
 
-![](https://img-blog.csdnimg.cn/20201213131031565.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/skynet2-bootstrap-skyntenewservice/20201213131031565.png)
 
 可以得知，传入的参数是"snlua bootsrtap"，再看到函数的实现
 

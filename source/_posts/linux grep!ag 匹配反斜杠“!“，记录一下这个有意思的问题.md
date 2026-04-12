@@ -22,11 +22,11 @@ cat log1.txt | ag "{\\\"userId\\\\\":\\\\\"867340f5-b992-4fe5-92cc-5390de659491\
 ```
 
 但是却没有结果
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210610165816778.png)
+![在这里插入图片描述](/images/posts/linux-grepag/20210610165816778.png)
 经过尝试，发现原来\是需要使用\\来转义才可以匹配，多一个少一个都不行。
 
 ```bash
 cat log1.txt | ag "{\\\\\"userId\\\\\":\\\\\"867340f5-b992-4fe5-92cc-5390de659491\\\\\","
 ```
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210610170429522.png)
+![在这里插入图片描述](/images/posts/linux-grepag/20210610170429522.png)

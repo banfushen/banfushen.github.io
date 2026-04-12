@@ -53,11 +53,11 @@ cp tmux $HOME/.local/bin
 
 这里，如果出现类似这种错误，就是我上面说的坑。我自己也碰到了，最后改了过来，这个图是引用网上的，我的情况忘记截图了。
 
-![](https://img-blog.csdnimg.cn/20201123095157736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/linux-roottmux/20201123095157736.png)
 
 看这位的回答就知道原因了，原地址在[https://segmentfault.com/q/1010000015949611](https://segmentfault.com/q/1010000015949611)
 
-![](https://img-blog.csdnimg.cn/20201123095348446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/linux-roottmux/20201123095348446.png)
 
 我选了相应版本后，解决了以上问题。最后安装成功。
 

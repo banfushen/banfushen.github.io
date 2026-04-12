@@ -21,7 +21,7 @@ tags:
 
 ### **3.什么是神经网络**
 
-![](https://img-blog.csdnimg.cn/20200812195125892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/ai/20200812195125892.png)
 
 ** **如上图所示，这就是一个神经网络的结构，简单来说，就是输入层（两个神经元，红色）--->隐藏层（三个神经元，绿色）--->输出层（两个神经元，黄色）。即，给定了输入，最后得到输出。为什么可以分类，我也不太清楚，可以自行百度。
 

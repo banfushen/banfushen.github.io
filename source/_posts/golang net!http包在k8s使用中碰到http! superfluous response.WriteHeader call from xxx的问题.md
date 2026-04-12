@@ -11,7 +11,7 @@ tags:
 
 在项目中，需要使用golang写http服务器并部署在k8s中，在server deployment.yaml中存在livenessProbe(存活探针)以及readinessProbe(就绪探针)，这两个我都是写了向服务器发送一个http请求，如果服务器收到并回复，则表示成功，但是在使用过程中，日志一直输出，这些会干扰日志的查看。
 
-![](https://img-blog.csdnimg.cn/20210121174550591.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/golang-nethttpk8shttp-superfluous-responsewriteheader-call-from-xxx/20210121174550591.png)
 
 经过查询与测试，最后修复，做此纪录，代码如下。
 

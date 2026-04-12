@@ -13,11 +13,11 @@ tags:
 
 使用 **apt-get install**碰到以下问题
 
-![](https://img-blog.csdnimg.cn/2020021011014055.png)
+![](/images/posts/ubuntu-apt-getunable-to-locate-package/2020021011014055.png)
 
 ** 1.sudo apt-get update 更新软件源**
 
-![](https://img-blog.csdnimg.cn/20200210110410941.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/ubuntu-apt-getunable-to-locate-package/20200210110410941.png)
 
 如果更新成功，无报错，无警告，则执行自己的下载即可
 
@@ -29,15 +29,15 @@ tags:
 
 **2.搜索打开 software&update**
 
-![](https://img-blog.csdnimg.cn/20200210122059355.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/ubuntu-apt-getunable-to-locate-package/20200210122059355.png)
 
 打开之后选择
 
-![](https://img-blog.csdnimg.cn/20200210122414928.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/ubuntu-apt-getunable-to-locate-package/20200210122414928.png)
 
 **选择other**
 
-** **![](https://img-blog.csdnimg.cn/20200210122519647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+** **![](/images/posts/ubuntu-apt-getunable-to-locate-package/20200210122519647.png)
 
 **更换源之后执行 sudo apt-get update，无报错，之后再下载自己需要下载的即可**
 

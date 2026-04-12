@@ -15,13 +15,13 @@ tags:
 
 redis执行lua有两种方法：
 
-**     1.连接redis后，在命令行输入一串字符串，这串字符串是按照一定规则连接起来的lua字符串，这种方法我没有深入研究，大概如下：** ![](https://img-blog.csdnimg.cn/2020071309025779.png)
+**     1.连接redis后，在命令行输入一串字符串，这串字符串是按照一定规则连接起来的lua字符串，这种方法我没有深入研究，大概如下：** ![](/images/posts/redis-lua/2020071309025779.png)
 
 **       2.将要执行的lua脚本写成一个文件，直接运行，我用的是第二种方法，也比较推荐第二种方法，第二种方法自己写的清楚，看的清楚，而且执行方便。**
 
 ** **  lua_2_redis.lua如下**：**
 
-** **![](https://img-blog.csdnimg.cn/20200713090531602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+** **![](/images/posts/redis-lua/20200713090531602.png)
 
 执行方法如下：
 
@@ -29,11 +29,11 @@ redis执行lua有两种方法：
 
 在脚本中写return，则会把自己想要的结果返回，我这里使用了 >>ret.txt是做了重定向，把输出保存到ret.txt文件。执行结果可以看到redis中对应的分数已经被改变：
 
-![](https://img-blog.csdnimg.cn/20200713090931323.png)
+![](/images/posts/redis-lua/20200713090931323.png)
 
 ** **输出的文件ret.txt：
 
-![](https://img-blog.csdnimg.cn/20200713091022111.png)
+![](/images/posts/redis-lua/20200713091022111.png)
 
 **注意：因为redis中支持lua只是辅助，所以lua中有些方法是不支持的，例如os.time()、也不支持位操作。所以我上面时间直接写死了个计算后的时间。位操作用乘法代替。不支持的方法需要自己另外想办法解决了。**
 

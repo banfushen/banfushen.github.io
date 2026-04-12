@@ -76,7 +76,7 @@ Conditions:
 ```
 
 看到了这句话kubelet has no disk pressure，在结合之前top的交换内存满了，判定磁盘的问题。通过公司的monitor查看到机器的磁盘io使用率已满。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/883d70f6cf0546e0b201a61923f999b0.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQmFuRlM=,size_20,color_FFFFFF,t_70,g_se,x_16)
+![在这里插入图片描述](/images/posts/linux-iopodkubepodsbesteffortpod4909103c-cdc/883d70f6cf0546e0b201a61923f999b0.png)
 
 # 找出导致io爆炸的容器
 

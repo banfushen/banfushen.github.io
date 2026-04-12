@@ -33,7 +33,7 @@ end
 
 以上实例输出结果为：
 
-![](https://img-blog.csdnimg.cn/20190402165248152.png)
+![](/images/posts/lua-for/20190402165248152.png)
 
 ### **注意：**for的三个表达式在循环开始前一次性求值，以后不再进行求值。
 
@@ -49,7 +49,7 @@ end
 
 以上实例输出结果为：
 
-![](https://img-blog.csdnimg.cn/20190402165706247.png)
+![](/images/posts/lua-for/20190402165706247.png)
 
 # 2.泛型for循环
 
@@ -76,4 +76,4 @@ end
 
 以上实例输出结果为：
 
-![](https://img-blog.csdnimg.cn/20190402170223788.png)
+![](/images/posts/lua-for/20190402170223788.png)

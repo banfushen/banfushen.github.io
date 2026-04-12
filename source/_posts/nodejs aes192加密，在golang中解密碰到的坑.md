@@ -24,15 +24,15 @@ const encrypt = (toEncrypt) => {
 
 发现golang中根本不知道aes192对应的到底是aes192中的那种加密模式，经过查询接口已经废弃
 
-![](https://img-blog.csdnimg.cn/20210125201828320.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/nodejs-aes192golang/20210125201828320.png)
 
 使用新的接口，原来的接口文档已经找不到了，刚开始顺着这个方法一直找，首先AES 有五种加密模式：电码本模式（Electronic Codebook Book (ECB)）、密码分组链接模式（Cipher Block Chaining (CBC)）、计算器模式（Counter (CTR)）、密码反馈模式（Cipher FeedBack (CFB)）和输出反馈模式（Output FeedBack (OFB)），要查到具体nodejs中使用的到底是哪个方法，**查看新的接口说明，这里是重点一，通过接口说明，一步一步找出具体调用的是五个模式中的哪个**
 
-![](https://img-blog.csdnimg.cn/20210125202402933.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/nodejs-aes192golang/20210125202402933.png)
 
 然后查看用的到底是什么，可以看到，用的是DES-192-CBC
 
-![](https://img-blog.csdnimg.cn/20210125202429309.png)
+![](/images/posts/nodejs-aes192golang/20210125202429309.png)
 
 然后查看对应的golang的解密方法，发现，必须要给定密钥，和向量。而原来的nodejs接口，只需要给一个字符串就可以了，再次查询资料，最后在第三方的资料中，找到
 

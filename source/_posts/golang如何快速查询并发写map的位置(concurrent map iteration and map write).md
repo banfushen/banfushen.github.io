@@ -17,7 +17,7 @@ go run main.go -race
 ```
 
 会出现DATA RACE，这张图是网上找的，我也尝试过，图找不到了。借用网友的图。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210415194250384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](/images/posts/golangmapconcurrent-map-iteration-and-map-write/20210415194250384.png)
 这是一个方法，使用这个也会有所缺陷，例如你的协程就不能开太多了，我记得好像只能开8000多个。而我开启了之后因为协程不够，并发不够又无法触发，最后是领导找到的。
 
 最后我的原因是因为一般一个变量会定义在循环之外（这不是理所应当的么，当时写的时候没想那么多，而又是自己的思路，找了好久没找到），我在循环之外定义了变量，然后这个变量赋值的时候里面有map，导致了这个问题，最后把变量定义放在循环里就可以了。

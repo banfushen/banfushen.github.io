@@ -83,7 +83,7 @@ extern "C" int luaopen_mylib(lua_State *L )
 
 编译完成后将会得到mylib.so
 
-![](https://img-blog.csdnimg.cn/20201009195100952.png)
+![](/images/posts/ubuntu-luac/20201009195100952.png)
 
 testso.lua
 
@@ -98,6 +98,6 @@ local j = mylib.show('真的太多坑了')
 
 运行结果如下
 
-![](https://img-blog.csdnimg.cn/20201009195329107.png)
+![](/images/posts/ubuntu-luac/20201009195329107.png)
 
 网上搜的真的是各种坑。哎。

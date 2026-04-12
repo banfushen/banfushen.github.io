@@ -23,7 +23,7 @@ tags:
 
 而训练出来最终的模型是这样的，给定你设计的输入，AI会告诉你输出的牌型概率。比如，你给定了你的手牌作为输入，然后AI模型会给出概率出什么牌。至于概率对应的出牌，也是你设计的输出。下面给出一张图，可以作为思路参考。至于怎么做，怎么设计，还是在于自己。
 
-![](https://img-blog.csdnimg.cn/20200824193351606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/aiai/20200824193351606.png)
 
 这篇文章的地址为：[https://gameinstitute.qq.com/course/detail/10132#](https://gameinstitute.qq.com/course/detail/10132#)，腾讯大牛的文章。
 

@@ -13,7 +13,7 @@ tags:
 
 1.先描述一下出现的情况。
 
-![](https://img-blog.csdnimg.cn/20200918162401369.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/skynetskynetcall/20200918162401369.png)
 
 先暂且不管为什么要对db进行这么多次操作（原因太多）。在这个需求下，我本是想执行顺序为 1234，但是实际上确时1324。这会导致3拿到的是2更新之前的数据。今日参加次数就会在执行4的时候，没有能更新到2更新的内容。
 

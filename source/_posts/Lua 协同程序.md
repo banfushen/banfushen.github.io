@@ -95,7 +95,7 @@ print(coroutine.resume(co))
 
 **输出：**
 
-![](https://img-blog.csdnimg.cn/20190417104732777.png)
+![](/images/posts/lua/20190417104732777.png)
 
 **2. coroutine.resume(co, val1, ...)与coroutine.yield(val1, ...)**
 
@@ -133,7 +133,7 @@ print("third resume",coroutine.resume(co, "param4", "param5", "param6"))
 
 **输出：**
 
-![](https://img-blog.csdnimg.cn/20190417110959958.png)
+![](/images/posts/lua/20190417110959958.png)
 
 **分析：**
 
@@ -175,7 +175,7 @@ print(“5.”..coroutine.status(co))
 
 **输出：**
 
-![](https://img-blog.csdnimg.cn/20190417111258814.png)
+![](/images/posts/lua/20190417111258814.png)
 
 **4. coroutine.wrap(func)**
 
@@ -207,7 +207,7 @@ print("third resume", wrap("param4", "param5", "param6"))
 
 **输出：**
 
-![](https://img-blog.csdnimg.cn/2019041711183286.png)
+![](/images/posts/lua/2019041711183286.png)
 
 **注：coroutine.wrap不是保护模式运行,如果发生任何错误，抛出这个错误。如下**
 
@@ -237,7 +237,7 @@ print("third resume", wrap("param4", "param5", "param6"))
 
 **输出：**
 
-![](https://img-blog.csdnimg.cn/20190417112301475.png)
+![](/images/posts/lua/20190417112301475.png)
 
 **5. coroutine.running()**
 
@@ -256,4 +256,4 @@ print(co)
 
 **输出：**
 
-![](https://img-blog.csdnimg.cn/20190417112015927.png)
+![](/images/posts/lua/20190417112015927.png)

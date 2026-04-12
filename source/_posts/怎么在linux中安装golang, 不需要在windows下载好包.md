@@ -46,6 +46,6 @@ export GOROOT=/usr/local/go
 
 最后用go version 查看是否安装成功
 
-![](https://img-blog.csdnimg.cn/20210121190942174.png)
+![](/images/posts/linuxgolang-windows/20210121190942174.png)
 
 打完收工.

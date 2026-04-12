@@ -19,7 +19,7 @@ tags:
 
 而数组作为连续内存，cpu缓存会把一片连续的内存空间读入，这样连续内存的数组会更易于整块读取到缓存中，当进行遍历时，直接命中缓存。而链表是跳跃式的地址，很轻易就会跳出缓存，跑到内存中去查找数据。所以会慢很多。
 
-![](https://img-blog.csdnimg.cn/20210130000547597.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/cpu/20210130000547597.png)
 
 看下面的程序
 
@@ -72,4 +72,4 @@ int main() {
 
 下面先进行遍历，两种遍历，先遍历列会跳出上次读取的缓存行。所以会比先遍历行慢。链表的道理也是一样，如果地址是存在缓存之外的，就会花费更多的时间。
 
-![](https://img-blog.csdnimg.cn/20210131131308704.png)
+![](/images/posts/cpu/20210131131308704.png)

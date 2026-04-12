@@ -11,7 +11,7 @@ tags:
 
 在项目中使用time包时，睡眠时间时想要通过配置文件获取，然而整数与时间相乘又报错。如下
 
-![](https://img-blog.csdnimg.cn/20210125204313549.png)
+![](/images/posts/golang-time/20210125204313549.png)
 
 查询time包发现
 
@@ -28,4 +28,4 @@ type Duration int64
 err = client.Set(ctx, key, data, time.Duration(ex)*time.Second).Err()
 ```
 
-![](https://img-blog.csdnimg.cn/20210125204542483.png)
+![](/images/posts/golang-time/20210125204542483.png)

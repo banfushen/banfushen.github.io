@@ -34,6 +34,6 @@ key:uid --- value:{"data": { "user_prize": 0}
 select sum(data->"$.user_prize") from player_data where data->"$.user_prize" is not null
 ```
 
-![](https://img-blog.csdnimg.cn/2019091620004713.png)
+![](/images/posts/mysqljsonjson/2019091620004713.png)
 
 mysql中存贮json，应用十分的强大，不仅可以存贮单层的key(如上)，还可以可以存贮多层的key，关于多层key的应用之后在更新。

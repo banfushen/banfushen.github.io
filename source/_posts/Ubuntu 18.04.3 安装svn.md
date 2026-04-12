@@ -25,7 +25,7 @@ Ubuntu:18.04.3                                [https://ubuntu.com/download/deskt
 
 **       3.输入 svn help 查看是否安装成功 **
 
-![](https://img-blog.csdnimg.cn/20190812150011860.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/ubuntu-18043-svn/20190812150011860.png)
 
 出现这个，则表示安装成功。
 

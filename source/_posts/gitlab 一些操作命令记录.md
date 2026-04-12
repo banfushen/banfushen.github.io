@@ -14,7 +14,7 @@ tags:
   也敲了一些命令，自己也记录一下，持续更新。
 ```
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210130141337117.png)
+![在这里插入图片描述](/images/posts/gitlab/20210130141337117.png)
 
 ```bash
 git clone <addr> 					// 拷贝远程仓库到本地

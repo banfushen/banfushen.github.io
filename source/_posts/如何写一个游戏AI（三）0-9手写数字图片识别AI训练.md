@@ -52,7 +52,7 @@ def read_sample(file_path):
 
 这里随便使用一张图0的图打印结果如下
 
-![](https://img-blog.csdnimg.cn/20200803195905743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/ai0-9ai/20200803195905743.png)
 
 可以清晰的看到，转换成数字输入的结果，的确是一个0。
 
@@ -127,7 +127,7 @@ def train():
 
 训练结果为
 
-![](https://img-blog.csdnimg.cn/20200803195108826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)       可以看到校验集的校验结果精确度达到98.8%左右
+![](/images/posts/ai0-9ai/20200803195108826.png)       可以看到校验集的校验结果精确度达到98.8%左右
 
 **d.使用模型**
 
@@ -267,7 +267,7 @@ if __name__ == "__main__":
 
 使用图像3导入模型结果为：
 
-![](https://img-blog.csdnimg.cn/20200803200155783.png)
+![](/images/posts/ai0-9ai/20200803200155783.png)
 
 最后有几点需要注意。
 

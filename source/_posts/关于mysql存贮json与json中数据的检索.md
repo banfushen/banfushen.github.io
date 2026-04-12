@@ -25,7 +25,7 @@ CREATE TABLE `activity_conf` (
 
 我需要获取 activity_config中存贮的end_time，而end_time是两层json如下
 
-![](https://img-blog.csdnimg.cn/20191024151315801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/mysqljsonjson/20191024151315801.png)
 
 可用以下语句
 
@@ -35,7 +35,7 @@ select activity_id, json_extract(activity_config, '$.end_time.conf_value') as en
 
 查找结果如下
 
-![](https://img-blog.csdnimg.cn/20191024154502932.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/mysqljsonjson/20191024154502932.png)
 
 ### ** 可以使用以下语句查找mysql中存贮的json数据：**
 

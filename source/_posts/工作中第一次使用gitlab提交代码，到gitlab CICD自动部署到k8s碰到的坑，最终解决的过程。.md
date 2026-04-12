@@ -17,18 +17,18 @@ tags:
 # 先建立仓库
 
 登录gitlab—->选择New project，会到一下页面，按照自己的情况填写
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210126195740360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/20210126195740360.png)
 
 这里有一点需要注意，当你创建完项目之后，会看到一些指引，例如叫你上传一个readme.md。我刚开始是没有权限的，所以什么也弄不了，直到你获得权限，你就可以操作仓库了。
 
 # 获得权限后，先拉仓库到本地
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2021012620053184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/2021012620053184.png)
 
 进入你的工程，选择clone，然后选择自己想要的方式，使用git clone拉取仓库到你的本地。拉取之后，就可以用**git add . —->git commit -m “xxxx” —->git push origin master**提交到仓库。
 注意：一般git 提交的时候，需要忽略一些文件，只需要在项目的目录添加一个.gitignore即可。
 我提交完的文件大概如下，其中只需要知道两个
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210126200949287.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/20210126200949287.png)
  .gitignore 是用来忽略一些不需要提交的文件
  .gitlab-ci.yaml 是用来自动部署的
 
@@ -100,26 +100,26 @@ docker_publish:
 ```
 
 这里需要注意一些，在.gitlab-ci.yaml文件中，需要定义的环境变量可以在setting—->cicd里面设置
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2021012620364154.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/2021012620364154.png)
 
 ## deploy部署，我碰到的最大的问题就在这里
 
 我的部署脚本中，就是无法dev的k8s中部署，我使用脚本kubectl cluster-info，发现我的脚本跑在的地方根本不是我的dev k8s，所以肯定无法部署。这种情况下我就去查了。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210126210436704.png)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/20210126210436704.png)
 出现这种问题的原因是：gitlab-runner没有在我想要的环境中跑。所以无法关联到集群。
 我在项目的部署的时候，也没有创建gitlab-runner，但是我的部署脚本的确跑起来了。
 经过查询，**原来是我参与的项目中有默认的共享的gitlab-runner**，直接用这个跑了。
 
 我首先尝试了把我的项目添加到k8s，也就是这个按钮，原来是add，我添加之后变成这个
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210126204205559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/20210126204205559.png)
 添加方法在这里：[https://segmentfault.com/a/1190000020947651](https://segmentfault.com/a/1190000020947651)，我是参考了这个文章。
 但是并没有解决我的问题。
 
 最后我在dev 的k8s环境中，给我的项目注册了一个gitlab-runner，我的开发环境已经存在gitlab-runner，如果你的不存在，就安装一下。
 之后这样搞先打开setting—->cicd—->runners
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210126204710663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/20210126204710663.png)
 然后使用gitlab-runner register
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210126204942387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/20210126204942387.png)
 输入之前runner那张图的url
 输入之前runner那张图的token
 出入描述
@@ -127,7 +127,7 @@ docker_publish:
 输入选择的执行方式，我选了shell
 
 注册完之后会发现setting—->cicd—->runners多了一个runner
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210126205400881.png)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/20210126205400881.png)
 到这里还是不能用，就算在.gitlab-ci.yaml文件中关联了这个tag。这样关联，加上tags即可
 
 ```bash
@@ -139,10 +139,10 @@ deploy:
 ```
 
 因为这个runner并不能跑起来，如果能够运行，则是前面是绿色的，tag改过了，和上图对应的不一样，说明一下。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210126205703316.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/20210126205703316.png)
 还要调用gitlab-runner run，调用之后就变成绿色的就可以用了
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210126205935238.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2021012621003097.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/20210126205935238.png)
+![在这里插入图片描述](/images/posts/gitlabgitlab-cicdk8s/2021012621003097.png)
 做完这些，我就可以在提交代码后，自动部署到我想要的k8s中了。
 
 因为文章涉及到公司项目，很多东西不能交代清楚。大概只能这样写了。

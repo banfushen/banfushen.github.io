@@ -13,7 +13,7 @@ categories:
 
 lua中“** / **”代表除法，计算结果都是存在小数的。lua5.3后还提供了一个整除的运算符“** // **"。
 
-![](https://img-blog.csdnimg.cn/2019090419572156.png)
+![](/images/posts/lua/2019090419572156.png)
 
 # 取整数
 
@@ -23,12 +23,12 @@ lua数学库提供了三个取整函数
 
 math.floor()向负无穷取整
 
-![](https://img-blog.csdnimg.cn/20190904200121599.png)
+![](/images/posts/lua/20190904200121599.png)
 
 math.ceil()向正无穷取证
 
-![](https://img-blog.csdnimg.cn/20190904200225114.png)
+![](/images/posts/lua/20190904200225114.png)
 
 modf向零取整(有两个返回值，返回整数与小数部分)
 
-![](https://img-blog.csdnimg.cn/20190904200327478.png)
+![](/images/posts/lua/20190904200327478.png)

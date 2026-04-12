@@ -11,7 +11,7 @@ tags:
 
 笔者转行做游戏服务器开发有四个月了，现在公司用的是skynet框架，由于之前没做过服务器开发，现在还是处于边学习，边跟项目的情况。由于工作原因，网络这一块断断续续看了两个星期，一直没理解，今天再看的时候，终于懂了skynet监听网络端口的流程，也懂了，客户端是怎么连接的。果然应了那句话：**欠了技术债，早晚要还的。（学习一定要专注啊！！！可以省好多时间。）**
 
-** **这张图是在网上找的，非常的清晰，要顺着标识看，并结合代码，就能大致了解这个过程。![](https://img-blog.csdnimg.cn/20190819195844523.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+** **这张图是在网上找的，非常的清晰，要顺着标识看，并结合代码，就能大致了解这个过程。![](/images/posts/skynetwatchdog-gate-agent/20190819195844523.png)
 
 1.在main中会newservice watchdog启动看门狗服务，lua start conf给看门狗发送lua消息start参数为conf。
 

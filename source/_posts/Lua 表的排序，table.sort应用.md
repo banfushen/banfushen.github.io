@@ -17,11 +17,11 @@ categories:
 
 **1.不传排序方法，采用自定义：**
 
-![](https://img-blog.csdnimg.cn/20200228181909324.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/lua-tablesort/20200228181909324.png)
 
 结果：
 
-![](https://img-blog.csdnimg.cn/20200228181946524.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/lua-tablesort/20200228181946524.png)
 
 可以看到，table.sort默认是使用table中存贮的 value进行从小到大的排序，有一点需要注意的是，如果table中含有number和string，使用默认的方法进行比较会报 number和string比较的错误。也有一些别的坑，使用的时候需要谨慎(默认的我用的比较少)
 
@@ -29,7 +29,7 @@ categories:
 
 例如传入的table是 :
 
-![](https://img-blog.csdnimg.cn/20200228200424965.png)
+![](/images/posts/lua-tablesort/20200228200424965.png)
 
 传入的方法的格式是固定的，也就是一个
 
@@ -43,11 +43,11 @@ end
 
 比较函数是这样的：
 
-![](https://img-blog.csdnimg.cn/20200228201556405.png)
+![](/images/posts/lua-tablesort/20200228201556405.png)
 
 结果为：
 
-![](https://img-blog.csdnimg.cn/20200228201704536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhbmZ1c2hlbjAwNw==,size_16,color_FFFFFF,t_70)
+![](/images/posts/lua-tablesort/20200228201704536.png)
 
 自定义的比较函数功能十分强大，但是也有一些坑。
 

@@ -13,7 +13,7 @@ tags:
 
 博主是按照网上的教程使用redis-cli去连接redis，但是之前本地的redis已经改过redis的默认配置文件，直接使用redis-cil发现并不能连接上。
 
-![](https://img-blog.csdnimg.cn/20190904165940392.png)
+![](/images/posts/ubunturedisip/20190904165940392.png)
 
 查询资料后发现可以指定ip，端口，和密码如下。
 
