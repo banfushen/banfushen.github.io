@@ -117,6 +117,38 @@
           grid-template-columns: 1fr;
         }
       }
+
+      #projects .project-wrapper {
+        margin-bottom: 9rem;
+      }
+
+      #projects .project-wrapper .row {
+        margin-bottom: 4.8rem;
+      }
+
+      #projects .project-wrapper__text-title {
+        margin-bottom: 1rem;
+      }
+
+      #projects .project-archive-note {
+        margin-top: 1.6rem;
+        margin-bottom: 0;
+        text-align: left;
+      }
+
+      @media (max-width: 576px) {
+        #projects .project-wrapper {
+          margin-bottom: 5rem;
+        }
+
+        #projects .project-wrapper .row {
+          margin-bottom: 3.2rem;
+        }
+
+        #projects .project-archive-note {
+          margin-top: 1rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -130,11 +162,11 @@
           I'm a Software Engineer specializing in game backend systems
         </h1>
         <p class="hero-cta load-hidden">
-          <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about">了解更多</a>
-          <a rel="noreferrer" class="cta-btn text-color-main" href="#projects">查看项目</a>
-          <a rel="noreferrer" class="cta-btn text-color-main" href="#skills">Skills</a>
-          <a rel="noreferrer" class="cta-btn text-color-main" href="#career">Career</a>
+          <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about">Learn More</a>
+          <a rel="noreferrer" class="cta-btn text-color-main" href="#projects">View Projects</a>
           <a rel="noreferrer" class="cta-btn text-color-main" href="#games">Games</a>
+          <a rel="noreferrer" class="cta-btn text-color-main" href="#career">Career</a>
+          <a rel="noreferrer" class="cta-btn text-color-main" href="#skills">Skills</a>
           <a rel="noreferrer" class="cta-btn text-color-main" href="#highlights">Highlights</a>
           <a rel="noreferrer" class="cta-btn text-color-main" href="#contact">Contact</a>
         </p>
@@ -159,13 +191,13 @@
           <div class="col-md-6 col-sm-12">
             <div class="about-wrapper__info load-hidden">
               <p class="about-wrapper__info-text">
-                我是一名长期从事游戏服务端开发的工程师，5 年游戏后端开发经验，聚焦服务端从 0 到 1 搭建、Kubernetes 与云基础设施、架构优化、成本优化、实时通信与分布式系统。
+                我是一名专注于游戏服务端系统的后端工程师，长期从事在线游戏的服务端开发与基础设施建设。
               </p>
               <p class="about-wrapper__info-text">
-                近年的工作重点集中在服务端系统建设、Kubernetes 集群、CI/CD、云平台、多云迁移、数据库迁移、战斗服托管平台以及实时通信系统。我希望打造的不只是稳定可运行的服务端系统，也包括更高效的研发流程、更低的服务成本，以及更可持续演进的服务架构。
+                近几年的工作重点主要放在服务稳定性、研发交付效率和基础设施演进上，关注如何让系统更稳、更容易扩展，也更容易持续迭代。
               </p>
               <p class="about-wrapper__info-text">
-                当前任职于网易互娱，此前也经历过游戏服务端业务开发与 Windows 软件开发阶段，逐步形成了从业务研发到平台建设、从上线运维到长期架构演进的完整能力。
+                我对平台化建设、多云环境、实时通信和长期架构演进更感兴趣，也希望持续把业务开发经验和工程化能力结合起来，做能长期支撑项目增长的服务端系统。
               </p>
               <span class="d-flex mt-3">
                 <a rel="noreferrer" class="cta-btn cta-btn--resume" href="/resume/">View Resume</a>
@@ -176,78 +208,92 @@
       </div>
     </section>
 
-    <section id="skills">
+    <section id="projects">
       <div class="container">
         <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text load-hidden">Skills</h2>
+          <h2 class="section-title dark-blue-text load-hidden">Featured Projects</h2>
 
           <div class="row">
-            <div class="col-lg-6 col-sm-12">
+            <div class="col-lg-12 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Languages</h3>
-                <div>
-                  <p class="mb-4">C / Golang / TypeScript / Lua / Python</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Infrastructure</h3>
-                <div>
-                  <p class="mb-4">Kubernetes / Docker / Linux / CI/CD / Monitoring</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-6 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Cloud</h3>
-                <div>
-                  <p class="mb-4">AWS / Aliyun / GCP</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Backend & Architecture</h3>
+                <h3 class="project-wrapper__text-title">Dead by Daylight Mobile</h3>
                 <div>
                   <p class="mb-4">
-                    游戏服务端开发 / 服务端从 0 到 1 搭建 / 分布式系统 / 高并发系统 /
-                    实时通信系统 / 架构优化 / 成本优化 / 数据迁移与数据库同步
+                    负责服务端集群部署与维护、疑难问题处理、成本优化，以及服务端与客户端玩法开发。在长期 live service 场景下兼顾稳定性、交付效率与线上质量，也承担过服务端组长职责。
                   </p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="highlights">
-      <div class="container">
-        <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text load-hidden">Highlights</h2>
 
           <div class="row">
-            <div class="col-lg-6 col-sm-12">
+            <div class="col-lg-12 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <p class="mb-4">5 年游戏后端开发经验，覆盖开发、上线、运维与长期演进。</p>
-                <p class="mb-4">有服务端从 0 到 1 搭建与线上稳定性保障经验。</p>
-                <p class="mb-4">有 Kubernetes 集群建设、问题排查与 CI/CD 流程建设经验。</p>
-                <p class="mb-4">有战斗服托管平台设计推进、多云部署与云迁移经验。</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <p class="mb-4">有数据库迁移与异步同步链路建设经验。</p>
-                <p class="mb-4">有实时通信系统重构与长连接消息推送经验。</p>
-                <p class="mb-4">获得公司技术奖，做过降本、迁移与平台化方向核心项目。</p>
-                <p class="mb-4">持续承担负责人或主导者角色，推进方案落地与关键模块演进。</p>
+                <h3 class="project-wrapper__text-title">GamePond</h3>
+                <div>
+                  <p class="mb-4">
+                    自研对标 AWS Gamelift 的战斗服托管平台。作为负责人，负责架构设计、工作分配、进度把控及核心模块维护迭代，支持多云部署与更快的激活、扩缩容能力，落地后帮助项目节省约 50% 战斗服成本，并获得公司技术奖。
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-lg-12 col-sm-12">
+              <div class="project-wrapper__text load-hidden">
+                <h3 class="project-wrapper__text-title">DBSync</h3>
+                <div>
+                  <p class="mb-4">
+                    面向无状态服务器架构的异步数据库同步器。负责架构设计及核心实现，支撑玩家数据异步落地链路，配合新架构后帮助项目将数据库成本降低超过 80%，并获得公司技术奖。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 col-sm-12">
+              <div class="project-wrapper__text load-hidden">
+                <h3 class="project-wrapper__text-title">Server Migration</h3>
+                <div>
+                  <p class="mb-4">
+                    主导服务器从 AWS 迁移至 GCP，负责技术调研、Kubernetes 集群搭建、迁移执行与流程规范制定，推动多云能力建设并降低后续基础设施切换成本。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 col-sm-12">
+              <div class="project-wrapper__text load-hidden">
+                <h3 class="project-wrapper__text-title">RealTimeMessageServer</h3>
+                <div>
+                  <p class="mb-4">
+                    使用 Golang 独立重写实时通信服务器，支持长连接消息推送，并优化架构、消息队列与在线状态判断能力，强化非实时架构下的掉线与离线判断链路。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 col-sm-12">
+              <div class="project-wrapper__text load-hidden">
+                <h3 class="project-wrapper__text-title">Database Migration</h3>
+                <div>
+                  <p class="mb-4">
+                    主导数据库从 DynamoDB 迁移到 Mongo，负责全量同步、增量同步与数据校验能力建设，推进核心数据链路迁移落地，并为后续架构演进打下基础。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="project-wrapper__text project-archive-note load-hidden">
+            当前在研项目保密，不在此处展示。
+          </p>
         </div>
       </div>
     </section>
@@ -326,7 +372,7 @@
                   <p class="mb-2"><strong>服务端开发工程师</strong> · 2020.11 - 至今</p>
                   <p class="mb-4">TypeScript / Golang / Python / Lua / Kubernetes / Docker / Redis / AWS / Aliyun / GCP</p>
                   <p class="mb-5">
-                    负责服务端从 0 到 1 搭建、基础设施部署、Kubernetes 集群、CI/CD 流程、监控建设，以及服务端架构优化、成本优化、服务器性能优化、业务开发与日常维护。
+                    主要负责游戏服务端与相关平台能力建设，工作内容覆盖业务开发、基础设施交付、生产环境支撑，以及服务长期演进；同时参与性能优化、代码评审、关键方案把关，并推动组内研发流程与 AI 辅助编码规范落地。
                   </p>
                 </div>
               </div>
@@ -341,7 +387,7 @@
                   <p class="mb-2"><strong>服务端开发工程师</strong> · 2019.04 - 2020.11</p>
                   <p class="mb-4">Lua / C / Python / Skynet / MySQL / Redis</p>
                   <p class="mb-5">
-                    主要负责服务端业务开发与维护，在项目实践中逐步进入游戏服务端职业方向，积累线上问题处理与业务迭代经验。
+                    负责游戏服务端功能开发与日常维护，在项目实践中积累了线上问题处理、版本迭代和业务支撑经验。
                   </p>
                 </div>
               </div>
@@ -356,7 +402,7 @@
                   <p class="mb-2"><strong>软件开发工程师</strong> · 2018.01 - 2019.04</p>
                   <p class="mb-4">C / C++ / so / dll / MFC</p>
                   <p class="mb-4">
-                    主要负责动态库开发、Windows 软件与 OTX 空间开发，以及旧项目接口升级和维护，完成从桌面软件到服务端方向的职业过渡。
+                    负责 Windows 软件与相关组件开发，也参与旧系统接口升级与维护，这一阶段完成了从桌面软件到后端方向的职业转向。
                   </p>
                 </div>
               </div>
@@ -366,201 +412,81 @@
       </div>
     </section>
 
-    <section id="projects">
+    <section id="skills">
       <div class="container">
         <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text load-hidden">Featured Projects</h2>
+          <h2 class="section-title dark-blue-text load-hidden">Skills</h2>
 
           <div class="row">
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-6 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">GamePond</h3>
+                <h3 class="project-wrapper__text-title">Languages</h3>
                 <div>
-                  <p class="mb-4">
-                    自研对标 AWS Gamelift 的战斗服托管平台。作为负责人，负责架构设计、工作分配、进度把控及核心模块维护迭代，支持多云部署与更快的激活、扩缩容能力，落地后帮助项目节省约 50% 战斗服成本，并获得公司技术奖。
-                  </p>
+                  <p class="mb-4">C / Golang / TypeScript / Lua / Python</p>
                 </div>
-                <a rel="noreferrer" class="cta-btn cta-btn--hero" href="/resume/">Career Detail</a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/banfushen"
-                >
-                  GitHub
-                </a>
               </div>
             </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="/resume/">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img alt="GamePond" class="img-fluid" src="./project.jpg" />
-                  </div>
-                </a>
+            <div class="col-lg-6 col-sm-12">
+              <div class="project-wrapper__text load-hidden">
+                <h3 class="project-wrapper__text-title">Infrastructure</h3>
+                <div>
+                  <p class="mb-4">Kubernetes / Docker / Linux / CI/CD / Monitoring</p>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-6 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Server Migration</h3>
+                <h3 class="project-wrapper__text-title">Cloud</h3>
                 <div>
-                  <p class="mb-4">
-                    主导服务器从 AWS 迁移至 GCP，负责技术调研、Kubernetes 集群搭建、迁移执行与流程规范制定，推动多云能力建设并降低后续基础设施切换成本。
-                  </p>
+                  <p class="mb-4">AWS / Aliyun / GCP</p>
                 </div>
-                <a rel="noreferrer" class="cta-btn cta-btn--hero" href="/resume/">Career Detail</a>
-                <a rel="noreferrer" class="cta-btn text-color-main" href="#career">Leadership</a>
               </div>
             </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="/resume/">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img alt="Server Migration" class="img-fluid" src="./project.jpg" />
-                  </div>
-                </a>
+            <div class="col-lg-6 col-sm-12">
+              <div class="project-wrapper__text load-hidden">
+                <h3 class="project-wrapper__text-title">Databases</h3>
+                <div>
+                  <p class="mb-4">MongoDB / DynamoDB / MySQL / Redis</p>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-6 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Database Migration</h3>
+                <h3 class="project-wrapper__text-title">AI Coding Tools</h3>
                 <div>
-                  <p class="mb-4">
-                    主导数据库从 DynamoDB 迁移到 Mongo，负责全量同步、增量同步与数据校验能力建设，推进核心数据链路迁移落地，并为后续架构演进打下基础。
-                  </p>
+                  <p class="mb-4">Claude Code / OpenCode / Codex</p>
                 </div>
-                <a rel="noreferrer" class="cta-btn cta-btn--hero" href="/resume/">Career Detail</a>
-                <a rel="noreferrer" class="cta-btn text-color-main" href="#highlights">Migration Work</a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="/resume/">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img alt="Database Migration" class="img-fluid" src="./project.jpg" />
-                  </div>
-                </a>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights">
+      <div class="container">
+        <div class="project-wrapper">
+          <h2 class="section-title dark-blue-text load-hidden">Highlights</h2>
 
           <div class="row">
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-6 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">DBSync</h3>
-                <div>
-                  <p class="mb-4">
-                    面向无状态服务器架构的异步数据库同步器。负责架构设计及核心实现，支撑玩家数据异步落地链路，配合新架构后帮助项目将数据库成本降低超过 80%，并获得公司技术奖。
-                  </p>
-                </div>
-                <a rel="noreferrer" class="cta-btn cta-btn--hero" href="/resume/">Career Detail</a>
-                <a rel="noreferrer" class="cta-btn text-color-main" href="/archives/">Blog</a>
+                <p class="mb-4">自 2019 年底进入游戏行业，持续从事游戏服务端与基础设施建设。</p>
+                <p class="mb-4">推动过服务端从 0 到 1 搭建，并长期承担线上稳定性保障。</p>
+                <p class="mb-4">参与 Kubernetes、CI/CD、监控体系建设，持续改善交付效率。</p>
               </div>
             </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="/resume/">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img alt="DBSync" class="img-fluid" src="./project.jpg" />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-6 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Dead by Daylight Mobile</h3>
-                <div>
-                  <p class="mb-4">
-                    负责服务端集群部署与维护、疑难问题处理、成本优化，以及服务端与客户端玩法开发。在长期 live service 场景下兼顾稳定性、交付效率与线上质量，也承担过服务端组长职责。
-                  </p>
-                </div>
-                <a rel="noreferrer" class="cta-btn cta-btn--hero" href="/resume/">Career Detail</a>
-                <a rel="noreferrer" class="cta-btn text-color-main" href="/game/">Game</a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="/resume/">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img alt="Dead by Daylight Mobile" class="img-fluid" src="./project.jpg" />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">RealTimeMessageServer</h3>
-                <div>
-                  <p class="mb-4">
-                    使用 Golang 独立重写实时通信服务器，支持长连接消息推送，并优化架构、消息队列与在线状态判断能力，强化非实时架构下的掉线与离线判断链路。
-                  </p>
-                </div>
-                <a rel="noreferrer" class="cta-btn cta-btn--hero" href="/resume/">Career Detail</a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="mailto:banfushen@me.com"
-                >
-                  Contact
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="/resume/">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img alt="RealTimeMessageServer" class="img-fluid" src="./project.jpg" />
-                  </div>
-                </a>
+                <p class="mb-4">具备数据库迁移、异步同步链路和实时通信系统建设经验。</p>
+                <p class="mb-4">项目落地后实现过明显降本效果，并获得公司技术奖。</p>
+                <p class="mb-4">在多个项目中承担核心推进角色，持续推动方案落地与关键模块演进。</p>
               </div>
             </div>
           </div>
@@ -595,9 +521,6 @@
         <div class="social-links">
           <a rel="noreferrer" href="/archives/">
             <i class="fa fa-book fa-inverse"></i>
-          </a>
-          <a rel="noreferrer" href="/resume/">
-            <i class="fa fa-id-card fa-inverse"></i>
           </a>
           <a rel="noreferrer" href="/game/">
             <i class="fa fa-gamepad fa-inverse"></i>
