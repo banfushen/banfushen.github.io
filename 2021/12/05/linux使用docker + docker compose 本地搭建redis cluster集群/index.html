@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"banfushen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="背景项目用到一个redis库，对于里面的集群相关功能要自己测试（就像《代码简洁之道》中说的，使用第三方库需要自己有测试用例，这样即使第三方库更新了，直接用原来的测试用例，也知道是否能兼容）。所以需要自己本地搭建redis集群测试。 搭建是使用docker搭建的，一下需要启动很多个container，所以使用docker-compose作为容器编排我的环境已经有了，没有的自己下载 直接上redi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux使用docker + docker compose 本地搭建redis cluster集群">
+<meta property="og:url" content="https://banfushen.github.io/2021/12/05/linux%E4%BD%BF%E7%94%A8docker%20+%20docker%20compose%20%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAredis%20cluster%E9%9B%86%E7%BE%A4/index.html">
+<meta property="og:site_name" content="拼图收集者">
+<meta property="og:description" content="背景项目用到一个redis库，对于里面的集群相关功能要自己测试（就像《代码简洁之道》中说的，使用第三方库需要自己有测试用例，这样即使第三方库更新了，直接用原来的测试用例，也知道是否能兼容）。所以需要自己本地搭建redis集群测试。 搭建是使用docker搭建的，一下需要启动很多个container，所以使用docker-compose作为容器编排我的环境已经有了，没有的自己下载 直接上redi">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-05T15:19:04.000Z">
+<meta property="article:modified_time" content="2023-07-16T09:11:17.000Z">
+<meta property="article:author" content="Fushen Ban">
+<meta property="article:tag" content="docker redis linux">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://banfushen.github.io/2021/12/05/linux%E4%BD%BF%E7%94%A8docker%20+%20docker%20compose%20%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAredis%20cluster%E9%9B%86%E7%BE%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+  <title>linux使用docker + docker compose 本地搭建redis cluster集群 | 拼图收集者</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">拼图收集者</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欠的技术债，早晚要还</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/resume/" rel="section"><i class="fa fa-fw fa-user"></i>resume</a>
+
+  </li>
+        <li class="menu-item menu-item-simplefolio">
+
+    <a href="/simplefolio/" rel="section"><i class="fa fa-fw fa-id-card"></i>simplefolio</a>
+
+  </li>
+        <li class="menu-item menu-item-game">
+
+    <a href="/game/" rel="section"><i class="fa fa-fw fa-gamepad"></i>game</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/12/05/linux%E4%BD%BF%E7%94%A8docker%20+%20docker%20compose%20%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAredis%20cluster%E9%9B%86%E7%BE%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          linux使用docker + docker compose 本地搭建redis cluster集群
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-05 23:19:04" itemprop="dateCreated datePublished" datetime="2021-12-05T23:19:04+08:00">2021-12-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis-Linux/" itemprop="url" rel="index"><span itemprop="name">redis Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <span id="more"></span>
+
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>项目用到一个redis库，对于里面的集群相关功能要自己测试（就像《代码简洁之道》中说的，使用第三方库需要自己有测试用例，这样即使第三方库更新了，直接用原来的测试用例，也知道是否能兼容）。所以需要自己本地搭建redis集群测试。</p>
+<p><strong>搭建是使用docker搭建的，一下需要启动很多个container，所以使用docker-compose作为容器编排</strong>我的环境已经有了，没有的自己下载</p>
+<h2 id="直接上redis-cluster模式"><a href="#直接上redis-cluster模式" class="headerlink" title="直接上redis-cluster模式"></a>直接上redis-cluster模式</h2><p>redis集群有三种模式：<strong>master+slave(主从)、sentinel(哨兵)、cluster(集群)</strong><br>我实际项目用的cluster模式，所以这里直接使用cluster模式。这个docker-compose.yml参考至<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45444133/article/details/119642841">docker 部署 redis 的三种集群模式</a>，里面还有一些关于redis集群的说明，docker-compose.yml我亲自使用，没问题。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## docker-compose.yml</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">&#x27;2&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">redis-node-0:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-0</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16379</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-0:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.2</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis-node-1:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-1</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16380</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-1:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.3</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis-node-2:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-2</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16381</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-2:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.4</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis-node-3:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-3</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16382</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-3:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.5</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis-node-4:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-4</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16383</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-4:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.6</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis-node-5:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-5</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16384</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-5:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis-node-0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis-node-1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis-node-2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis-node-3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis-node-4</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDISCLI_AUTH=bfsbfs&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_CLUSTER_REPLICAS=1&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_CLUSTER_CREATOR=yes&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.7</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">redis-cluster-network:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">bridge</span></span><br><span class="line">    <span class="attr">ipam:</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">subnet:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.0</span><span class="string">/24</span></span><br></pre></td></tr></table></figure>
+
+<p>直接<code>docker-compose up -d</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 在dockers-compose.yml目录</span></span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line">Creating network <span class="string">&quot;rediscluster_redis-cluster-network&quot;</span> with driver <span class="string">&quot;bridge&quot;</span></span><br><span class="line">Pulling redis-node-4 (docker.io/bitnami/redis-cluster:6.2)...</span><br><span class="line">6.2: Pulling from bitnami/redis-cluster</span><br><span class="line">1d7019cad1df: Pull complete</span><br><span class="line">0c20d9bbd5c0: Pull complete</span><br><span class="line">7434cc9f2f61: Pull complete</span><br><span class="line">01dd376516ef: Pull complete</span><br><span class="line">a10fc7cec580: Pull complete</span><br><span class="line">2e7c2cbaa852: Pull complete</span><br><span class="line">eef01af132bf: Pull complete</span><br><span class="line">234dbecfe19a: Pull complete</span><br><span class="line">Digest: sha256:57e9093dfaa412c691592e7e2ca6402a6f7d76b10cff04669fca4a82365f1874</span><br><span class="line">Status: Downloaded newer image <span class="keyword">for</span> bitnami/redis-cluster:6.2</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">Creating redis-node-2</span><br><span class="line">Creating redis-node-4</span><br><span class="line">Creating redis-node-0</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">Creating redis-node-3</span><br><span class="line">Creating redis-node-1</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">Creating redis-node-5</span><br></pre></td></tr></table></figure>
+
+<p>测试完毕，停止redis</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 在dockers-compose.yml目录</span></span><br><span class="line">docker-compose stop</span><br><span class="line">docker-compose <span class="built_in">rm</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/docker-redis-linux/" rel="tag"># docker redis linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/29/linux%20%E7%A3%81%E7%9B%98IO%E6%BB%A1%E5%AF%BC%E8%87%B4%E7%9A%84%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%8D%A1%E6%9C%BA%EF%BC%8Cpod%E5%A4%B1%E8%B4%A5(!kubepods!besteffort!pod4909103c-cdc)/" rel="prev" title="linux 磁盘IO满导致的宿主机卡机，pod失败(/kubepods/besteffort/pod4909103c-cdc)">
+      <i class="fa fa-chevron-left"></i> linux 磁盘IO满导致的宿主机卡机，pod失败(/kubepods/besteffort/pod4909103c-cdc)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/12/07/docker%20%E5%90%AF%E5%8A%A8%20redis%20cluster%EF%BC%8C%E4%BD%BF%E7%94%A8%E5%87%BA%E7%8E%B0CLUSTERDOWN%20Hash%20slot%20not%20served%EF%BC%88redis%20cluster%E9%87%8D%E6%96%B0%E5%88%86%E9%85%8Dslot%EF%BC%89/" rel="next" title="docker 启动 redis cluster，使用出现CLUSTERDOWN Hash slot not served（redis cluster重新分配slot）">
+      docker 启动 redis cluster，使用出现CLUSTERDOWN Hash slot not served（redis cluster重新分配slot） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E4%B8%8Aredis-cluster%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">直接上redis-cluster模式</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fushen Ban"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Fushen Ban</p>
+  <div class="site-description" itemprop="description">正在进化</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fushen Ban</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

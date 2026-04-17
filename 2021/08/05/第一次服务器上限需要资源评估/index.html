@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"banfushen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="本是小辣鸡。以前也只是写业务代码，全靠领导给机会让我自己负责一个服务器的编写，部署，上线需要的资源评估。记录第一次做上线资源评估的过程。 项目背景是，搭在云服务商上的集群，集群管理是kubernetes。首次内测目标5000个用户。 主要如下1.服务器需要多少内存2.服务器需要多少cpu3.了解购买的云服务参数4.修改kubernetes部署文件 首先需要做压测，我写的服务器是用golang写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一次服务器上限需要资源评估">
+<meta property="og:url" content="https://banfushen.github.io/2021/08/05/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%99%90%E9%9C%80%E8%A6%81%E8%B5%84%E6%BA%90%E8%AF%84%E4%BC%B0/index.html">
+<meta property="og:site_name" content="拼图收集者">
+<meta property="og:description" content="本是小辣鸡。以前也只是写业务代码，全靠领导给机会让我自己负责一个服务器的编写，部署，上线需要的资源评估。记录第一次做上线资源评估的过程。 项目背景是，搭在云服务商上的集群，集群管理是kubernetes。首次内测目标5000个用户。 主要如下1.服务器需要多少内存2.服务器需要多少cpu3.了解购买的云服务参数4.修改kubernetes部署文件 首先需要做压测，我写的服务器是用golang写">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-05T13:53:08.000Z">
+<meta property="article:modified_time" content="2023-07-16T09:11:17.000Z">
+<meta property="article:author" content="Fushen Ban">
+<meta property="article:tag" content="kubernetes 后端">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://banfushen.github.io/2021/08/05/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%99%90%E9%9C%80%E8%A6%81%E8%B5%84%E6%BA%90%E8%AF%84%E4%BC%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+  <title>第一次服务器上限需要资源评估 | 拼图收集者</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">拼图收集者</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欠的技术债，早晚要还</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/resume/" rel="section"><i class="fa fa-fw fa-user"></i>resume</a>
+
+  </li>
+        <li class="menu-item menu-item-simplefolio">
+
+    <a href="/simplefolio/" rel="section"><i class="fa fa-fw fa-id-card"></i>simplefolio</a>
+
+  </li>
+        <li class="menu-item menu-item-game">
+
+    <a href="/game/" rel="section"><i class="fa fa-fw fa-gamepad"></i>game</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/08/05/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%99%90%E9%9C%80%E8%A6%81%E8%B5%84%E6%BA%90%E8%AF%84%E4%BC%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第一次服务器上限需要资源评估
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-05 21:53:08" itemprop="dateCreated datePublished" datetime="2021-08-05T21:53:08+08:00">2021-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0-k8s/" itemprop="url" rel="index"><span itemprop="name">笔记 k8s</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <span id="more"></span>
+
+<p>本是小辣鸡。以前也只是写业务代码，全靠领导给机会让我自己负责一个服务器的编写，部署，上线需要的资源评估。记录第一次做上线资源评估的过程。</p>
+<p>项目背景是，搭在云服务商上的集群，集群管理是kubernetes。首次内测目标5000个用户。</p>
+<h1 id="主要如下"><a href="#主要如下" class="headerlink" title="主要如下"></a>主要如下</h1><p>1.服务器需要多少内存<br>2.服务器需要多少cpu<br>3.了解购买的云服务参数<br>4.修改kubernetes部署文件</p>
+<p>首先需要做压测，我写的服务器是用golang写的用于聊天服务器，所以在世界聊天的时候，压力就会非常大。压力也是要测试这里，看看需要消耗多少性能。</p>
+<h1 id="服务器需要多少内存"><a href="#服务器需要多少内存" class="headerlink" title="服务器需要多少内存"></a>服务器需要多少内存</h1><p>我使用了golang的profile进行分析，登录了5000玩家后，在profile中，查看到内存情况总共消耗171000000字节左右。计算出一个玩家大约使用32KB的内存。服务器本身启动不占多少内存，最后评估需要256m的内存。</p>
+<h1 id="服务器需要多少cpu"><a href="#服务器需要多少cpu" class="headerlink" title="服务器需要多少cpu"></a>服务器需要多少cpu</h1><p>在压测的时候，已经看了cpu的profile，看上去一切正常。剩下就是发消息。我启动服务器的机器是16核，2.2GHz的服务器。在每秒200人同时发消息到世界频道，5000人接收的情况下。使用top命令查看最高的时候，跑了586%的cpu，按6个计算，就是6*2200mhz = 13200mhz。也就是说在最极端的情况下，全部人都不玩游戏，只在大厅聊天，每秒200个人发，按照计算最多需要13200mhz的cpu。</p>
+<h1 id="了解购买的云服务参数"><a href="#了解购买的云服务参数" class="headerlink" title="了解购买的云服务参数"></a>了解购买的云服务参数</h1><p>集群中总共有8台机器，每台8G内存，4个cpu，每个cpu是3.4Ghz约等于3400mhz，4个cpu大约13600mhz。</p>
+<h1 id="修改kubernetes部署文件"><a href="#修改kubernetes部署文件" class="headerlink" title="修改kubernetes部署文件"></a>修改kubernetes部署文件</h1><p>因为要充分利用机器性能，所以不能够只部署一个pod，我的服务器之部署一个pod的话，会直接压干一台云服务器的cpu，导致这台云服务器只剩下400mhz的cpu，可能无法起别的pod，上面的内存也将被浪费掉。所以必须起多个pod。最终决定用以下配置，每个pod请求1000M内存，1整个核心的cpu，最大只给2000M内存和两个核心的cpu。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">requests:</span></span><br><span class="line">    <span class="attr">memory:</span> <span class="string">1000Mi</span></span><br><span class="line">    <span class="attr">cpu:</span> <span class="string">1000m</span></span><br><span class="line"><span class="attr">limits:</span></span><br><span class="line">    <span class="attr">memory:</span> <span class="string">2000Mi</span></span><br><span class="line">    <span class="attr">cpu:</span> <span class="string">2000m</span></span><br></pre></td></tr></table></figure>
+
+<p>这样，一台云机器最少还有6G内存，和3个cpu可以分配给别的pod，不会造成资源浪费。另外，等到真正上线的时候，如果人太多了，资源不够用也是不怕的。kubernetes还有自动扩容。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/kubernetes-%E5%90%8E%E7%AB%AF/" rel="tag"># kubernetes 后端</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/24/Kubernetes%20nodes%20are%20not%20ready%E5%8E%9F%E5%9B%A0%E6%9F%A5%E7%9C%8B/" rel="prev" title="Kubernetes nodes are not ready原因查看">
+      <i class="fa fa-chevron-left"></i> Kubernetes nodes are not ready原因查看
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/09/29/linux%20%E7%A3%81%E7%9B%98IO%E6%BB%A1%E5%AF%BC%E8%87%B4%E7%9A%84%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%8D%A1%E6%9C%BA%EF%BC%8Cpod%E5%A4%B1%E8%B4%A5(!kubepods!besteffort!pod4909103c-cdc)/" rel="next" title="linux 磁盘IO满导致的宿主机卡机，pod失败(/kubepods/besteffort/pod4909103c-cdc)">
+      linux 磁盘IO满导致的宿主机卡机，pod失败(/kubepods/besteffort/pod4909103c-cdc) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%A6%82%E4%B8%8B"><span class="nav-number">1.</span> <span class="nav-text">主要如下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91%E5%86%85%E5%AD%98"><span class="nav-number">2.</span> <span class="nav-text">服务器需要多少内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91cpu"><span class="nav-number">3.</span> <span class="nav-text">服务器需要多少cpu</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E8%B4%AD%E4%B9%B0%E7%9A%84%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%8F%82%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">了解购买的云服务参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9kubernetes%E9%83%A8%E7%BD%B2%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">修改kubernetes部署文件</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fushen Ban"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Fushen Ban</p>
+  <div class="site-description" itemprop="description">正在进化</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fushen Ban</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

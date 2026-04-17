@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"banfushen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="正在进化">
+<meta property="og:type" content="website">
+<meta property="og:title" content="拼图收集者">
+<meta property="og:url" content="https://banfushen.github.io/page/7/index.html">
+<meta property="og:site_name" content="拼图收集者">
+<meta property="og:description" content="正在进化">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fushen Ban">
+<meta property="article:tag" content="linux，golang，lua，c，python，nodejs，k8s，redis">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://banfushen.github.io/page/7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+  <title>拼图收集者</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">拼图收集者</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欠的技术债，早晚要还</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/resume/" rel="section"><i class="fa fa-fw fa-user"></i>resume</a>
+
+  </li>
+        <li class="menu-item menu-item-simplefolio">
+
+    <a href="/simplefolio/" rel="section"><i class="fa fa-fw fa-id-card"></i>simplefolio</a>
+
+  </li>
+        <li class="menu-item menu-item-game">
+
+    <a href="/game/" rel="section"><i class="fa fa-fw fa-gamepad"></i>game</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/02/11/Linux%20%E5%88%9B%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/11/Linux%20%E5%88%9B%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Linux 创建属于自定义命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-11 17:21:56" itemprop="dateCreated datePublished" datetime="2020-02-11T17:21:56+08:00">2020-02-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在家办公，再次搭建开发环境，加上这次多次碰到，做此记录</p>
+<p>subl 是我安装的编辑器，如果你看到这这篇博客，把subl换成自己的编辑器(vi、vim)即可。</p>
+<p><strong>1.在terminal 输入：subl ~/.bashrc</strong></p>
+<p><img src="/images/posts/linux/20200211171732628.png"></p>
+<p><strong>2.找到这个地方并添加自己的命令，可添加多个指令，用”；”隔开</strong></p>
+<p><img src="/images/posts/linux/20200211171840145.png"></p>
+<p><strong>3.在terminal 输入：source ~/.bashrc (立即生效)</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/02/10/Ubuntu%20%E5%AE%89%E8%A3%85%E3%80%81%E4%BD%BF%E7%94%A8SVN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/10/Ubuntu%20%E5%AE%89%E8%A3%85%E3%80%81%E4%BD%BF%E7%94%A8SVN/" class="post-title-link" itemprop="url">Ubuntu 安装、使用SVN</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-10 14:08:52" itemprop="dateCreated datePublished" datetime="2020-02-10T14:08:52+08:00">2020-02-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p><strong>1.在terminal 输入 svn 看是否有安装svn</strong></p>
+<p>** **<img src="/images/posts/ubuntu-svn/20200210135345374.png"></p>
+<p><strong>2.如果和我一样没装有svn则执行 sudo apt install subversion</strong></p>
+<p>** **<img src="/images/posts/ubuntu-svn/20200210135528732.png"></p>
+<p>** 3.在首次使用svn check out的时候，会直接提示输入账号密码。**</p>
+<p>**     4.如果想要修改svn的账号与密码，删除目录 ~/.subversion/auth/ 下的所有文件。下一次操作svn时会提示你重新输入用户名和密码的。换成你想用的就可以了。然后系统默认会记录下来的。**</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/02/10/%E6%9C%AC%E5%9C%B0%E5%A4%8D%E5%88%B6%E6%96%87%E6%9C%AC%E6%97%A0%E6%B3%95%E5%9C%A8Ubuntu%E4%B8%AD%E7%B2%98%E8%B4%B4%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/10/%E6%9C%AC%E5%9C%B0%E5%A4%8D%E5%88%B6%E6%96%87%E6%9C%AC%E6%97%A0%E6%B3%95%E5%9C%A8Ubuntu%E4%B8%AD%E7%B2%98%E8%B4%B4%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">本地复制文本无法在Ubuntu中粘贴问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-10 12:34:13" itemprop="dateCreated datePublished" datetime="2020-02-10T12:34:13+08:00">2020-02-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在家办公，安装开发环境后无法粘贴。查询并自己实践后，解决方法如下：</p>
+<p>**        1. sudo apt-get autoremove open-vm-tools **</p>
+<p>**        2. sudo apt-get install open-vm-tools-desktop **</p>
+<p>**        3.重启虚拟机**</p>
+<p>** **我通过以上方法即可解决，如果执行步骤1失败，可参考下查看我的另一篇博客 ，看看是否为相同的错误</p>
+<p>“<strong>ubuntu apt-get安装软件Unable to locate package…”</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/02/10/ubuntu%20apt-get%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6Unable%20to%20locate%20package/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/10/ubuntu%20apt-get%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6Unable%20to%20locate%20package/" class="post-title-link" itemprop="url">ubuntu apt-get安装软件Unable to locate package...</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-10 11:09:40" itemprop="dateCreated datePublished" datetime="2020-02-10T11:09:40+08:00">2020-02-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>由于受疫情影响(希望快点好起来)，只能在家办公，再一次安装开发环境。</p>
+<p>使用 <strong>apt-get install</strong>碰到以下问题</p>
+<p><img src="/images/posts/ubuntu-apt-getunable-to-locate-package/2020021011014055.png"></p>
+<p>** 1.sudo apt-get update 更新软件源**</p>
+<p><img src="/images/posts/ubuntu-apt-getunable-to-locate-package/20200210110410941.png"></p>
+<p>如果更新成功，无报错，无警告，则执行自己的下载即可</p>
+<p>但是我执行最后有警告</p>
+<p><strong>Some index files failed to download. They have been ignored, or old ones used instead.</strong></p>
+<p>** **查询资料之后发现是自己的更新源问题，需要切换更新源，执行以下步骤</p>
+<p><strong>2.搜索打开 software&amp;update</strong></p>
+<p><img src="/images/posts/ubuntu-apt-getunable-to-locate-package/20200210122059355.png"></p>
+<p>打开之后选择</p>
+<p><img src="/images/posts/ubuntu-apt-getunable-to-locate-package/20200210122414928.png"></p>
+<p><strong>选择other</strong></p>
+<p>** **<img src="/images/posts/ubuntu-apt-getunable-to-locate-package/20200210122519647.png"></p>
+<p><strong>更换源之后执行 sudo apt-get update，无报错，之后再下载自己需要下载的即可</strong></p>
+<p>可能是这次下载的Ubuntu的问题，导致这个问题的出现，以前没碰到过。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/12/08/%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%8E%A9%E5%AE%B6%E9%BB%98%E8%AE%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/08/%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%8E%A9%E5%AE%B6%E9%BB%98%E8%AE%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">关于游戏开发中玩家默认数据的一些记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-08 16:20:13" itemprop="dateCreated datePublished" datetime="2019-12-08T16:20:13+08:00">2019-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0-%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">笔记 随笔</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>博主最近的工作是开发游戏的任务系统。领导看了我的代码后，给我提出了一些意见。</p>
+<p>任务情况大概是这样的，一个玩家登陆后，客户端会显示任务按钮，玩家点击后即可查看自己的任务。按照策划的需求，玩家目前有十几个任务。每个玩家的任务数据，都要记录在DB（数据库）中。</p>
+<p>我最开始的做法是：</p>
+<p>1.如果游戏开启了任务系统，当玩家登陆的时候，我会给每个任务都分配默认值。</p>
+<p>2.将这些默认值都记录进db中。</p>
+<p>3.在玩家点开任务图标时，客户端请求玩家的任务数据，服务器返回。</p>
+<p>在偶然的情况下，虽然我得代码也能实现功能，但领导发现了我的代码会瞬间做很多的db操作，然后告诉我内容大概如下：“<strong>一般db操作就是我们服务器的瓶颈之一，可以不用一开始就给每个任务分配默认值，并记录进db。客户端请求的时候，直接返回一个默认值，当玩家参与了具体任务时，再对玩家的数据进行计算，并记录入数据库。</strong>”，</p>
+<p>我之后进行思考觉得太tm有道理了。</p>
+<p><strong>1.可能有的玩家只登陆了一次，点开了任务图标，但是并且不做任务，我会在他点开图标时给他记录全部任务数据（默认值）。</strong></p>
+<p>**      2.可能有的玩家登陆了，只做了一个任务，之后便不玩了，但是我会在他点开图标时给他记录全部任务数据（默认值）。**</p>
+<p>**      3.一瞬间，很多玩家首次点开任务图标，会造成瞬间很多很多的db操作。**</p>
+<p>。。。。</p>
+<p>太多的理由表明这是一个很糟糕的设计。</p>
+<p>我在思考后，将程序改动整理后表达大概如下：</p>
+<p>** 1.玩家点开任务图标，客户端请求任务数据时，如果数据库中没有记录玩家的数据，直接返回一个默认的值。例如：任务为杀1000只青蛙，直接则返回0只，并不用记录到db中**</p>
+<p>**     2.当玩家参与到具体的任务时，再记录到db。例如：玩家现在杀了100只青蛙，则将100记录到db中。等到玩家下次点开任务图标时，返回存贮再db中的100。**</p>
+<p>**     这样修改后，一开始那些默认的各种任务的默认值都不会写入db，即使有的玩家之登录一次，也点开了任务系统，也不会记录他的数据到db，一瞬间很多玩家首次点开任务系统，也不会有大量的数据瞬间要写入db。**</p>
+<p>** **做此纪录，我可能还是有一些地方设计得不够好，欢迎相互讨论。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/11/17/%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/17/%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">关于游戏开发数据更新的一些记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-17 13:44:46" itemprop="dateCreated datePublished" datetime="2019-11-17T13:44:46+08:00">2019-11-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0-%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">笔记 随笔</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>博主入职做游戏到现在已经是7个月的时间，框架是skynet，这段时间内，我大多写的都是游戏的活动，任务。其中这些东西都是有有效期限制的。</p>
+<p>比如，活动是每日重新统计，每日任务是每天重新统计，每周任务是每周一的 00:00重新统计。那么就需要一个特定时间来reset用户的数据。</p>
+<p>我刚开始的做法是，每天的 00:00，reset玩家的每日活动数据，每日任务数据。有一次我向我的经理请教问题的时候，他看了我的代码，对我的代码的评价大概是：<strong>你这么写也没什么错误，也没什么问题，但是可能会多出很多没必要的运算，比如一个玩家，他今天登陆了，之后三四天都没有登陆，但是你在这三四天也会去reset他的数据，如果有一个玩家，登陆了一次之后，再也不登陆了，你也会去reset他的数据。这样会多处很多没必要的db操作，玩家数量一上来，处理量就大了。</strong>我一听，觉得太tm的有道理了，经理果然不一样 = =！，牛逼，之后他对我进行了一下指点，做以下记录：</p>
+<p>** 1.lazy update(好像是这么叫的)，需要reset数据时，再去reset，这样可以减少很多db操作。**</p>
+<p>**      2.每日任务，每日活动则记录玩家的参加活动时间(任务时间)，当要更新活动或者任务时，再去判断当前时间与活动时间(任务时间)是否为同一天，如果是同一天，则不用reset，如果不是同一天，则reset玩家的活动与任务数据，并更新玩家的上次参加活动时间(任务时间)。**</p>
+<p>**      3.同理别的也一样，当玩家触发事件的时间如果 大于或者等于 需要更新数据的时间，则reset玩家db中的数据。**</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/11/17/Lua%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0os.time()%E4%B8%8Eos.data()%E7%9A%84%E5%85%B7%E4%BD%93%E8%BF%90%E7%94%A8-------%E5%A6%82%E4%BD%95%E5%BE%97%E7%9F%A5%E6%9D%A1%E4%BB%B6%E5%A4%A9%E6%95%B0%E5%90%8E%E7%9A%84%E6%97%A5%E6%9C%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/17/Lua%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0os.time()%E4%B8%8Eos.data()%E7%9A%84%E5%85%B7%E4%BD%93%E8%BF%90%E7%94%A8-------%E5%A6%82%E4%BD%95%E5%BE%97%E7%9F%A5%E6%9D%A1%E4%BB%B6%E5%A4%A9%E6%95%B0%E5%90%8E%E7%9A%84%E6%97%A5%E6%9C%9F/" class="post-title-link" itemprop="url">Lua时间函数os.time()与os.data()的具体运用-------如何得知条件天数后的日期</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-17 13:19:58" itemprop="dateCreated datePublished" datetime="2019-11-17T13:19:58+08:00">2019-11-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">lua</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>最近的工作是要求写一个任务系统，需要在特定日期重置任务，或者在天数后重置任务。</p>
+<p>这就延伸出一个问题，如何得知条件天数后的日期。</p>
+<p>这个问题的难点在于，每个月的天数不一样，加上相同的天数后每个月变化后的日期怎么处理。</p>
+<p>例如，我们要求40天后的日期</p>
+<h3 id="其实lua的时间函数十分强大，可以用以下方法"><a href="#其实lua的时间函数十分强大，可以用以下方法" class="headerlink" title="其实lua的时间函数十分强大，可以用以下方法:"></a>其实lua的时间函数十分强大，可以用以下方法:</h3><p>1.算出当时间，以表表示。</p>
+<p>2.算出40天后的日期。</p>
+<p>程序与结果如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">local now_time = os.date(&quot;*t&quot;, os.time())</span><br><span class="line">for k,v in pairs(now_time) do</span><br><span class="line">    print(k,v)</span><br><span class="line">end</span><br><span class="line">print(&quot;----------------分割--------------------------&quot;)</span><br><span class="line"></span><br><span class="line">now_time.day = now_time.day + 40</span><br><span class="line">local next_monday = os.date(&quot;*t&quot;, os.time(now_time))</span><br><span class="line">for k,v in pairs(next_monday) do</span><br><span class="line">    print(k,v)</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/luaostimeosdata/20191117130731630.png"></p>
+<h3 id="特别说明"><a href="#特别说明" class="headerlink" title="特别说明"></a>特别说明</h3><p>1.os.date创建日期表时now_time，所有的字段均在有效范围之内。(例如, now_time.daya+40之后，now_time.day = 57)</p>
+<p>2.os.time传入一个修改后的日期表now_time(now_time.day = 57)时，其中的字段不需要归一化，会自动处理，得到新时间戳</p>
+<p>3.得到的t2时间戳通过os.date转化为日期表，及可得到40天后的被归一化日期表。</p>
+<p>4.同理也可以通过改变hour来计算5小时后，改变min来计算100分钟后，改变month来计算6个月后的日期。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/10/24/%E5%85%B3%E4%BA%8Emysql%E5%AD%98%E8%B4%AEjson%E4%B8%8Ejson%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A3%80%E7%B4%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/24/%E5%85%B3%E4%BA%8Emysql%E5%AD%98%E8%B4%AEjson%E4%B8%8Ejson%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A3%80%E7%B4%A2/" class="post-title-link" itemprop="url">关于mysql存贮json与json中数据的检索</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-24 15:51:12" itemprop="dateCreated datePublished" datetime="2019-10-24T15:51:12+08:00">2019-10-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>这两天工作，碰到一个实用的mysql存贮json问题，需要查找mysql中存贮的json中的json作此记录。</p>
+<p>因为mysql是关系型数据库，所以如果想在一个key中存贮更多的数据，存贮一个json是不错的选择(支持存贮多层的json)。</p>
+<p>我用到的activity_conf表格中activity_config中存贮的就是json。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE IF EXISTS `activity_conf`;</span><br><span class="line">CREATE TABLE `activity_conf` (</span><br><span class="line">  `activity_id` char(64) COLLATE utf8mb4_general_ci NOT NULL COMMENT &#x27;活动ID&#x27;,</span><br><span class="line">  `activity_config` json DEFAULT NULL</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;</span><br></pre></td></tr></table></figure>
+
+<p>我需要获取 activity_config中存贮的end_time，而end_time是两层json如下</p>
+<p><img src="/images/posts/mysqljsonjson/20191024151315801.png"></p>
+<p>可用以下语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select activity_id, json_extract(activity_config, &#x27;$.end_time.conf_value&#x27;) as end_time from activity_conf;</span><br></pre></td></tr></table></figure>
+
+<p>查找结果如下</p>
+<p><img src="/images/posts/mysqljsonjson/20191024154502932.png"></p>
+<h3 id="可以使用以下语句查找mysql中存贮的json数据："><a href="#可以使用以下语句查找mysql中存贮的json数据：" class="headerlink" title="** 可以使用以下语句查找mysql中存贮的json数据：**"></a>** 可以使用以下语句查找mysql中存贮的json数据：**</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select json_extract( key, &#x27;$.fir_json_key.sec_json_key&#x27;) from table;</span><br></pre></td></tr></table></figure>
+
+<p>打完收工</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/09/16/%E5%85%B3%E4%BA%8Emysql%E5%AD%98%E8%B4%AEjson%E4%B8%8Ejson%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B1%82%E5%92%8C%E8%AE%A1%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/16/%E5%85%B3%E4%BA%8Emysql%E5%AD%98%E8%B4%AEjson%E4%B8%8Ejson%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B1%82%E5%92%8C%E8%AE%A1%E7%AE%97/" class="post-title-link" itemprop="url">关于mysql存贮json与json中数据的求和计算</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-16 20:06:26" itemprop="dateCreated datePublished" datetime="2019-09-16T20:06:26+08:00">2019-09-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>mysql是关系型数据库，为了方便的记录更多的数据，现在工作中用的mysql记录得value是以json的形式记录的。</p>
+<p>例如：</p>
+<p>player_data表格结构是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE IF EXISTS `player_data`;</span><br><span class="line">CREATE TABLE `player_data` (</span><br><span class="line">  `uid` bigint(20) NOT NULL COMMENT &#x27;用户ID&#x27;,</span><br><span class="line">  `data` json NOT NULL COMMENT &#x27;游戏数据，以json形式包含&#x27;,</span><br><span class="line">  PRIMARY KEY (`uid`)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;</span><br></pre></td></tr></table></figure>
+
+<p>player_data中玩家的数据是这样记录的：</p>
+<p>key:uid — value:{“data”: { “user_prize”: 0}</p>
+<p>我需要计算所有玩家user_prize的总和，这样即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sum(data-&gt;&quot;$.user_prize&quot;) from player_data where data-&gt;&quot;$.user_prize&quot; is not null</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/mysqljsonjson/2019091620004713.png"></p>
+<p>mysql中存贮json，应用十分的强大，不仅可以存贮单层的key(如上)，还可以可以存贮多层的key，关于多层key的应用之后在更新。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/09/04/lua%E4%B8%AD%E7%9A%84%E6%95%B4%E9%99%A4%E4%B8%8E%E5%8F%96%E6%95%B4%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/04/lua%E4%B8%AD%E7%9A%84%E6%95%B4%E9%99%A4%E4%B8%8E%E5%8F%96%E6%95%B4%E6%95%B0/" class="post-title-link" itemprop="url">lua中的整除与取整数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-04 20:04:18" itemprop="dateCreated datePublished" datetime="2019-09-04T20:04:18+08:00">2019-09-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">lua</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>书籍是人类进步的阶梯，在没看lua程序设计第四版之前，并不知道lua有整除运算符，需要返回整除结果的时候，自己还得进行多余的运算，减去小数部分。前几天需求刚好需要用到整除和取一个浮点数的整数部分，运用之，作此记录。</p>
+<h1 id="整除"><a href="#整除" class="headerlink" title="整除"></a>整除</h1><p>lua中“** / <strong>”代表除法，计算结果都是存在小数的。lua5.3后还提供了一个整除的运算符“</strong> // **”。</p>
+<p><img src="/images/posts/lua/2019090419572156.png"></p>
+<h1 id="取整数"><a href="#取整数" class="headerlink" title="取整数"></a>取整数</h1><p>lua数学库提供了三个取整函数</p>
+<p><strong>math.floor()，math.ceil()和math.modf()</strong></p>
+<p>math.floor()向负无穷取整</p>
+<p><img src="/images/posts/lua/20190904200121599.png"></p>
+<p>math.ceil()向正无穷取证</p>
+<p><img src="/images/posts/lua/20190904200225114.png"></p>
+<p>modf向零取整(有两个返回值，返回整数与小数部分)</p>
+<p><img src="/images/posts/lua/20190904200327478.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fushen Ban"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Fushen Ban</p>
+  <div class="site-description" itemprop="description">正在进化</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fushen Ban</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

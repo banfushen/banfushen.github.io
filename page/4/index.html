@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"banfushen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="正在进化">
+<meta property="og:type" content="website">
+<meta property="og:title" content="拼图收集者">
+<meta property="og:url" content="https://banfushen.github.io/page/4/index.html">
+<meta property="og:site_name" content="拼图收集者">
+<meta property="og:description" content="正在进化">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fushen Ban">
+<meta property="article:tag" content="linux，golang，lua，c，python，nodejs，k8s，redis">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://banfushen.github.io/page/4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+  <title>拼图收集者</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">拼图收集者</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欠的技术债，早晚要还</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/resume/" rel="section"><i class="fa fa-fw fa-user"></i>resume</a>
+
+  </li>
+        <li class="menu-item menu-item-simplefolio">
+
+    <a href="/simplefolio/" rel="section"><i class="fa fa-fw fa-id-card"></i>simplefolio</a>
+
+  </li>
+        <li class="menu-item menu-item-game">
+
+    <a href="/game/" rel="section"><i class="fa fa-fw fa-gamepad"></i>game</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/03/21/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E8%AF%BBskynet%E6%BA%90%E7%A0%81%EF%BC%883%EF%BC%89skynet.start%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8%E4%B9%8B%E5%90%8E%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/21/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E8%AF%BBskynet%E6%BA%90%E7%A0%81%EF%BC%883%EF%BC%89skynet.start%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8%E4%B9%8B%E5%90%8E%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" class="post-title-link" itemprop="url">从头开始读skynet源码（3）skynet.start服务器启动之后做了什么</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-21 16:54:12" itemprop="dateCreated datePublished" datetime="2021-03-21T16:54:12+08:00">2021-03-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skynet/" itemprop="url" rel="index"><span itemprop="name">skynet</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>俗事缠身，加上自己有点懒，skynet分析的事情拖了很久，之后尽快分析完。其实skynet是一个很优秀的框架，值得细读，多读（上加公司的老大这么对我说的，现在我也觉得是这样的）。skynet.star东西比较多，分四篇分析。下面直接进入正题。</p>
+<h2 id="启动服务器skynet-start"><a href="#启动服务器skynet-start" class="headerlink" title="启动服务器skynet_start()"></a>启动服务器skynet_start()</h2><p>start传入配置的线程数量，启动服务器。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> </span><br><span class="line"><span class="title function_">skynet_start</span><span class="params">(<span class="keyword">struct</span> skynet_config * config)</span> &#123;</span><br><span class="line">	...</span><br><span class="line">	<span class="comment">// 调用start传入配置线程数量</span></span><br><span class="line">	<span class="comment">// 这个线程数量就是工作线程数量</span></span><br><span class="line">	start(config-&gt;thread);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// harbor_exit may call socket send, so it should exit before socket_free</span></span><br><span class="line">	skynet_harbor_exit();</span><br><span class="line">	skynet_socket_free();</span><br><span class="line">	<span class="keyword">if</span> (config-&gt;daemon) &#123;</span><br><span class="line">		daemon_exit(config-&gt;daemon);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面进入到start的逻辑，在同一个文件，先看注释，了解大概流程。之后我们一个结构一个结构分析</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">void</span></span><br><span class="line"><span class="title function_">start</span><span class="params">(<span class="type">int</span> thread)</span> &#123;</span><br><span class="line">    <span class="comment">// 声明传入的线程数量thread+3，之后会看到为什么+3</span></span><br><span class="line">	<span class="type">pthread_t</span> pid[thread+<span class="number">3</span>];  </span><br><span class="line"></span><br><span class="line">	<span class="comment">// 创建服务器monitor</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">monitor</span> *<span class="title">m</span> =</span> skynet_malloc(<span class="keyword">sizeof</span>(*m));</span><br><span class="line">	<span class="built_in">memset</span>(m, <span class="number">0</span>, <span class="keyword">sizeof</span>(*m));</span><br><span class="line">	m-&gt;count = thread;  <span class="comment">// 记录线程数量</span></span><br><span class="line">	m-&gt;sleep = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 创建对应数量的skynet_monitor 并初始化</span></span><br><span class="line">	m-&gt;m = skynet_malloc(thread * <span class="keyword">sizeof</span>(<span class="keyword">struct</span> skynet_monitor *));</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;thread;i++) &#123;</span><br><span class="line">		m-&gt;m[i] = skynet_monitor_new();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 初始化互斥锁</span></span><br><span class="line">	<span class="keyword">if</span> (pthread_mutex_init(&amp;m-&gt;mutex, <span class="literal">NULL</span>)) &#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Init mutex error&quot;</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 初始化条件变量</span></span><br><span class="line">	<span class="keyword">if</span> (pthread_cond_init(&amp;m-&gt;cond, <span class="literal">NULL</span>)) &#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Init cond error&quot;</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 这里就是额外+的三个线程</span></span><br><span class="line">	<span class="comment">// 一条监视者线程，一条定时器线程，一条网络线程</span></span><br><span class="line">	create_thread(&amp;pid[<span class="number">0</span>], thread_monitor, m);</span><br><span class="line">	create_thread(&amp;pid[<span class="number">1</span>], thread_timer, m);</span><br><span class="line">	create_thread(&amp;pid[<span class="number">2</span>], thread_socket, m);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 这里是设程的比重，关于消息队列的调度</span></span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> weight[] = &#123; </span><br><span class="line">		<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,</span><br><span class="line">		<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, </span><br><span class="line">		<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, </span><br><span class="line">		<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, &#125;;</span><br><span class="line">	<span class="comment">// 声明对应数量的工作线程环境</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">worker_parm</span> <span class="title">wp</span>[<span class="title">thread</span>];</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 初始化工作线程</span></span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;thread;i++) &#123;</span><br><span class="line">		wp[i].m = m;	<span class="comment">// 关联服务器monitor</span></span><br><span class="line">		wp[i].id = i;   <span class="comment">// 关联线程id</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 配置线程比重，这个比重有什么用之后分析</span></span><br><span class="line">		<span class="comment">// 如果配置了超过8条工作线程，会走else逻辑，比重都是0</span></span><br><span class="line">		<span class="keyword">if</span> (i &lt; <span class="keyword">sizeof</span>(weight)/<span class="keyword">sizeof</span>(weight[<span class="number">0</span>])) &#123;</span><br><span class="line">			wp[i].weight= weight[i];</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			wp[i].weight = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 创建工作线程，这里pid[i+3]，与上面对应</span></span><br><span class="line">		create_thread(&amp;pid[i+<span class="number">3</span>], thread_worker, &amp;wp[i]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 等待监视者线程，定时器线程，网络线程结束</span></span><br><span class="line">	<span class="comment">// 服务器正常运行，是不会结束的</span></span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;thread+<span class="number">3</span>;i++) &#123;</span><br><span class="line">		pthread_join(pid[i], <span class="literal">NULL</span>); </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 如果结束了，做清理工作</span></span><br><span class="line">	free_monitor(m);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>经过上面可以知道，其实服务器模型就是线程池模型，启动了一条监视者线程，一条定时器线程，一条网络线程和配置的工作线程。要想知道线程是怎么工作的，要对上面各个线程的工作函数进行逐一分析即可。下篇分析monitor。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/01/30/gitlab%20%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/30/gitlab%20%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">gitlab 一些操作命令记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-30 14:25:51" itemprop="dateCreated datePublished" datetime="2021-01-30T14:25:51+08:00">2021-01-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">之前在上一家公司用的都是svn，现在使用gitlab。最近又在测试cicd，反复查询了一些命令，</span><br><span class="line">  也敲了一些命令，自己也记录一下，持续更新。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/gitlab/20210130141337117.png" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;addr&gt; 					// 拷贝远程仓库到本地</span><br><span class="line">git status							// 查看仓库当前的状态，显示有变更的文件（有的情况下文件增减看不到）</span><br><span class="line">git diff &lt;file&gt;						// 比较文件的不同，即暂存区和工作区的差异。</span><br><span class="line">git add .							// 添加文件到暂存区</span><br><span class="line">git add -f &lt;file&gt;					// 在文件增加没有提示时，手动添加文件</span><br><span class="line">git commit -m <span class="string">&quot;xxx&quot;</span> 				// 将暂存区内容添加到仓库中</span><br><span class="line">git push origin &lt;branch&gt;			// 提交本地仓库到指定分支</span><br><span class="line">git pull origin &lt;branch&gt;			// 拉取远程分支更新本地仓库</span><br><span class="line">git tag &lt;v1.x.x&gt;					// 给本地打标签</span><br><span class="line">git tag -d &lt;v1.x.x&gt;		  			// 删除本地标签</span><br><span class="line">git push origin &lt;tag&gt; 				// 提交本地标签到远程仓库</span><br><span class="line">git push origin :refs/tags/&lt;tag&gt;	// 删除远程仓库tag</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/01/30/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E7%BB%84%E9%81%8D%E5%8E%86%E6%AF%94%E9%93%BE%E8%A1%A8%E5%BF%AB%EF%BC%8C%E4%BB%8ECPU%E5%92%8C%E5%86%85%E5%AD%98%E7%9A%84%E8%A7%92%E5%BA%A6%E7%90%86%E8%A7%A3%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/30/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E7%BB%84%E9%81%8D%E5%8E%86%E6%AF%94%E9%93%BE%E8%A1%A8%E5%BF%AB%EF%BC%8C%E4%BB%8ECPU%E5%92%8C%E5%86%85%E5%AD%98%E7%9A%84%E8%A7%92%E5%BA%A6%E7%90%86%E8%A7%A3%E3%80%82/" class="post-title-link" itemprop="url">为什么数组遍历比链表快，从CPU和内存的角度理解。</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-30 00:06:21" itemprop="dateCreated datePublished" datetime="2021-01-30T00:06:21+08:00">2021-01-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>回家的路上看了一下cpu的结构，想起了前两天和领导吃饭时聊到的问题，为什么数组遍历比链表快，明明都知道地址了。</p>
+<p>其实要理解这个问题，从cpu的结构和内存角度来理解就很清晰了。</p>
+<p><strong>读取速度:缓存&gt;内存（剧吐多少倍差距，得看什么cpu，大概都有100倍左右）。</strong></p>
+<p>** **cpu读取数据是按照缓存行读取到缓存的，简单来说就是cpu会把需要的数据加载到缓存中，查找数据时，会先从缓存找，找不到再到内存找。</p>
+<p>而数组作为连续内存，cpu缓存会把一片连续的内存空间读入，这样连续内存的数组会更易于整块读取到缓存中，当进行遍历时，直接命中缓存。而链表是跳跃式的地址，很轻易就会跳出缓存，跑到内存中去查找数据。所以会慢很多。</p>
+<p><img src="/images/posts/cpu/20210130000547597.png"></p>
+<p>看下面的程序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;time.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void show_arr_addr()&#123;</span><br><span class="line">    long arr[2][8];</span><br><span class="line">    for(int i=0; i&lt;2; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;row addr:%X\n&quot;, arr[i]);</span><br><span class="line">        printf(&quot;column addr: &quot;);</span><br><span class="line">        for(int j=0; j&lt;8; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;%X, &quot;, &amp;arr[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    double start = 0, finish = 0;</span><br><span class="line">    long arr[100000][8];</span><br><span class="line"></span><br><span class="line">    show_arr_addr();</span><br><span class="line">    printf(&quot;---------------------------\n&quot;);</span><br><span class="line"></span><br><span class="line">    // 先遍历行，在遍历列</span><br><span class="line">    start=(double) clock(); </span><br><span class="line">    for(int i=0; i&lt;100000; i++)</span><br><span class="line">        for(int j=0; j&lt;8; j++)</span><br><span class="line">            arr[i][j] = 1;</span><br><span class="line"></span><br><span class="line">    finish=(double)clock(); </span><br><span class="line">    printf(&quot;use time:%.5f ms\n&quot;,finish-start);</span><br><span class="line"></span><br><span class="line">    // 先遍历列，再遍历行</span><br><span class="line">    start=(double) clock(); </span><br><span class="line">    for(int j=0; j&lt;8; j++)</span><br><span class="line">        for(int i=0; i&lt;100000; i++)</span><br><span class="line">            arr[i][j] = 1;</span><br><span class="line"></span><br><span class="line">    finish=(double)clock(); </span><br><span class="line">    printf(&quot;use time:%.5f ms\n&quot;,finish-start);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我是64位的cpu，所以cpu读取一次是按照64根总线，也就是64位。我构造了一个二维数组，每行是64位，可以看数组的地址，是连续的。</p>
+<p>下面先进行遍历，两种遍历，先遍历列会跳出上次读取的缓存行。所以会比先遍历行慢。链表的道理也是一样，如果地址是存在缓存之外的，就会花费更多的时间。</p>
+<p><img src="/images/posts/cpu/20210131131308704.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/01/26/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8gitlab%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%88%B0gitlab%20CICD%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%88%B0k8s%E7%A2%B0%E5%88%B0%E7%9A%84%E5%9D%91%EF%BC%8C%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E7%9A%84%E8%BF%87%E7%A8%8B%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/26/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8gitlab%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%88%B0gitlab%20CICD%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%88%B0k8s%E7%A2%B0%E5%88%B0%E7%9A%84%E5%9D%91%EF%BC%8C%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E7%9A%84%E8%BF%87%E7%A8%8B%E3%80%82/" class="post-title-link" itemprop="url">工作中第一次使用gitlab提交代码，到gitlab CICD自动部署到k8s碰到的坑，最终解决的过程。</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-26 21:02:22" itemprop="dateCreated datePublished" datetime="2021-01-26T21:02:22+08:00">2021-01-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/k8s/" itemprop="url" rel="index"><span itemprop="name">k8s</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>我不是从头开始搭建，而是在已有部分条件的情况下进行，因为是我自己一个人负责集群中，一个服务器的重写，领导就叫我在gitlab上创建仓库，然后自己提交代码。我之前是没用过gitlab的，上一家公司的工作用的是svn，所以对我来说，一切都是未知。我的项目是golang写的。<br>我的目的是：把项目打包成镜像—-&gt;上传到镜像仓库—-&gt;部署到k8s</p>
+<h1 id="先建立仓库"><a href="#先建立仓库" class="headerlink" title="先建立仓库"></a>先建立仓库</h1><p>登录gitlab—-&gt;选择New project，会到一下页面，按照自己的情况填写<br><img src="/images/posts/gitlabgitlab-cicdk8s/20210126195740360.png" alt="在这里插入图片描述"></p>
+<p>这里有一点需要注意，当你创建完项目之后，会看到一些指引，例如叫你上传一个readme.md。我刚开始是没有权限的，所以什么也弄不了，直到你获得权限，你就可以操作仓库了。</p>
+<h1 id="获得权限后，先拉仓库到本地"><a href="#获得权限后，先拉仓库到本地" class="headerlink" title="获得权限后，先拉仓库到本地"></a>获得权限后，先拉仓库到本地</h1><p><img src="/images/posts/gitlabgitlab-cicdk8s/2021012620053184.png" alt="在这里插入图片描述"></p>
+<p>进入你的工程，选择clone，然后选择自己想要的方式，使用git clone拉取仓库到你的本地。拉取之后，就可以用<strong>git add . —-&gt;git commit -m “xxxx” —-&gt;git push origin master</strong>提交到仓库。<br>注意：一般git 提交的时候，需要忽略一些文件，只需要在项目的目录添加一个.gitignore即可。<br>我提交完的文件大概如下，其中只需要知道两个<br><img src="/images/posts/gitlabgitlab-cicdk8s/20210126200949287.png" alt="在这里插入图片描述"><br> .gitignore 是用来忽略一些不需要提交的文件<br> .gitlab-ci.yaml 是用来自动部署的</p>
+<h1 id="先讲解一下gitlab-cicd"><a href="#先讲解一下gitlab-cicd" class="headerlink" title="先讲解一下gitlab cicd"></a>先讲解一下gitlab cicd</h1><p>其实这个东西不难，不知道网上为什么那么多解释，也不能写的都是不易于新手理解的一长串七七八八的概念。cicd需要两个东西：.gitlab-ci.yaml文件、gitlab-runner</p>
+<p><strong>.gitlab-ci.yaml</strong><br>其实就是描述了你需要的自动部署过程，例如，你需要打包docker镜像，然后上传，那你就需要在gitlab-ci,yaml中使用它的语法去描述这个过程即可。<br><strong>gitlab-runner</strong><br>这个东西更易于理解，不知道网上哪些什么鬼解释。你既然写了自动部署脚本，那就需要有东西去执行你写的自动部署脚本，而gitlab-runner就是这个东西（类似于一个k8s中的pod，如果不对欢迎指出）。</p>
+<p>其实这两个就是很简单的东西，反正我理解完，说出来就这么些。<strong>gitlab-runner跑的地方，就是你的gitlab项目地址，也就是说，你写的脚本就相当于在一台linux机器中，有一个你的项目的文件夹，你就在这个文件夹下写脚本（这是我自己的理解，我也的确是这样做的，如果有什么不对的地方欢迎讨论）</strong>，你完全可以在你的.gitlab-ci.yaml中写脚本用ls，pwd的命令看就知道了。</p>
+<h1 id="部署阶段"><a href="#部署阶段" class="headerlink" title="部署阶段"></a>部署阶段</h1><h2 id="编写-gitlab-ci-yaml文件"><a href="#编写-gitlab-ci-yaml文件" class="headerlink" title="编写.gitlab-ci.yaml文件"></a>编写.gitlab-ci.yaml文件</h2><p>一开始我也不知道，上来就是直接用了个golang的cicd的demo（这个东西不用在gitlab添加cicd的时候就可以选择demo），执行之后，发现其实.gitlab-ci.yaml写的就是shell脚本（当时不知道，其实这个是和gitlab-runner相关的，后面再说）。这就简单了啊。<br>关于语法，这里不做说明<br>由于是项目，这里只能贴出部分<br>整个脚本分为三个阶段</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stages:</span><br><span class="line">    - build</span><br><span class="line">    - docker_publish</span><br><span class="line">    - deploy</span><br></pre></td></tr></table></figure>
+
+<h2 id="build代码上传后，直接写脚本go-build，例如我的文件中这样写"><a href="#build代码上传后，直接写脚本go-build，例如我的文件中这样写" class="headerlink" title="build代码上传后，直接写脚本go build，例如我的文件中这样写"></a>build代码上传后，直接写脚本go build，例如我的文件中这样写</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">build:</span><br><span class="line">    image: golang:1.15.6</span><br><span class="line">    stage: build</span><br><span class="line">    before_script:</span><br><span class="line">      - <span class="built_in">mkdir</span> -p <span class="variable">$GOPATH</span>/src/$(<span class="built_in">dirname</span> <span class="variable">$REPO_NAME</span>)</span><br><span class="line">      - <span class="built_in">ln</span> -svf <span class="variable">$CI_PROJECT_DIR</span> <span class="variable">$GOPATH</span>/src/<span class="variable">$REPO_NAME</span></span><br><span class="line">      - <span class="built_in">cd</span> <span class="variable">$GOPATH</span>/src/<span class="variable">$REPO_NAME</span></span><br><span class="line">    script:</span><br><span class="line">      - <span class="built_in">pwd</span></span><br><span class="line">      - <span class="built_in">ls</span></span><br><span class="line">      - <span class="built_in">cd</span> realTimeMsg</span><br><span class="line">      - go mod download</span><br><span class="line">      - go build -o <span class="variable">$CI_PROJECT_DIR</span>/RtmServer</span><br><span class="line">    artifacts:</span><br><span class="line">      paths:</span><br><span class="line">        - RtmServer</span><br><span class="line">      expire_in: 2 mos</span><br></pre></td></tr></table></figure>
+
+<p>这个很好理解，主要看script，一看便知。</p>
+<h2 id="docker-pulish将输出打包成镜像，这个就需要在docker中使用docker，要使用services如下。"><a href="#docker-pulish将输出打包成镜像，这个就需要在docker中使用docker，要使用services如下。" class="headerlink" title="docker_pulish将输出打包成镜像，这个就需要在docker中使用docker，要使用services如下。"></a>docker_pulish将输出打包成镜像，这个就需要在docker中使用docker，要使用services如下。</h2><p>这个构建也不难，在gitlab中上传你写好的Dockerfile后直接build即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker_publish:</span><br><span class="line">  image: docker:latest</span><br><span class="line">  services:</span><br><span class="line">    - docker:dind</span><br><span class="line">  script:</span><br><span class="line">   	...</span><br><span class="line">    - docker build -f Dockerfile --pull -t xxx</span><br><span class="line">    - docker image <span class="built_in">ls</span> </span><br><span class="line">    - docker push xxx</span><br></pre></td></tr></table></figure>
+
+<p>这里需要注意一些，在.gitlab-ci.yaml文件中，需要定义的环境变量可以在setting—-&gt;cicd里面设置<br><img src="/images/posts/gitlabgitlab-cicdk8s/2021012620364154.png" alt="在这里插入图片描述"></p>
+<h2 id="deploy部署，我碰到的最大的问题就在这里"><a href="#deploy部署，我碰到的最大的问题就在这里" class="headerlink" title="deploy部署，我碰到的最大的问题就在这里"></a>deploy部署，我碰到的最大的问题就在这里</h2><p>我的部署脚本中，就是无法dev的k8s中部署，我使用脚本kubectl cluster-info，发现我的脚本跑在的地方根本不是我的dev k8s，所以肯定无法部署。这种情况下我就去查了。<br><img src="/images/posts/gitlabgitlab-cicdk8s/20210126210436704.png" alt="在这里插入图片描述"><br>出现这种问题的原因是：gitlab-runner没有在我想要的环境中跑。所以无法关联到集群。<br>我在项目的部署的时候，也没有创建gitlab-runner，但是我的部署脚本的确跑起来了。<br>经过查询，<strong>原来是我参与的项目中有默认的共享的gitlab-runner</strong>，直接用这个跑了。</p>
+<p>我首先尝试了把我的项目添加到k8s，也就是这个按钮，原来是add，我添加之后变成这个<br><img src="/images/posts/gitlabgitlab-cicdk8s/20210126204205559.png" alt="在这里插入图片描述"><br>添加方法在这里：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020947651">https://segmentfault.com/a/1190000020947651</a>，我是参考了这个文章。<br>但是并没有解决我的问题。</p>
+<p>最后我在dev 的k8s环境中，给我的项目注册了一个gitlab-runner，我的开发环境已经存在gitlab-runner，如果你的不存在，就安装一下。<br>之后这样搞先打开setting—-&gt;cicd—-&gt;runners<br><img src="/images/posts/gitlabgitlab-cicdk8s/20210126204710663.png" alt="在这里插入图片描述"><br>然后使用gitlab-runner register<br><img src="/images/posts/gitlabgitlab-cicdk8s/20210126204942387.png" alt="在这里插入图片描述"><br>输入之前runner那张图的url<br>输入之前runner那张图的token<br>出入描述<br>输入tag，这个很重要，.gitlab-ci.yaml脚本通过tag关联runner<br>输入选择的执行方式，我选了shell</p>
+<p>注册完之后会发现setting—-&gt;cicd—-&gt;runners多了一个runner<br><img src="/images/posts/gitlabgitlab-cicdk8s/20210126205400881.png" alt="在这里插入图片描述"><br>到这里还是不能用，就算在.gitlab-ci.yaml文件中关联了这个tag。这样关联，加上tags即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  image: dtzar/helm-kubectl:2.9.1</span><br><span class="line">  stage: deploy</span><br><span class="line">  tags:</span><br><span class="line">    - goRtm</span><br></pre></td></tr></table></figure>
+
+<p>因为这个runner并不能跑起来，如果能够运行，则是前面是绿色的，tag改过了，和上图对应的不一样，说明一下。<br><img src="/images/posts/gitlabgitlab-cicdk8s/20210126205703316.png" alt="在这里插入图片描述"><br>还要调用gitlab-runner run，调用之后就变成绿色的就可以用了<br><img src="/images/posts/gitlabgitlab-cicdk8s/20210126205935238.png" alt="在这里插入图片描述"><br><img src="/images/posts/gitlabgitlab-cicdk8s/2021012621003097.png" alt="在这里插入图片描述"><br>做完这些，我就可以在提交代码后，自动部署到我想要的k8s中了。</p>
+<p>因为文章涉及到公司项目，很多东西不能交代清楚。大概只能这样写了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/01/26/golang%20%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E4%B8%AD%E8%BF%9E%E6%8E%A5redis%E9%9B%86%E7%BE%A4%E7%A2%B0%E5%88%B0%E7%9A%84%E5%9D%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/26/golang%20%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E4%B8%AD%E8%BF%9E%E6%8E%A5redis%E9%9B%86%E7%BE%A4%E7%A2%B0%E5%88%B0%E7%9A%84%E5%9D%91/" class="post-title-link" itemprop="url">golang 实际项目中连接redis集群碰到的坑</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-26 11:06:04" itemprop="dateCreated datePublished" datetime="2021-01-26T11:06:04+08:00">2021-01-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>项目中redis直接是使用了aws的redis服务，redis是集群，也就是golang连接redis集群碰到的坑，如下</p>
+<p>首先我使用的是redisgo，因为看着api比较方便，比较像redis-cli，而且aws也推荐。然后一开始连接也没事，我部署了不下10遍，然而有一天部署时。服务器在操作redis时忽然报错。“(error) MOVED xxxx xxx.xxx.xxx.xxx:xxxx”，经过查询得知这是由于redis没有选择连接集群导致的，再次查询，发现aws官方推荐了两个redis库，redisgo和go-redis两个库，<strong>redisgo是不支持集群的(太坑了)，而且我部署了那么多次都没问题。可能一直都连到master上了，</strong>忽然就连到slave就报错了。还好发现的早。</p>
+<p>go-redis/redis连接数据库的时候，官方的demo给的就是一堆端口，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import &quot;github.com/go-redis/redis/v8&quot;</span><br><span class="line"></span><br><span class="line">rdb := redis.NewClusterClient(&amp;redis.ClusterOptions&#123;</span><br><span class="line">    Addrs: []string&#123;&quot;:7000&quot;, &quot;:7001&quot;, &quot;:7002&quot;, &quot;:7003&quot;, &quot;:7004&quot;, &quot;:7005&quot;&#125;,</span><br><span class="line"></span><br><span class="line">    // To route commands by latency or randomly, enable one of the following.</span><br><span class="line">    //RouteByLatency: true,</span><br><span class="line">    //RouteRandomly: true,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这个是可以填好多地址的，只要把自己的地址填入string的切片即可，<strong>如果只有一个地址，就只填一个(项目中redis集群可能对外只暴露一个地址)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">clusterClient = redis.NewClusterClient(&amp;redis.ClusterOptions&#123;</span><br><span class="line">    Addrs: []string&#123;&quot;your addr1&quot;&#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>redis.NewClusterClient这个接口默认是连接master的，如果只想连接slave，则通过参数控制，具体查看接口的说明即可。</strong></p>
+<p>** ** 最后切换了包之后，成功解决了redis集群连接的问题。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/01/25/golang%20%E4%BD%BF%E7%94%A8time%E5%8C%85%E7%A2%B0%E5%88%B0%E6%95%B0%E5%AD%97%E4%B8%8E%E6%97%B6%E9%97%B4%E7%9B%B8%E4%B9%98%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/25/golang%20%E4%BD%BF%E7%94%A8time%E5%8C%85%E7%A2%B0%E5%88%B0%E6%95%B0%E5%AD%97%E4%B8%8E%E6%97%B6%E9%97%B4%E7%9B%B8%E4%B9%98%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">golang 使用time包碰到数字与时间相乘的问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-25 20:46:01" itemprop="dateCreated datePublished" datetime="2021-01-25T20:46:01+08:00">2021-01-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在项目中使用time包时，睡眠时间时想要通过配置文件获取，然而整数与时间相乘又报错。如下</p>
+<p><img src="/images/posts/golang-time/20210125204313549.png"></p>
+<p>查询time包发现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// A Duration represents the elapsed time between two instants</span><br><span class="line">// as an int64 nanosecond count. The representation limits the</span><br><span class="line">// largest representable duration to approximately 290 years.</span><br><span class="line">type Duration int64</span><br></pre></td></tr></table></figure>
+
+<p>即，其实就是一个int64的数。最后先把需要的数字进行转换，这样解决即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">err = client.Set(ctx, key, data, time.Duration(ex)*time.Second).Err()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/golang-time/20210125204542483.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/01/25/nodejs%20aes192%E5%8A%A0%E5%AF%86%EF%BC%8C%E5%9C%A8golang%E4%B8%AD%E8%A7%A3%E5%AF%86%E7%A2%B0%E5%88%B0%E7%9A%84%E5%9D%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/25/nodejs%20aes192%E5%8A%A0%E5%AF%86%EF%BC%8C%E5%9C%A8golang%E4%B8%AD%E8%A7%A3%E5%AF%86%E7%A2%B0%E5%88%B0%E7%9A%84%E5%9D%91/" class="post-title-link" itemprop="url">nodejs aes192加密，在golang中解密碰到的坑</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-25 20:35:23" itemprop="dateCreated datePublished" datetime="2021-01-25T20:35:23+08:00">2021-01-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>最近改写服务器，集群中服务器是nodejs写的，把其中一个服务器改成golang写的，碰到了nodejs aes192加密，再golang中解密碰到的坑，如下。</p>
+<p>在nodejs中是这样加密的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const encrypt = (toEncrypt) =&gt; &#123;</span><br><span class="line">    const cipher = crypto.createCipher(&#x27;aes192&#x27;, cryptoKey);</span><br><span class="line">    let encrypted = cipher.update(toEncrypt, &#x27;utf8&#x27;, &#x27;hex&#x27;);</span><br><span class="line">    encrypted += cipher.final(&#x27;hex&#x27;);</span><br><span class="line">    return encrypted;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>发现golang中根本不知道aes192对应的到底是aes192中的那种加密模式，经过查询接口已经废弃</p>
+<p><img src="/images/posts/nodejs-aes192golang/20210125201828320.png"></p>
+<p>使用新的接口，原来的接口文档已经找不到了，刚开始顺着这个方法一直找，首先AES 有五种加密模式：电码本模式（Electronic Codebook Book (ECB)）、密码分组链接模式（Cipher Block Chaining (CBC)）、计算器模式（Counter (CTR)）、密码反馈模式（Cipher FeedBack (CFB)）和输出反馈模式（Output FeedBack (OFB)），要查到具体nodejs中使用的到底是哪个方法，<strong>查看新的接口说明，这里是重点一，通过接口说明，一步一步找出具体调用的是五个模式中的哪个</strong></p>
+<p><img src="/images/posts/nodejs-aes192golang/20210125202402933.png"></p>
+<p>然后查看用的到底是什么，可以看到，用的是DES-192-CBC</p>
+<p><img src="/images/posts/nodejs-aes192golang/20210125202429309.png"></p>
+<p>然后查看对应的golang的解密方法，发现，必须要给定密钥，和向量。而原来的nodejs接口，只需要给一个字符串就可以了，再次查询资料，最后在第三方的资料中，找到</p>
+<p><strong>crypto.createCipher(algorithm, password)：用给定的算法和密钥，创建并返回一个Cipher加密算法的对象。参数：algorithm算法是依赖OpenSSL库支持的算法, 例如: ‘aes192’算法等，password是用来派生key和iv的，它必须是一个 ‘binary’二进制格式的字符串或者是一个Buffer可以看到给定password参数，是用来生成key和iv的，具体怎么生成的，无从得知，或者说，要搞懂这个太麻烦了。</strong></p>
+<p><strong>所以最后得出的结论是：nodejs使用原来的接口根本无法在golang中解密，所以必须修改nodejs的接口为新的接口。这里是重点二</strong></p>
+<p>将nodejs的接口修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">encrypt(toEncrypt) &#123;</span><br><span class="line">        const cipher = crypto.createCipheriv(&#x27;aes192&#x27;, this.cryptoKey, this.cryptoVi);</span><br><span class="line">        let encrypted = cipher.update(toEncrypt, &#x27;utf8&#x27;, &#x27;hex&#x27;);</span><br><span class="line">        encrypted += cipher.final(&#x27;hex&#x27;);</span><br><span class="line">        return encrypted;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在golang中用同样的密钥和向量解密，这个解密方法不难，随便搜索即可找到。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//对密文删除填充</span><br><span class="line">func unPadDing(cipherText []byte) []byte &#123;</span><br><span class="line">    //取出密文最后一个字节end</span><br><span class="line">    end := cipherText[len(cipherText)-1]</span><br><span class="line">    //删除填充</span><br><span class="line">    cipherText = cipherText[:len(cipherText)-int(end)]</span><br><span class="line">    return cipherText</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//AEC解密（CBC模式）</span><br><span class="line">func aesCbcDecrypt(cipherText []byte) string &#123;</span><br><span class="line">    //指定解密算法，返回一个AES算法的Block接口对象</span><br><span class="line">    block, err := aes.NewCipher(cryp2Key)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        panic(err)</span><br><span class="line">    &#125;</span><br><span class="line">    //指定分组模式，返回一个BlockMode接口对象</span><br><span class="line">    blockMode := cipher.NewCBCDecrypter(block, iv)</span><br><span class="line">    //解密</span><br><span class="line">    plainText := make([]byte, len(cipherText))</span><br><span class="line">    blockMode.CryptBlocks(plainText, cipherText)</span><br><span class="line">    //删除填充</span><br><span class="line">    plainText = unPadDing(plainText)</span><br><span class="line"></span><br><span class="line">    return string(plainText)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以成功解密了。</p>
+<p><strong>最后：最坑的就是nodejs的接口，找了好久都找不到解密方法，原来要用新接口，而且必须找到接口到底对应哪个加密方法才能在golang解密。</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/01/21/%E6%80%8E%E4%B9%88%E5%9C%A8linux%E4%B8%AD%E5%AE%89%E8%A3%85golang,%20%E4%B8%8D%E9%9C%80%E8%A6%81%E5%9C%A8windows%E4%B8%8B%E8%BD%BD%E5%A5%BD%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/21/%E6%80%8E%E4%B9%88%E5%9C%A8linux%E4%B8%AD%E5%AE%89%E8%A3%85golang,%20%E4%B8%8D%E9%9C%80%E8%A6%81%E5%9C%A8windows%E4%B8%8B%E8%BD%BD%E5%A5%BD%E5%8C%85/" class="post-title-link" itemprop="url">怎么在linux中安装golang, 不需要在windows下载好包</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-21 19:12:29" itemprop="dateCreated datePublished" datetime="2021-01-21T19:12:29+08:00">2021-01-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>其实我已经安装了很久了, 久到我已经忘记怎么安装了, 今天在k8s中调试时, 要重新装golang, 上网查了一下, 发现太多文章都是不太方便的, 例如现在windows下载好包, 再考到linux下解压, 有这么麻烦么, 下面直接上流程</p>
+<h1 id="1-先下载golang的包"><a href="#1-先下载golang的包" class="headerlink" title="1.先下载golang的包"></a>1.先下载golang的包</h1><p>这里网上好多文章都是在windows下搜索, 下载好拷贝过去, 其实不用这么干, 在linux中直接下载就好了</p>
+<p>我是debian 64位的系统, 工作目录是/usr/local. 这样下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 如果你看到这篇文章,可能已经过了很久,go的版本自己看着修改</span><br><span class="line">wget https://storage.googleapis.com/golang/go1.15.7.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line">// 如果没有wget, 先进行以下步骤, 然后再再下载golang</span><br><span class="line">// apt-get update</span><br><span class="line">// apt-get install wget</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-解压golang"><a href="#2-解压golang" class="headerlink" title="2.解压golang"></a>2.解压golang</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 你下载再哪里就在哪里解压</span><br><span class="line">tar -C /usr/local -xzf go1.15.7.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-设置环境变量"><a href="#3-设置环境变量" class="headerlink" title="3.设置环境变量"></a>3.设置环境变量</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/usr/local/go/bin</span><br><span class="line"></span><br><span class="line">//这里写你自己的工作目录</span><br><span class="line">export GOPATH=/usr/local/go_project</span><br><span class="line"></span><br><span class="line">export GOROOT=/usr/local/go</span><br></pre></td></tr></table></figure>
+
+<p>最后用go version 查看是否安装成功</p>
+<p><img src="/images/posts/linuxgolang-windows/20210121190942174.png"></p>
+<p>打完收工.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/01/21/golang%20net!http%E5%8C%85%E5%9C%A8k8s%E4%BD%BF%E7%94%A8%E4%B8%AD%E7%A2%B0%E5%88%B0http!%20superfluous%20response.WriteHeader%20call%20from%20xxx%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/21/golang%20net!http%E5%8C%85%E5%9C%A8k8s%E4%BD%BF%E7%94%A8%E4%B8%AD%E7%A2%B0%E5%88%B0http!%20superfluous%20response.WriteHeader%20call%20from%20xxx%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">golang net/http包在k8s使用中碰到http：superfluous response.WriteHeader call from xxx的问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-21 17:48:37" itemprop="dateCreated datePublished" datetime="2021-01-21T17:48:37+08:00">2021-01-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:42:48" itemprop="dateModified" datetime="2023-07-16T17:42:48+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在项目中，需要使用golang写http服务器并部署在k8s中，在server deployment.yaml中存在livenessProbe(存活探针)以及readinessProbe(就绪探针)，这两个我都是写了向服务器发送一个http请求，如果服务器收到并回复，则表示成功，但是在使用过程中，日志一直输出，这些会干扰日志的查看。</p>
+<p><img src="/images/posts/golang-nethttpk8shttp-superfluous-responsewriteheader-call-from-xxx/20210121174550591.png"></p>
+<p>经过查询与测试，最后修复，做此纪录，代码如下。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">func healthcheck(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">    //fmt.Fprintf(w, &quot;i m live&quot;) 原来就是因为多了这行,然后一直输出,屏蔽了即可</span><br><span class="line">    w.WriteHeader(200)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    router := http.NewServeMux()</span><br><span class="line">    router.HandleFunc(&quot;/healthcheck&quot;, healthcheck)</span><br><span class="line">    port := fmt.Sprint(&quot;:&quot;, *config.Conf.HttpPort)</span><br><span class="line">    srv := &amp;http.Server&#123;</span><br><span class="line">        Addr:    port,</span><br><span class="line">        Handler: router,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    logger.Info(&quot;[HTTP] http server listen&quot;, port)</span><br><span class="line">    if err := srv.ListenAndServe(); err != nil &amp;&amp; err != http.ErrServerClosed &#123;</span><br><span class="line">        logger.Error(&quot;[HTTP] server listen on&quot;, port, &quot;, err:&quot;, err)</span><br><span class="line">        os.Exit(1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/01/18/golang%20%E2%80%9D%E4%BC%98%E9%9B%85%E5%85%B3%E9%97%AD%E7%9A%84%20Go%20Web%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%9C%EF%BC%8C%E5%8F%AF%E8%83%BD%E4%BC%9A%E7%A2%B0%E5%88%B0%E7%9A%84%E5%9D%91%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/18/golang%20%E2%80%9D%E4%BC%98%E9%9B%85%E5%85%B3%E9%97%AD%E7%9A%84%20Go%20Web%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%9C%EF%BC%8C%E5%8F%AF%E8%83%BD%E4%BC%9A%E7%A2%B0%E5%88%B0%E7%9A%84%E5%9D%91%E3%80%82/" class="post-title-link" itemprop="url">golang ”优雅关闭的 Go Web 服务器“，可能会碰到的坑。</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-18 17:41:03" itemprop="dateCreated datePublished" datetime="2021-01-18T17:41:03+08:00">2021-01-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在最近的项目中，使用了go 搭建了web服务器，所以”优雅的关闭服务器”，经过查资料，发现go在1.8之后，http包已经有Shutdown()方法，但是使用起来还是有一些要注意的地方。</p>
+<p>如果对go很熟悉的，对这些包很熟悉的人，肯定不会碰到这个问题。只怪我太菜。。。碰到了坑。下面直接上代码。</p>
+<p>查询资料的时候，在网上看到这样的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">func gracefullShutdown(server *http.Server, logger *log.Logger, quit &lt;-chan os.Signal, done chan&lt;- bool) &#123;</span><br><span class="line">  &lt;-quit</span><br><span class="line">  logger.Println(&quot;Server is shutting down...&quot;)</span><br><span class="line"></span><br><span class="line">  ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)</span><br><span class="line">  defer cancel()</span><br><span class="line"></span><br><span class="line">  server.SetKeepAlivesEnabled(false)</span><br><span class="line">  if err := server.Shutdown(ctx); err != nil &#123;</span><br><span class="line">    logger.Fatalf(&quot;Could not gracefully shutdown the server: %v\n&quot;, err)</span><br><span class="line">  &#125;</span><br><span class="line">  close(done)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>像这种写法，是启动了别的goroutin去执行gracefullShoudown，所以需要额外的一个done channel来阻塞主线程。我们的http服务器必然会调用这个ListenAndServer(如下)，<strong>当调用了gracefullShutdown中server.Shutdown(ctx)，ListenAndServer会直接返回</strong>，而主线程直接结束了的话，别的线程也就会跟着一起结束。也就没有了等待服务器关闭这么一说法了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router := http.NewServeMux()</span><br><span class="line">router.HandleFunc(&quot;/healthcheck&quot;, healthcheck)</span><br><span class="line">port := fmt.Sprint(&quot;:8080&quot;)</span><br><span class="line">srv := &amp;http.Server&#123;</span><br><span class="line">    Addr:         port,</span><br><span class="line">    Handler:      router,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if err := srv.ListenAndServe(); err != nil &amp;&amp; err != http.ErrServerClosed &#123;</span><br><span class="line">    logger.Error(&quot;[HTTP] server listen on&quot;, port, &quot;, err:&quot;, err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意：server-ListenAndServe-方法在-Shutdown-时会立刻返回，Shutdown-方法会阻塞至所有连接闲置或-context-完成，所以-Shutdown-的方法要写在主-goroutine-中或者。如果像上面一样使用在新的goroutine中，则需要自己写好阻塞主携程的方法。"><a href="#注意：server-ListenAndServe-方法在-Shutdown-时会立刻返回，Shutdown-方法会阻塞至所有连接闲置或-context-完成，所以-Shutdown-的方法要写在主-goroutine-中或者。如果像上面一样使用在新的goroutine中，则需要自己写好阻塞主携程的方法。" class="headerlink" title="**       注意：server.ListenAndServe() 方法在 Shutdown 时会立刻返回，Shutdown 方法会阻塞至所有连接闲置或 context 完成，所以 Shutdown 的方法要写在主 goroutine 中或者。如果像上面一样使用在新的goroutine中，则需要自己写好阻塞主携程的方法。**"></a>**       注意：server.ListenAndServe() 方法在 Shutdown 时会立刻返回，Shutdown 方法会阻塞至所有连接闲置或 context 完成，所以 Shutdown 的方法要写在主 goroutine 中或者。如果像上面一样使用在新的goroutine中，则需要自己写好阻塞主携程的方法。**</h3><hr>
+<p><strong>最后附上完整使用新goroutine监听关闭服务器的demo：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;context&quot;</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">    &quot;net/http&quot;</span><br><span class="line">    &quot;os&quot;</span><br><span class="line">    &quot;os/signal&quot;</span><br><span class="line">    &quot;syscall&quot;</span><br><span class="line">    &quot;time&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func gracefullShutdown(server *http.Server, quit &lt;-chan os.Signal, done chan&lt;- bool) &#123;</span><br><span class="line">    &lt;-quit</span><br><span class="line">    // 30s，让服务器做一些清理操作</span><br><span class="line">    ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)</span><br><span class="line">    defer cancel()</span><br><span class="line">    server.SetKeepAlivesEnabled(false)</span><br><span class="line">    if err := server.Shutdown(ctx); err != nil &#123;</span><br><span class="line">        fmt.Println(&quot;server.Shutdown err ..... &quot;, err)</span><br><span class="line">    &#125;</span><br><span class="line">    //do Something ：</span><br><span class="line">    fmt.Println(&quot;do something start ..... &quot;, time.Now())</span><br><span class="line">    time.Sleep(5 * time.Second)</span><br><span class="line">    fmt.Println(&quot;do something end ..... &quot;, time.Now())</span><br><span class="line">    close(done)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    var (</span><br><span class="line">        done = make(chan bool, 1)</span><br><span class="line">        quit = make(chan os.Signal, 1)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    router := http.NewServeMux()</span><br><span class="line">    port := fmt.Sprint(&quot;:36010&quot;)</span><br><span class="line">    srv := &amp;http.Server&#123;</span><br><span class="line">        Addr:    port,</span><br><span class="line">        Handler: router,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 给信号挖个坑，如果抓到这些信号就退出程序</span><br><span class="line">    signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)</span><br><span class="line">    go gracefullShutdown(srv, quit, done)</span><br><span class="line"></span><br><span class="line">    fmt.Println(&quot;[HTTP] http server listen&quot;, port)</span><br><span class="line">    if err := srv.ListenAndServe(); err != nil &amp;&amp; err != http.ErrServerClosed &#123;</span><br><span class="line">        fmt.Println(&quot;ListenAndServe err ..... &quot;, err)</span><br><span class="line">        os.Exit(1)</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;-done</span><br><span class="line">    fmt.Println(&quot;[HTTP] Showdown end&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/golang-go-web/20210118173824843.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fushen Ban"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Fushen Ban</p>
+  <div class="site-description" itemprop="description">正在进化</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fushen Ban</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

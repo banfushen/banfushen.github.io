@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"banfushen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="正在进化">
+<meta property="og:type" content="website">
+<meta property="og:title" content="拼图收集者">
+<meta property="og:url" content="https://banfushen.github.io/page/8/index.html">
+<meta property="og:site_name" content="拼图收集者">
+<meta property="og:description" content="正在进化">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fushen Ban">
+<meta property="article:tag" content="linux，golang，lua，c，python，nodejs，k8s，redis">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://banfushen.github.io/page/8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+  <title>拼图收集者</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">拼图收集者</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欠的技术债，早晚要还</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/resume/" rel="section"><i class="fa fa-fw fa-user"></i>resume</a>
+
+  </li>
+        <li class="menu-item menu-item-simplefolio">
+
+    <a href="/simplefolio/" rel="section"><i class="fa fa-fw fa-id-card"></i>simplefolio</a>
+
+  </li>
+        <li class="menu-item menu-item-game">
+
+    <a href="/game/" rel="section"><i class="fa fa-fw fa-gamepad"></i>game</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/09/04/Ubuntu%E8%BF%9E%E6%8E%A5redis%E6%97%B6%E5%8F%AF%E6%8C%87%E5%AE%9Aip%EF%BC%8C%E7%AB%AF%E5%8F%A3%EF%BC%8C%E5%AF%86%E7%A0%81%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/04/Ubuntu%E8%BF%9E%E6%8E%A5redis%E6%97%B6%E5%8F%AF%E6%8C%87%E5%AE%9Aip%EF%BC%8C%E7%AB%AF%E5%8F%A3%EF%BC%8C%E5%AF%86%E7%A0%81%E3%80%82/" class="post-title-link" itemprop="url">Ubuntu连接redis时可指定ip，端口，密码。</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-04 17:04:31" itemprop="dateCreated datePublished" datetime="2019-09-04T17:04:31+08:00">2019-09-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis-Linux/" itemprop="url" rel="index"><span itemprop="name">redis Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>转做游戏服务器开发之后，基本上都在写游戏逻辑，关于redis的操作也已经有了现成的接口。今天提交了代码有点空闲时间打算学一学redis。</p>
+<p>博主是按照网上的教程使用redis-cli去连接redis，但是之前本地的redis已经改过redis的默认配置文件，直接使用redis-cil发现并不能连接上。</p>
+<p><img src="/images/posts/ubunturedisip/20190904165940392.png"></p>
+<p>查询资料后发现可以指定ip，端口，和密码如下。</p>
+<p>**  redis-cli -h xxx.xxx.xxx.xxx -p xxxx -a mima   例如（redis-cli -h 127.0.0.1 -p 12345 -a zheshimima）**</p>
+<p>即可连接。作此记录。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/08/19/skynet%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95(%E4%B8%80)%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5%E4%B9%8Bwatchdog%20gate%20agent%E5%A4%8D%E6%9D%82%E9%94%99%E4%B9%B1%E5%85%B3%E7%B3%BB%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/19/skynet%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95(%E4%B8%80)%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5%E4%B9%8Bwatchdog%20gate%20agent%E5%A4%8D%E6%9D%82%E9%94%99%E4%B9%B1%E5%85%B3%E7%B3%BB%E3%80%82/" class="post-title-link" itemprop="url">skynet踩坑记录(一)客户端连接之watchdog gate agent复杂错乱关系。</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-19 20:23:20" itemprop="dateCreated datePublished" datetime="2019-08-19T20:23:20+08:00">2019-08-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skynet/" itemprop="url" rel="index"><span itemprop="name">skynet</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>笔者转行做游戏服务器开发有四个月了，现在公司用的是skynet框架，由于之前没做过服务器开发，现在还是处于边学习，边跟项目的情况。由于工作原因，网络这一块断断续续看了两个星期，一直没理解，今天再看的时候，终于懂了skynet监听网络端口的流程，也懂了，客户端是怎么连接的。果然应了那句话：<strong>欠了技术债，早晚要还的。（学习一定要专注啊！！！可以省好多时间。）</strong></p>
+<p>** **这张图是在网上找的，非常的清晰，要顺着标识看，并结合代码，就能大致了解这个过程。<img src="/images/posts/skynetwatchdog-gate-agent/20190819195844523.png"></p>
+<p>1.在main中会newservice watchdog启动看门狗服务，lua start conf给看门狗发送lua消息start参数为conf。</p>
+<p>2.在watchdog服务中会，newservice gate启动网关服务(实际上是通过gateserver.start启动)，然后监听传入或者默认的端口。</p>
+<p>3.当有新连接接入的时候，实际上是gate server监听到的。</p>
+<p>4.gate server send2watchdog open，并传入参数。</p>
+<p>5.在watchdog server中会创建一个agent(每个连接接入，创建一个agent)，并传入相关的信息(gate，fd，watchdog)。</p>
+<p>6.由于有watchdog传入的信息，agent可以call2gate server forward(用于打开fd，一定要打开，链接成功不代表马上可以读到数据，需要打开这个套接字，允许fd接收数据，这样才能接受到client传入的数据)。</p>
+<p>7.当client send requste，首先到达gate。</p>
+<p>8.gate server 的message方法中处理，转发给agent。</p>
+<p>9.agent处理之后，在发回给client。</p>
+<p>需要注意的是：</p>
+<p>1.实际上client连接到的是gate server。</p>
+<p>2.gate server把具体的client消息转发给agent由agent处理具体逻辑。</p>
+<p>3.gate 与 watchdog 与 agent是相互配合的。</p>
+<p>至于为什么要这么做，目前我也不是很清楚。。。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/08/12/Ubuntu%2018.04.3%20%E5%AE%89%E8%A3%85svn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/12/Ubuntu%2018.04.3%20%E5%AE%89%E8%A3%85svn/" class="post-title-link" itemprop="url">Ubuntu 18.04.3 安装svn</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-12 15:01:32" itemprop="dateCreated datePublished" datetime="2019-08-12T15:01:32+08:00">2019-08-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>今天早上上班后，发现电脑的机械硬盘居然崩了，原来以为这种情况只会存在传说中，没想到自己真正碰到了。由于基本上所有的资料和开发环境都是存在机械硬盘上的，一切的一切只能重来，借此机会，记录一下自己走过的路。</p>
+<p>** **使用的是：</p>
+<p>VMware:Workstation 15 Pro          <a target="_blank" rel="noopener" href="https://www.7down.com/soft/310739.html">https://www.7down.com/soft/310739.html</a></p>
+<p>Ubuntu:18.04.3                                <a target="_blank" rel="noopener" href="https://ubuntu.com/download/desktop">https://ubuntu.com/download/desktop</a></p>
+<p><strong>这些下载好之后，便开始装svn：</strong></p>
+<p>** 1.sudo apt-get update**</p>
+<p>**       2.sudo apt install subversion**</p>
+<p>**       3.输入 svn help 查看是否安装成功 **</p>
+<p><img src="/images/posts/ubuntu-18043-svn/20190812150011860.png"></p>
+<p>出现这个，则表示安装成功。</p>
+<p><strong>4.安装成功后，输入svn co + 你的地址，会提示你输入svn账号与密码。</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/07/28/skynet%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89agent%E5%BC%95%E7%94%A8%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/28/skynet%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89agent%E5%BC%95%E7%94%A8%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E3%80%82/" class="post-title-link" itemprop="url">skynet踩坑记录（二）agent引用代码模块。</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-28 14:44:33" itemprop="dateCreated datePublished" datetime="2019-07-28T14:44:33+08:00">2019-07-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skynet/" itemprop="url" rel="index"><span itemprop="name">skynet</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>前几天，在写游戏逻辑时，需要在不同的代码块中引用我写的逻辑模块（以下简称C模块）来对玩家数据进行修改。由于对skynet理解不够，多模块中调用自己写的逻辑时，例如：A模块调用C，B模块也调用C，我在C模块中多次对数据库进行了操作，以便可以让不同的模块能操作到同一组数据。</p>
+<p>经理看了我的代码之后，对我进行了指导，作此记录：</p>
+<p>1.每个agent都是一个独立的虚拟机。</p>
+<p>2.在一个虚拟机中，引用同一块代码后，再次引用会直接返回，并引用到同一块代码。(A引用C，B引用C，最后会共享同一块C代码，所以在C中可以直接用变量存贮玩家数据，不用每次都从数据库中读取)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/06/22/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%88%E5%A4%A7%E8%AF%9D%E3%80%81%E6%B5%85%E6%9E%90%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/22/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%88%E5%A4%A7%E8%AF%9D%E3%80%81%E6%B5%85%E6%9E%90%EF%BC%89/" class="post-title-link" itemprop="url">游戏服务器是干什么的（大话、浅析）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-22 22:38:00" itemprop="dateCreated datePublished" datetime="2019-06-22T22:38:00+08:00">2019-06-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在做游戏服务器开发之前之前一直有疑问，服务器是干什么的？问了几位前辈，得到的答案大概都是：<strong>服务器就是一台电脑，你可以访问，然后做一些事情（我现在觉得这个答案是很精辟的）。</strong>这个答案对于之前的我来说，由于根本没接触过服务器，不能理解其中的含义。百度得到的答案也不是我想要的。</p>
+<p>现在做游戏服务器开发两个月了，分享一下自己对游戏服务器的理解，希望能以另外的角度给想做游戏服务器开发的新人一些不同理解方向。如果有什么说的不对的地方，请见谅。</p>
+<p><strong>游戏服务器其实就是处理游戏逻辑的（这话说的，新手谁看的懂啊。 = =！）</strong></p>
+<h3 id="举个大话例子：餐厅"><a href="#举个大话例子：餐厅" class="headerlink" title="举个大话例子：餐厅"></a><strong>举个大话例子：餐厅</strong></h3><p>** **将一个餐厅点菜比喻成一个游戏，桌子上有菜单，菜单上有：鱼香肉丝，清蒸牛肉，有一位客人看了菜单之后点了一道菜（鱼香肉丝）后，服务员将这道菜名告诉了厨房，厨房做好菜后递给服务员，最后服务员给你端上来了。</p>
+<p>在这个游戏中，餐桌相当于游戏的客户端，厨房相当于游戏服务器，服务员相当于客户端与服务器的通信，客人相当于玩家<strong>。</strong></p>
+<p><strong>客户端：</strong>桌子上的菜单和上的菜（鱼香肉丝），这些都是客户端给玩家显示的。</p>
+<p><strong>服务器：</strong>当菜名到达了厨房之后的一系列操作都是服务器做的（厨房开始准备，切菜，炒菜，完成后，告诉服务员，让他把菜端出去）。</p>
+<p>做这个游戏的服务器开发，就相当于，增加餐厅能提供的菜。比如餐厅要求增加一道番茄炒蛋的菜，你就要教会厨房怎么弄番茄炒蛋，确保经过你的调教之后，厨房在收到这个菜名时一定能做出这道菜，或者做不出菜的时候会给客户端提示（卖完了之类的）游戏就能更新，客户端就会在菜单上新增加一道番茄炒蛋的菜，客人就能点这道菜。</p>
+<p>出现bug又是个什么情况呢？例如你在调教厨房做这道菜时，只教会了厨房做菜，没有做什么别的操作。当点了这道菜，然后番茄用完了，这时候厨房由于你只教厨房做菜，没告诉它出现这种情况怎么办，厨房就不知道怎么办（出现了bug），最后客人一直在等，最后却没有上这道菜。</p>
+<h3 id="举个实际游戏例子：简单描述斗地主的一个简单流程"><a href="#举个实际游戏例子：简单描述斗地主的一个简单流程" class="headerlink" title="举个实际游戏例子：简单描述斗地主的一个简单流程"></a>举个实际游戏例子：简单描述斗地主的一个简单流程</h3><p>当你（玩家2）的上家（玩家1）出了一个3，轮到你出牌，你手上有345JK。</p>
+<p><strong>客户端：1.显示三位玩家的牌，你的上家和下家的牌都是背对着你的。</strong></p>
+<p>**                     2.显示你的手牌，供你选择。**</p>
+<p>**                     3.收到服务器发来的消息（玩家1出了3），显示给你看。**</p>
+<p>这时候你点了一个3，然后点击出牌。<strong>客户端——-&gt;服务器</strong>，玩家2出个3。</p>
+<p><strong>服务器：1.收到客户端发来的消息（玩家2出3）。</strong></p>
+<p>**                     2.判断你是否能出这张牌。**</p>
+<p>**                     3.将判断结果（不符合出牌规则，不许出）返回给客户端。**</p>
+<p>这时候<strong>客户端收到消息</strong>。</p>
+<p><strong>客户端：1.显示提示：你出的牌不服务规范。（这张牌一直出不去）</strong></p>
+<p>这时候你点了一个4，然后点击出牌。<strong>客户端——-&gt;服务器</strong>，玩家2出个4。</p>
+<p>** 服务器：1.收到客户端发来的消息（玩家2出4）。**</p>
+<p>**                     2.判断你是否能出这张牌。**</p>
+<p>**                     3.将判断结果（可以出牌）返回给客户端。**</p>
+<p>这时候<strong>客户端收到消息</strong>。</p>
+<p><strong>客户端：1.你的手牌少了一张4。</strong></p>
+<p>**                     2.牌桌上多了一张4。**</p>
+<p>然后轮到下一家出牌。</p>
+<p>在这些例子中，服务器做的事情，都是需要游戏服务器开发人员通过代码来实现的。回到我几位前辈对我的回答：<strong>服务器就是一台电脑（电脑是硬件服务器，写的游戏服务器是软件，需要有硬件载体），你可以访问（客户端连接服务器），然后做一些事情（玩家出了一张3，请服务器告诉我，可不可以出）。</strong></p>
+<p>以上就是对游戏服务器的理解，希望能给你提供一个理解游戏服务器是干什么的思路。如果有什么说的不对的地方，请指出，我会尽快修改。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/05/27/Xshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%A4%B1%E8%B4%A5Could%20not%20connect%20to%20'192.xxx.xx.xxx'%20(port%2022)!%20Connection%20failed/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/05/27/Xshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%A4%B1%E8%B4%A5Could%20not%20connect%20to%20'192.xxx.xx.xxx'%20(port%2022)!%20Connection%20failed/" class="post-title-link" itemprop="url">Xshell连接虚拟机失败Could not connect to '192.xxx.xx.xxx' (port 22)：Connection failed.</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-27 10:10:30" itemprop="dateCreated datePublished" datetime="2019-05-27T10:10:30+08:00">2019-05-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:41:00" itemprop="dateModified" datetime="2023-07-16T17:41:00+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>之后的工作会使用Xshell，今天搞一个下来连接自己的虚拟机，发现连接失败：</p>
+<p><img src="/images/posts/xshellcould-not-connect-to-192xxxxxxxx-port-22-connection-failed/20190527100348655.png"></p>
+<p>猜想是可能是虚拟机或者Xshell部分没设置好</p>
+<p>查询后通过以下方法解决，做此记录：</p>
+<p>1.安装OpenSSH，执行<strong>sudo apt-get install openssh-server openssh-client</strong>命令。</p>
+<p><img src="/images/posts/xshellcould-not-connect-to-192xxxxxxxx-port-22-connection-failed/20190527100736178.png"></p>
+<p>2.执行<strong>netstat -tnl</strong>命令，查看22端口。</p>
+<p><img src="/images/posts/xshellcould-not-connect-to-192xxxxxxxx-port-22-connection-failed/20190527100842369.png"></p>
+<p>博主通过以上方法已可以接连上。</p>
+<p><img src="/images/posts/xshellcould-not-connect-to-192xxxxxxxx-port-22-connection-failed/20190527101126749.png"></p>
+<p>参考地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/s243471087/article/details/80208985">https://blog.csdn.net/s243471087/article/details/80208985</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/04/17/Lua%20%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/17/Lua%20%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">Lua 协同程序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-17 11:30:21" itemprop="dateCreated datePublished" datetime="2019-04-17T11:30:21+08:00">2019-04-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">lua</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<h3 id="协同程序-coroutine-简介"><a href="#协同程序-coroutine-简介" class="headerlink" title="协同程序(coroutine)简介"></a>协同程序(coroutine)简介</h3><p>Lua 协同程序(coroutine)与线程比较类似：拥有独立的堆栈，独立的局部变量，独立的指令指针，同时又与其它协同程序共享全局变量和其它大部分东西。</p>
+<h3 id="线程和协同程序区别"><a href="#线程和协同程序区别" class="headerlink" title="线程和协同程序区别"></a>线程和协同程序区别</h3><p>1.线程可以同时运行，协同程序却需要彼此协作的运行。</p>
+<p>2.在任一指定时刻<strong>只有一个</strong>协同程序在运行，并且这个正在运行的协同程序只有在<strong>明确的被要求</strong>挂起的时候才会被挂起。</p>
+<p>协同程序有点类似与，在等待同一个线程锁的几个线程。</p>
+<h3 id="方法概览"><a href="#方法概览" class="headerlink" title="方法概览"></a>方法概览</h3><p><strong>方法</strong><br><strong>描述</strong><br>coroutine.create(func)</p>
+<p> 创建coroutine，该方法只创建，如需唤醒coroutine需配合resume方法；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;入参：是协程运行的函数；&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;返回：成功返回coroutine。&lt;/p&gt;</span><br><span class="line">        &lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;width:225px;&quot;&gt;coroutine.resume(co, val1, ...)&lt;/td&gt;</span><br><span class="line">        &lt;td style=&quot;width:624px;&quot;&gt;</span><br><span class="line">        &lt;p&gt;唤醒coroutine，和create配合使用；&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;入参：可任意输入，但是第一个入参必须是coroutine.create()的返回值。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;           1.如果是第一次唤醒，其余入参作为协程运行函数的入参。多余的参数被舍弃。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;           2.如果是唤醒调用yield()挂起的协程，其他输入参数将作为yield()的返回值。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;           除第一个入参外，如果入参个数少于yield()返回值个数，则执行失败，如果多于yield()返回&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;           值个数，则多余的参数被舍弃，执行成功；&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;返回：成功返回true与yield()的入参。失败返回错误提示。&lt;/p&gt;</span><br><span class="line">        &lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;width:225px;&quot;&gt;coroutine.yield(val1, ...)&lt;/td&gt;</span><br><span class="line">        &lt;td style=&quot;width:624px;&quot;&gt;</span><br><span class="line">        &lt;p&gt;挂起coroutine，和resume配合使用能有很多有用的效果；&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;入参：可以任意输入，输入的入参将作为resume的返回值；&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;返回：resume()的入参作。&lt;/p&gt;</span><br><span class="line">        &lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;width:225px;&quot;&gt;coroutine.status(co)&lt;/td&gt;</span><br><span class="line">        &lt;td style=&quot;width:624px;&quot;&gt;</span><br><span class="line">        &lt;p&gt;获取coroutine的状态；&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;入参：coroutine.create()的返回值；&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;返回：返回coroutine的状态有四种：dead，suspend，running,normal。&lt;/p&gt;</span><br><span class="line">        &lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;width:225px;&quot;&gt;coroutine.wrap(func)&lt;/td&gt;</span><br><span class="line">        &lt;td style=&quot;width:624px;&quot;&gt;</span><br><span class="line">        &lt;p&gt;创建coroutine，返回一个函数，一旦你调用这个函数，就进入coroutine，和create功能重复；&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;入参：是协程运行的函数；&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p&gt;返回：成功返回一个函数。&lt;/p&gt;</span><br><span class="line">        &lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;width:225px;&quot;&gt;coroutine.running()&lt;/td&gt;</span><br><span class="line">        &lt;td style=&quot;width:624px;&quot;&gt;返回：正在跑的coroutine，一个coroutine就是一个线程，当使用running的时候，就是返回一个corouting的线程号&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h3&gt;方法详解&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>1. coroutine.create(func)</strong></p>
+<p>创建一个主体函数为 func 的新协程。 func 必须是一个 Lua 的函数。 返回这个新协程，它是一个类型为 “thread” 的对象。不会启动该协程。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">local co = coroutine.create(</span><br><span class="line">    function()</span><br><span class="line">        print(&quot;this is a coroutine&quot;)</span><br><span class="line">        return &quot;coroutine return&quot;</span><br><span class="line">    end)</span><br><span class="line">print(co)</span><br><span class="line">print(coroutine.resume(co))</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<p><img src="/images/posts/lua/20190417104732777.png"></p>
+<p><strong>2. coroutine.resume(co, val1, …)与coroutine.yield(val1, …)</strong></p>
+<p><strong>coroutine.resume(co, val1, …)，开始或唤醒协程co的运行。</strong></p>
+<p>如果第一次执行一个协程时，他会从协程函数开头处开始运行。val1,…这些值会以参数形式传入主体函数。<br>如果该协程被挂起，resume 会重新启动它； val1, … 这些参数会作为挂起点（yield）的返回值。<br>如果协程运行起来没有错误，将运行到协程挂起或协程结束， resume 返回 true 加上传给 yield 的所有值 （当协程挂起）， 或是主体函数的所有返回值（当协程中止）。</p>
+<p><strong>coroutine.yield(val1, …)，挂起正在调用的协程的执行。 传递给 yield 的参数都会转为 resume 的额外返回值。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">local co = coroutine.create(</span><br><span class="line">    function (input)</span><br><span class="line">        print(&quot;input : &quot;..input)</span><br><span class="line">        local param1, param2 ,param3 = coroutine.yield(&quot;yield1&quot;, &quot;learning1&quot;)</span><br><span class="line">        print(&quot;param1 is : &quot; .. param1)</span><br><span class="line">        print(&quot;param2 is : &quot; .. param2)</span><br><span class="line">        print(&quot;param3 is : &quot; .. param3)</span><br><span class="line">        local param4, param5 = coroutine.yield(&quot;yield2&quot;, &quot;learning2&quot;)</span><br><span class="line">    print(&quot;param4 is : &quot; .. param4)</span><br><span class="line">    print(&quot;param5 is : &quot; .. param5)</span><br><span class="line">        -- return 也会将结果返回给 resume</span><br><span class="line">        return &quot;coroutine return&quot; , 1+2</span><br><span class="line">    end)</span><br><span class="line"></span><br><span class="line">--第一次执行,将参数传给input</span><br><span class="line">print(&quot;first resume&quot;,coroutine.resume(co, &quot;coroutine function&quot;))</span><br><span class="line">print(&quot;this is main chunk&quot;)</span><br><span class="line">--第二次执行,将参数作为yield的返回值,传给param1 param2 param3</span><br><span class="line">print(&quot;second resume&quot;,coroutine.resume(co, &quot;param1&quot;, &quot;param2&quot;, &quot;param3&quot;))</span><br><span class="line">--第三次执行,将参数作为yield的返回值,传给param4 param5 多余的param6被舍弃</span><br><span class="line">print(&quot;third resume&quot;,coroutine.resume(co, &quot;param4&quot;, &quot;param5&quot;, &quot;param6&quot;))</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<p><img src="/images/posts/lua/20190417110959958.png"></p>
+<p><strong>分析：</strong></p>
+<p>第一次调用resume，将协同程序唤醒，入参作为函数入参；<br>协同程序运行；<br>运行到yield语句；<br>yield挂起协同程序，第一次resume返回，,resume操作成功返回true，否则返回false；（注意：此处yield入参（yield1、learning1）是resume的返回值）<br>第二次调用resume，将协同程序唤醒，入参（param1, param2 ,param3）作为yield的返回值 ；<br>协同程序运行；<br>运行到yield语句；<br>yield挂起协同程序，第二次resume返回，,resume操作成功返回true，否则返回false；（注意：此处yield入参（yield2、learning2）是resume的返回值）<br>…</p>
+<p><strong>3. coroutine.status(co)</strong></p>
+<p>以字符串形式返回协程 co 的状态：</p>
+<p>当协程正在运行（它就是调用 status 的那个） ，返回 “running”；<br>如果协程调用 yield 挂起或是还没有开始运行，返回 “suspended”；<br>如果协程是活动的，都并不在运行（即它正在延续其它协程），返回 “normal”；<br>如果协程运行完主体函数或因错误停止，返回 “dead”。</p>
+<p><code>local co local co2 = coroutine.create(function() print(“3.”..coroutine.status(co)) end) co = coroutine.create(     function ()         print(“2.”..coroutine.status(co))         coroutine.resume(co2)         coroutine.yield()     end)</code></p>
+<p>print(“1.”..coroutine.status(co))<br>coroutine.resume(co)<br>print(“4.”..coroutine.status(co))<br>coroutine.resume(co)<br>print(“5.”..coroutine.status(co))</p>
+<p></code></pre></p>
+<p><strong>输出：</strong></p>
+<p><img src="/images/posts/lua/20190417111258814.png"></p>
+<p><strong>4. coroutine.wrap(func)</strong></p>
+<p>创建一个主体函数为 func 的新协程。func 必须是一个 Lua 的函数。返回一个函数，每次调用该函数都会延续该协程(不需要调用resume)。传给这个函数的参数都会作为 resume 的额外参数。和 resume 返回相同的值，只是没有第一个布尔量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">local wrap = coroutine.wrap(</span><br><span class="line">    function (input)</span><br><span class="line">        print(&quot;input : &quot;..input)</span><br><span class="line">        local param1, param2 ,param3 = coroutine.yield(&quot;yield1&quot;, &quot;learning1&quot;)</span><br><span class="line">        print(&quot;param1 is : &quot; .. param1)</span><br><span class="line">        print(&quot;param2 is : &quot; .. param2)</span><br><span class="line">        print(&quot;param3 is : &quot; .. param3)</span><br><span class="line">        local param4, param5 = coroutine.yield(&quot;yield2&quot;, &quot;learning2&quot;)</span><br><span class="line">    print(&quot;param4 is : &quot; .. param4)</span><br><span class="line">    print(&quot;param5 is : &quot; .. param5)</span><br><span class="line">        -- return 也会将结果返回给 resume</span><br><span class="line">        return &quot;coroutine return&quot; , 1+2</span><br><span class="line">    end)</span><br><span class="line"></span><br><span class="line">--第一次执行,将参数传给input</span><br><span class="line">print(&quot;first resume&quot;, wrap(&quot;coroutine function&quot;))</span><br><span class="line">print(&quot;this is main chunk&quot;)</span><br><span class="line">--第二次执行,将参数作为yield的返回值,传给param1 param2 param3</span><br><span class="line">print(&quot;second resume&quot;, wrap(&quot;param1&quot;, &quot;param2&quot;, &quot;param3&quot;))</span><br><span class="line">--第三次执行,将参数作为yield的返回值,传给param4 param5 多余的param6被舍弃</span><br><span class="line">print(&quot;third resume&quot;, wrap(&quot;param4&quot;, &quot;param5&quot;, &quot;param6&quot;))</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<p><img src="/images/posts/lua/2019041711183286.png"></p>
+<p><strong>注：coroutine.wrap不是保护模式运行,如果发生任何错误，抛出这个错误。如下</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">local wrap = coroutine.wrap(</span><br><span class="line">    function (input)</span><br><span class="line">        print(&quot;input : &quot;..input)</span><br><span class="line">        local param1, param2 ,param3 = coroutine.yield(&quot;yield1&quot;, &quot;learning1&quot;)</span><br><span class="line">        print(&quot;param1 is : &quot; .. param1)</span><br><span class="line">        print(&quot;param2 is : &quot; .. param2)</span><br><span class="line">        print(&quot;param3 is : &quot; .. param3)</span><br><span class="line">        local param4 = coroutine.yield(&quot;yield2&quot;, &quot;learning2&quot;)</span><br><span class="line">    print(&quot;param4 is : &quot; .. param4)</span><br><span class="line">    print(&quot;param5 is : &quot; .. param5)</span><br><span class="line">        -- return 也会将结果返回给 resume</span><br><span class="line">        return &quot;coroutine return&quot; , 1+2</span><br><span class="line">    end)</span><br><span class="line"></span><br><span class="line">--第一次执行,将参数传给input</span><br><span class="line">print(&quot;first resume&quot;, wrap(&quot;coroutine function&quot;))</span><br><span class="line">print(&quot;this is main chunk&quot;)</span><br><span class="line">--第二次执行,将参数作为yield的返回值,传给param1 param2 param3</span><br><span class="line">print(&quot;second resume&quot;, wrap(&quot;param1&quot;, &quot;param2&quot;, &quot;param3&quot;))</span><br><span class="line">--第三次执行,将参数作为yield的返回值,传给param4 param5 多余的param6被舍弃</span><br><span class="line">print(&quot;third resume&quot;, wrap(&quot;param4&quot;, &quot;param5&quot;, &quot;param6&quot;))</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<p><img src="/images/posts/lua/20190417112301475.png"></p>
+<p><strong>5. coroutine.running()</strong></p>
+<p>返回当前的协程,如果实在主线程,则返回nil</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">local co = coroutine.create(</span><br><span class="line">    function () </span><br><span class="line">        print(coroutine.running()) </span><br><span class="line">        end)</span><br><span class="line"></span><br><span class="line">print(coroutine.running())</span><br><span class="line">coroutine.resume(co)</span><br><span class="line">print(co)</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<p><img src="/images/posts/lua/20190417112015927.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/04/16/Lua%E5%85%83%E8%A1%A8%EF%BC%88__index%E6%96%B9%E6%B3%95%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/16/Lua%E5%85%83%E8%A1%A8%EF%BC%88__index%E6%96%B9%E6%B3%95%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3%EF%BC%89/" class="post-title-link" itemprop="url">Lua元表（__index方法个人理解）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-16 11:26:29" itemprop="dateCreated datePublished" datetime="2019-04-16T11:26:29+08:00">2019-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">lua</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p><strong>什么是Lua元表：</strong></p>
+<p>原表可理解为“一个<strong>方法表</strong>（类似函数表）“，里面包含了一些解决方案。当一个table设置元表之后，相当于关联了这个方法表</p>
+<p><strong>setmetatable(table,metatable):</strong> 对指定 table 设置元表(metatable)，如果元表(metatable)中存在 __metatable 键值，setmetatable 会失败。<br><strong>getmetatable(table):</strong> 返回对象的元表(metatable)。</p>
+<h3 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mytable = &#123;&#125; ;                         -- 普通表</span><br><span class="line">mymetatable = &#123;&#125; ;                     -- 元表</span><br><span class="line">setmetatable(mytable,mymetatable);     -- 把 mymetatable 设为 mytable 的元表</span><br></pre></td></tr></table></figure>
+
+<h3 id="以下为返回对象元表："><a href="#以下为返回对象元表：" class="headerlink" title="以下为返回对象元表："></a>以下为返回对象元表：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getmetatable(mytable)                            -- 这回返回mymetatable</span><br></pre></td></tr></table></figure>
+
+<p>元表中有很多原方法，下面以**__index元方法**为例：</p>
+<p>当你通过键来访问 table 的时候，如果这个键没有值，那么Lua就会寻找该table的metatable（假定有metatable）中的__index 键。如果__index包含一个表格，Lua会在表格中查找相应的键。</p>
+<h3 id="例如："><a href="#例如：" class="headerlink" title="例如："></a>例如：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">house = &#123;house_computer = &quot;Macbook&quot;&#125;;</span><br><span class="line">company = &#123;company_computer = &quot;Acer&quot;&#125;;</span><br><span class="line">setmetatable(house, company);                  --把company设置为house的metatable</span><br><span class="line">print(house.company_computer);</span><br></pre></td></tr></table></figure>
+
+<p>输出的结果是<strong>nil</strong>。</p>
+<p>把代码改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">house = &#123;house_computer = &quot;Macbook&quot;&#125;;</span><br><span class="line">company = &#123;company_computer = &quot;Acer&quot;&#125;;</span><br><span class="line">company.__index = company;               -- 把company的__index方法指向自己</span><br><span class="line">setmetatable(house, company);            --把company设置为house的metatable</span><br><span class="line">print(house.company_computer);</span><br></pre></td></tr></table></figure>
+
+<p>输出的结果是<strong>Acer</strong>。</p>
+<p>在刚学习时，对**__index<strong>方法有所误解：</strong>如果house 的元表是company ，如果访问了一个house中不存在的成员，就会访问查找company中有没有这个成员。<strong>而这个理解实际上是错误的，即使将house的元表设置为company，而且company中也确实有这个成员，返回结果仍然会是nil，原因就是company的__index元方法没有赋值。之前有说过，原表类似于“</strong>方法表<strong>”，设置元表相当于关联了方法表，但是并不是在方法表里查找元素，而应该是调用方法表里相应的方法。</strong>__index就是定义了当表在查找相应的key值对应的value时，查找失败，应该怎么办。**</p>
+<p>把代码改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">house = &#123;house_computer = &quot;Macbook&quot;&#125;;</span><br><span class="line">company = &#123;company_computer = &quot;Acer&quot;&#125;;</span><br><span class="line">company.__index = function()</span><br><span class="line">                    return &quot;hello world!&quot;;</span><br><span class="line">                    end</span><br><span class="line">setmetatable(house, company);    --把company设置为house的metatable</span><br><span class="line">print(house.company_computer);</span><br></pre></td></tr></table></figure>
+
+<p>输出的结果是**hello world!**。</p>
+<p>在上述例子中，访问house.company_computer时，house中没有company_computer这个成员，但Lua接着发现house有元表company，注意：此时，Lua并不是直接在company中找名为company_computer的成员，而是调用company的__index方法，如果__index方法为nil，则返回nil，如果是一个表，那么就到__index方法所指的这个表中查找名为company_computer的成员，于是，最终找到了company_computer成员。__index方法除了可以是一个表，还可以是一个函数，如果是一个函数，__index方法被调用时将返回该函数的返回值。</p>
+<blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Lua 查找一个表元素时的规则，其实就是如下 3 个步骤:</p>
+<ul>
+<li>1.在表中查找，如果找到，返回该元素，找不到则继续</li>
+<li>2.判断该表是否有元表，如果没有元表，返回 nil，有元表则继续。</li>
+<li>3.判断元表有没有 __index 方法，如果 __index 方法为 nil，则返回 nil；如果 __index 方法是一个表，则重复 1、2、3；如果 __index 方法是一个函数，则返回该函数的返回值。</li>
+</ul>
+<p>该部分内容来自作者寰子：<a target="_blank" rel="noopener" href="https://blog.csdn.net/xocoder/article/details/9028347">https://blog.csdn.net/xocoder/article/details/9028347</a></p>
+</blockquote>
+<h2 id="注：别的元方法也一样，调用的是实际上是设置的元表的元方法。"><a href="#注：别的元方法也一样，调用的是实际上是设置的元表的元方法。" class="headerlink" title="注：别的元方法也一样，调用的是实际上是设置的元表的元方法。"></a>注：别的元方法也一样，调用的是实际上是设置的元表的元方法。</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/04/15/Lua%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6and%EF%BC%8Cor%EF%BC%8Cnot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/15/Lua%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6and%EF%BC%8Cor%EF%BC%8Cnot/" class="post-title-link" itemprop="url">Lua逻辑运算符and，or，not</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-15 11:56:05" itemprop="dateCreated datePublished" datetime="2019-04-15T11:56:05+08:00">2019-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">lua</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在Lua中合理使用and，or，not可提高代码效率，减少代码量，增加可读性。</p>
+<p>Lua逻辑运算符and，or，not规则如下：</p>
+<p>设定 <strong>A 的值为 true</strong>，<strong>B 的值为 false</strong>：</p>
+<p><strong>操作符</strong><br><strong>描述</strong><br><strong>实例</strong><br>and<br>逻辑与操作符。 若 A 为 true，则返回 B；若A为false，则返回A。<br>(A and B) 为 false。</p>
+<p>or</p>
+<p>逻辑或操作符。 若 A 为 true，则返回 A，若A为false，则返回 B。<br>(A or B) 为 true。<br>not<br>逻辑非操作符。与逻辑运算结果相反，如果条件为 true，逻辑非为 false。<br>not(A and B) 为 true。</p>
+<p><strong>优先级and&gt;or，意味着当一行代码同时出现and与or的时候，先进行and操作。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A or B and C == A or (B and C）</span><br></pre></td></tr></table></figure>
+
+<p><strong>例子：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(&#x27;---------------and--------------------&#x27;)</span><br><span class="line">print(true and true)</span><br><span class="line">print(true and false)</span><br><span class="line">print(false and true)</span><br><span class="line">print(false and false)</span><br><span class="line">print(&#x27;---------------or---------------------&#x27;)</span><br><span class="line">print(true or true)</span><br><span class="line">print(true or false)</span><br><span class="line">print(false or true)</span><br><span class="line">print(false or false)</span><br><span class="line">print(&#x27;--------------not---------------------&#x27;)</span><br><span class="line">print(not(true))</span><br><span class="line">print(not(false))</span><br><span class="line">print(&#x27;------------and，or-------------------&#x27;)</span><br><span class="line">print(true or false and false)</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<p><img src="/images/posts/luaandornot/20190415115145741.png"></p>
+<p><strong>lua三目运算符：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ret = a &gt; b and a or b</span><br></pre></td></tr></table></figure>
+
+<p>a&gt;b时：a&gt;b and a or b—–&gt;a or b—–&gt;a</p>
+<p>a&lt;=b时：a&gt;b and a or b —–&gt;a&gt;b or b—–&gt;b</p>
+<p><strong>lua并不能完全实现三目运算符</strong></p>
+<p>三目运算的一般形式a ? b : c</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;a = true,结果为b&lt;br /&gt;</span><br><span class="line">a = false,结果为c&lt;/p&gt;</span><br><span class="line">&lt;/li&gt;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">&lt;p&gt;对应Lua中的a and b or c&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;&lt;li&gt;b = true</span><br><span class="line">    &lt;ul&gt;&lt;li&gt;a = true</span><br><span class="line">        &lt;ul&gt;&lt;li&gt;a and b –&gt; true&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;b or c –&gt; b&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;a = false</span><br><span class="line">        &lt;ul&gt;&lt;li&gt;a and b –&gt; false&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;b or c –&gt; c&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;b = false</span><br><span class="line">    &lt;ul&gt;&lt;li&gt;a = true</span><br><span class="line">        &lt;ul&gt;&lt;li&gt;a and b –&gt; false&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;b or c –&gt; c&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;a = false</span><br><span class="line">        &lt;ul&gt;&lt;li&gt;a and b –&gt; false&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;b or c –&gt; c&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+
+</ul>
+
+<p>由此可见，lua要想实现三目运算符要注意</p>
+<h3 id="注意：Lua中的and与or，和C-C-的与、或有所区别。不要混淆使用。"><a href="#注意：Lua中的and与or，和C-C-的与、或有所区别。不要混淆使用。" class="headerlink" title="注意：Lua中的and与or，和C/C++的与、或有所区别。不要混淆使用。"></a><strong>注意：Lua中的and与or，和C/C++的与、或有所区别。不要混淆使用。</strong></h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/04/02/Lua%EF%BC%8Cpairs%E4%B8%8Eipairs%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/02/Lua%EF%BC%8Cpairs%E4%B8%8Eipairs%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">Lua，pairs与ipairs区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-02 17:31:33" itemprop="dateCreated datePublished" datetime="2019-04-02T17:31:33+08:00">2019-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">lua</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>pairs遍历表中全部key，value</p>
+<p>ipairs 这个迭代器只能遍历所有数组下标的值，这是前提，也是和 pairs 的最根本区别，也就是说如果 ipairs 在迭代过程中是会直接跳过所有手动设定key值的变量。</p>
+<p>特别注意一点，和其他多数语言不同的地方是，迭代的下标是从1开始的。</p>
+<h3 id="pairs实例："><a href="#pairs实例：" class="headerlink" title="pairs实例："></a>pairs实例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tab = &#123;1, 2, 3, key1 = nil, key2 = &quot;val2&quot;, nil,  &quot;d&quot;&#125;</span><br><span class="line">for k, v in pairs(tab) do</span><br><span class="line">    print(k,v)</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>以上实例结果：</p>
+<p><img src="/images/posts/luapairsipairs/20190402171306522.png"></p>
+<p><strong>注意：pairs遍历过程中元素出现的顺序可能是随机的，唯一能确定的是，每个元素只会出现一次。</strong></p>
+<h3 id="ipairs实例："><a href="#ipairs实例：" class="headerlink" title="ipairs实例："></a>ipairs实例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tab = &#123;1, 2, 3, key1 = nil, key2 = &quot;val2&quot;, nil,  &quot;d&quot;&#125;</span><br><span class="line">for k, v in ipairs(tab) do</span><br><span class="line">    print(k,v)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">tab = &#123;1, 2, 3, key1 = nil, key2 = &quot;val2&quot;, &quot;d&quot;&#125;</span><br><span class="line">for k, v in ipairs(tab) do</span><br><span class="line">    print(k,v)</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>以上实例结果：</p>
+<p><img src="/images/posts/luapairsipairs/20190402172336252.png"></p>
+<p>ps：中间那道杠（——-）是分隔符，插入代码时不能选择LUA，选择了别的语言代替，上面实例代码中删除了打印分隔符，如果没删除，代码会变成纯白色，可读性不强。</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><h3 id="1-pairs-能迭代所有键值对。"><a href="#1-pairs-能迭代所有键值对。" class="headerlink" title="1.pairs 能迭代所有键值对。"></a><strong>1.pairs</strong> 能迭代所有键值对。</h3><h3 id="2-ipairs-可以想象成-int-pairs，只会迭代键为数字的键值对。"><a href="#2-ipairs-可以想象成-int-pairs，只会迭代键为数字的键值对。" class="headerlink" title="2.ipairs 可以想象成 int+pairs，只会迭代键为数字的键值对。"></a><strong>2.ipairs</strong> 可以想象成 <strong>int+pairs</strong>，只会迭代键为数字的键值对。</h3><h3 id="3-ipairs在迭代过程中如果遇到nil时会直接停止。"><a href="#3-ipairs在迭代过程中如果遇到nil时会直接停止。" class="headerlink" title="3.ipairs在迭代过程中如果遇到nil时会直接停止。"></a>3.ipairs在迭代过程中如果遇到nil时会直接停止。</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fushen Ban"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Fushen Ban</p>
+  <div class="site-description" itemprop="description">正在进化</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fushen Ban</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

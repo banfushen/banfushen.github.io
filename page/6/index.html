@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"banfushen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="正在进化">
+<meta property="og:type" content="website">
+<meta property="og:title" content="拼图收集者">
+<meta property="og:url" content="https://banfushen.github.io/page/6/index.html">
+<meta property="og:site_name" content="拼图收集者">
+<meta property="og:description" content="正在进化">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fushen Ban">
+<meta property="article:tag" content="linux，golang，lua，c，python，nodejs，k8s，redis">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://banfushen.github.io/page/6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+  <title>拼图收集者</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">拼图收集者</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欠的技术债，早晚要还</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/resume/" rel="section"><i class="fa fa-fw fa-user"></i>resume</a>
+
+  </li>
+        <li class="menu-item menu-item-simplefolio">
+
+    <a href="/simplefolio/" rel="section"><i class="fa fa-fw fa-id-card"></i>simplefolio</a>
+
+  </li>
+        <li class="menu-item menu-item-game">
+
+    <a href="/game/" rel="section"><i class="fa fa-fw fa-gamepad"></i>game</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/08/24/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%88%8FAI%EF%BC%88%E5%9B%9B%EF%BC%89%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E6%96%97%E5%9C%B0%E4%B8%BBAI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/24/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%88%8FAI%EF%BC%88%E5%9B%9B%EF%BC%89%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E6%96%97%E5%9C%B0%E4%B8%BBAI/" class="post-title-link" itemprop="url">如何写一个游戏AI（四）如何使用卷积神经网络训练一个斗地主AI</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-24 19:37:54" itemprop="dateCreated datePublished" datetime="2020-08-24T19:37:54+08:00">2020-08-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI%E4%B9%8B%E8%B7%AF-python/" itemprop="url" rel="index"><span itemprop="name">AI之路 python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>经过3个星期得努力，终于初步达成效果，由于训练数据少（因为我在公司使用的电脑只能使用CPU训练，所以数据不能太多，否则就要很长时间）训练出了个傻子。之后我便没有在继续这个工作了。原因有二：1.我身后的同事和我一起再搞，他的进度比我快多了，而且也拿到了AI训练的机器的使用权。2.的确我也是来了新的需求。所以AI工作先告一段落。</p>
+<p>下面分享训练AI的思路。至于代码，就不能分享了。因为是工程代码。</p>
+<h3 id="1-准备数据"><a href="#1-准备数据" class="headerlink" title="1.准备数据"></a>1.准备数据</h3><p>经过前面几篇关于使用卷积神经网络的blog，已经说明了为什么要准备数据。因为我现在的公司拥有大量的牌局数据，所以对我来说这个也不是什么问题。如果没有数据的话，就难搞了。</p>
+<h3 id="2-重中之重，设计输入输出"><a href="#2-重中之重，设计输入输出" class="headerlink" title="2.重中之重，设计输入输出"></a>2.重中之重，设计输入输出</h3><p>卷积神经网络比较有名的应用，就是图像识别，也适合做图像识别。那我们拿到斗地主的牌局数据又有什么用呢？其实只要打开了思维，把牌局数据转化成矩阵，输入到设计的模型里，再规定输出即可。</p>
+<p>而训练出来最终的模型是这样的，给定你设计的输入，AI会告诉你输出的牌型概率。比如，你给定了你的手牌作为输入，然后AI模型会给出概率出什么牌。至于概率对应的出牌，也是你设计的输出。下面给出一张图，可以作为思路参考。至于怎么做，怎么设计，还是在于自己。</p>
+<p><img src="/images/posts/aiai/20200824193351606.png"></p>
+<p>这篇文章的地址为：<a target="_blank" rel="noopener" href="https://gameinstitute.qq.com/course/detail/10132#">https://gameinstitute.qq.com/course/detail/10132#</a>，腾讯大牛的文章。</p>
+<p>至于输出，我觉得都是要枚举出所有的出牌情况，把输出对应好，最后使用模型时看概率出什么牌。</p>
+<p>最后，学会使用卷积神经网络去训练一个AI，按照应用来说，其实是不算难的，难点在于设计模型。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/08/16/%E5%A4%A7%E8%AF%9D%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%9B%86%E7%BE%A4%E3%80%81%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/16/%E5%A4%A7%E8%AF%9D%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%9B%86%E7%BE%A4%E3%80%81%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F/" class="post-title-link" itemprop="url">大话什么是服务器的集群、负载均衡、分布式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-16 13:55:48" itemprop="dateCreated datePublished" datetime="2020-08-16T13:55:48+08:00">2020-08-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>前几天，室友换工作了，之前的他是做客户端上位机的，换工作了之后接触到了<strong>集群、负载均衡、分布式</strong>等概念，但是不是很清楚，百度上的答案也是鸡同鸭讲，于是在群里和我讨论了这个问题。我想起我刚做服务器开发的时候，关于这些概念也不是很清晰，现在想想，应该可以用大白话描述出来。下面举个例子。</p>
+<h3 id="1-什么是集群"><a href="#1-什么是集群" class="headerlink" title="1.什么是集群"></a>1.什么是集群</h3><p>首先，我们假设这么个例子，你现在是一个刺激战场的服务器开发工程师，从0开始开发。你先开发了一个服务器A，你开发的服务器A<strong>性能峰值</strong>能容纳5000人在线玩游戏，然后部署使用。因为是新开发的游戏，玩的人不是很多。过了一段时间后，发现玩游戏的人越来越多了，现在已经有8000人要玩了，一台服务器已经撑不住了，你又开发了服务器B。让服务器A、服务器B一起运行，这样你的游戏最多就能容纳10000人游戏了。<strong>服务器A、服务器B就叫做你的游戏服务器集群。</strong>同理，你扩展到10台服务器，只要是你刺激战场游戏的服务器，都称作你的<strong>服务器集群</strong>。</p>
+<h3 id="2-什么是负载均衡"><a href="#2-什么是负载均衡" class="headerlink" title="2.什么是负载均衡"></a>2.什么是负载均衡</h3><p>你现在有了2台服务器，你发现你的服务器运行是这样的，8000人进行游戏，服务器A人数达到5000人了，剩下的3000人才会进入的是服务器B。这样会造成一个问题，有软件常识的人都知道，数据量越大，处理数据的时间就越长、或者空间就越大。服务器A有5000人进行游戏，已经是达到了性能峰值，玩家偶尔会感觉到服务器卡顿，例如：点了开局，过一会儿才会跳入下一个界面。就像你电脑同时开启了很多东西，虽然都能处理，但是偶尔会卡顿。你觉得这样不合理，明明有两台服务器，只要每台服务器分别处理4000个玩家，这样两个服务器都没达到峰值，8000玩家都能有良好的体验。于是乎，你就写了一些处理方法，让服务器A和服务器B处理的玩家是相同的。例如，有6000玩家进行游戏的时候，服务器A、服务器B分别处理3000玩家。这就是<strong>负载均衡</strong>。</p>
+<h3 id="3-什么是分布式"><a href="#3-什么是分布式" class="headerlink" title="3.什么是分布式"></a>3.什么是分布式</h3><p>经过一段时间的运营，你的刺激战场游戏已经有5W玩家进行游戏，峰值的时候有4W玩家同时在线。你按照上面的方法，你开发了10台服务器（服务器A、B、C….），游戏运营的都很正常。忽然有一天，有4W人同时在线时，忽然有有三台服务器挂了，连接这三台服务器的玩家全部被断开连接，然后重新连接，但是你7台服务器的性能巅峰只能容纳3.5W人。意味着有5000玩家直接玩不了，运气不好，5000玩家里刚好有几个大土豪，刚好再逛商城，准备消费，现在消费不聊了，经过一投诉，你被公司痛批了一顿，你被痛批后，开始觉得你的设计不合理。虽然4W人同时在线，但是只有3W人是再游戏的，1W人是不进入游戏的，只是再逛大厅（商城），而且你原来把所有的逻辑都写再一个服务器（登录、大厅、游戏）导致一个服务器性能巅峰只能容纳5000人。于是乎，你重新分析了需求：1.同时登陆的玩家最多有1W人，2同时在线的玩家一般有1/4是至逛大厅和商城的，剩下的3/4是进行游戏的。然后你重新设计了你的服务器，把服务器分成3类，<strong>每一类只处理一种业务</strong>，分成了<strong>登陆服务器、大厅服务器、游戏服务器</strong>。经过你这么一拆分，<strong>由于一台服务器只处理一种逻辑，服务器性能得到了提高</strong>，最高可以处理1W人的逻辑，这就是<strong>分布式</strong>。现在你重新分配服务器，10台服务器，分成2台登陆服务器，2台大厅服务器，6台游戏服务器，现在游戏在同时有4W人在线的时候，按照1/4在大厅（1W人），3/4在游戏（3W人）。这个时候，如果有3台服务器挂了，都不会出现像上次那样玩家无法连接的情况。</p>
+<p>以上的只是举个例子帮助理解这几个概念，实际情况会更复杂，但是原理都是这样的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/08/12/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%88%8FAI%EF%BC%88%E4%BA%8C%EF%BC%89%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/12/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%88%8FAI%EF%BC%88%E4%BA%8C%EF%BC%89%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%EF%BC%9F/" class="post-title-link" itemprop="url">如何写一个游戏AI（二）卷积神经网络是什么，怎么使用？</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-12 20:09:03" itemprop="dateCreated datePublished" datetime="2020-08-12T20:09:03+08:00">2020-08-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">AI之路</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>开始接触卷积神经网络已经有快三个星期了。觉得还是有一些概念，要刚开始知道会比较容易理解这个东西。</p>
+<h3 id="1-什么是卷积神经网络"><a href="#1-什么是卷积神经网络" class="headerlink" title="1.什么是卷积神经网络"></a><strong>1.什么是卷积神经网络</strong></h3><p>** **其实这个东西应该是这样读的，卷积  神经网络。卷积是用来提取特征的，神经网络是用来分类的。合起来就是，卷积神经网络用来提取特征然后分类的。下面继续解释</p>
+<h3 id="2-为什么卷积可以提取特征"><a href="#2-为什么卷积可以提取特征" class="headerlink" title="2.为什么卷积可以提取特征"></a><strong>2.为什么卷积可以提取特征</strong></h3><p>** <strong>在使用卷积神经网络时，经常看到一个概念叫做</strong>卷积核（滤波器）<strong>，这个东西为什么可以提取特征呢。举个可能不恰当的例子，例如，你现在有一堆混合物（大米+红豆+大豆），要对它们进行分类，这个使用你使用一个筛子，这个筛子就类似于上面说的</strong>卷积核（滤波器）**，你通过改变它，既可以提取特征。就像你改变你的筛子大小，最小的时候，你只能筛出大米，别的东西无法通过筛子，你的卷积核就提取了大米的特征。</p>
+<h3 id="3-什么是神经网络"><a href="#3-什么是神经网络" class="headerlink" title="3.什么是神经网络"></a><strong>3.什么是神经网络</strong></h3><p><img src="/images/posts/ai/20200812195125892.png"></p>
+<p>** **如上图所示，这就是一个神经网络的结构，简单来说，就是输入层（两个神经元，红色）—&gt;隐藏层（三个神经元，绿色）—&gt;输出层（两个神经元，黄色）。即，给定了输入，最后得到输出。为什么可以分类，我也不太清楚，可以自行百度。</p>
+<h3 id="4-使用卷积神经网络的实际例子"><a href="#4-使用卷积神经网络的实际例子" class="headerlink" title="4.使用卷积神经网络的实际例子"></a>4.使用卷积神经网络的实际例子</h3><p>用大白话举例过程，原理是这样的，但是实际操作会有一些别的不通。比如用卷积神经网络训练了一个可以识别猫、狗图像的AI。</p>
+<p>1.把海量的猫图片、狗图片作为输入</p>
+<p>2.当输入猫图片时，让训练模型输出为A</p>
+<p>3.当输入狗图片时，让训练模型输出为B</p>
+<p>4.当训练的时候，海量的训练数据就会反复调整卷积核，不停的改变参数（也就是学习），最后拿到最优的模型</p>
+<p>5.最后，使用时当你给定一张猫的图片的时候，猫图片输入模型，模型会预测出这张图最大概率结果是A。如果输入的是狗的图片，则这张图最大概率是B</p>
+<p><strong>最后有两点要说一说</strong></p>
+<p>**        1.其实使用卷积神经网络训练AI并没有想象的那么可怕，会自己思考，什么的七七八八。你必须事先告诉它结果。例如，你给他一巴掌作为输入时，输出为AI给你100元。当训练完之后，你给它一巴掌，它只会给你100元，并不会反过来打你一巴掌。**</p>
+<p>**        2.要想使用卷积神经网络训练AI，必须要规定相应的输入和输出作为训练，这个输入和输出是我们程序员自己定的。**</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/08/12/C%E8%B0%83%E7%94%A8Lua%E4%B8%8E%E8%A7%A3%E5%86%B3Lua%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/12/C%E8%B0%83%E7%94%A8Lua%E4%B8%8E%E8%A7%A3%E5%86%B3Lua%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">C调用Lua与解决Lua环境问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-12 15:56:32" itemprop="dateCreated datePublished" datetime="2020-08-12T15:56:32+08:00">2020-08-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">lua</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>一直是在框架上进行开发，而skynet的优点之一也是可以用lua来写逻辑，所以C调用lua这一块一直没有自己实际尝试，现在正在训练ai，刚好有时间搞搞这个。</p>
+<p>先补充概念：</p>
+<p>**   1.C是需要自己管理内存的，申请、释放**</p>
+<p>**       2.lua是自动管理内存的，没有引用的变量会定时被gc**</p>
+<p>** **那如果，c在调用lua时，如果lua变量被释放了，就悲剧了。所以需要用一个东西一直来引用lua的变量。C与lua交互就是使用虚拟栈来交互（个人理解）。</p>
+<p>下面上代码，这些C使用lua的api可以自己去查具体的用处。</p>
+<p>附上lua 5.3中文参考手册地址：<a target="_blank" rel="noopener" href="https://www.runoob.com/manual/lua53doc/contents.html#contents">https://www.runoob.com/manual/lua53doc/contents.html#contents</a></p>
+<p>** 1.以下为C代码**</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">extern &quot;C&quot; </span><br><span class="line">&#123;</span><br><span class="line">    #include &quot;lua.h&quot;</span><br><span class="line">    #include &quot;lauxlib.h&quot;    //这里需要真tm的注意，不是luaxlib</span><br><span class="line">    #include &quot;lualib.h&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//调用lua中的add函数</span><br><span class="line">int call_lua_add(lua_State *L)</span><br><span class="line">&#123;</span><br><span class="line">    lua_getglobal(L, &quot;add&quot;);         //把虚拟机中全局变量 add 压入虚拟机L的栈，这里注意，一定要是全局变量</span><br><span class="line">    lua_pushnumber(L, 123);            //第一个参数入栈</span><br><span class="line">    lua_pushnumber(L, 456);         //第二个参数入栈</span><br><span class="line">    lua_call(L, 2, 1);                //调用栈中的add函数，2个参数，1个返回值</span><br><span class="line">    int sum = (int)lua_tonumber(L, -1);        //获取栈顶元素(上一步的返回值)</span><br><span class="line">    lua_pop(L, 1);        //栈顶元素出战</span><br><span class="line">    return sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    lua_State *L = luaL_newstate();        //新建lua虚拟机</span><br><span class="line">    luaL_openlibs(L);                    //在虚拟机中载入lua所有函数库</span><br><span class="line">    luaL_dofile(L, &quot;Test.lua&quot;);            //加载 并 运行指定的文件</span><br><span class="line">    lua_settop(L, 0);                    //重新设置栈底，这个过程，是为了确认栈底是空的，以便后面的操作是按照顺序入栈的且从1号栈位开始</span><br><span class="line">    int ret = call_lua_add(L);</span><br><span class="line">    printf(&quot;调用lua文件结果为 %d\n&quot;, ret);</span><br><span class="line">    lua_close(L);                        //一定记得关闭虚拟机  </span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.以下为lua代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function add( x, y )</span><br><span class="line">    return x+y</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">print(&quot;你终于动手了&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.编译c文件，然后发现报错了，原因时找不到头文件的，也就是环境没指定好</strong></p>
+<p><img src="/images/posts/clualua/20200812142708412.png"></p>
+<p><strong>4.简单查找一下</strong></p>
+<p><img src="/images/posts/clualua/20200812142804341.png"></p>
+<p><strong>4.然后编译，-I参数是用来指定头文件目录 （是i），然后发现报错了</strong></p>
+<p><img src="/images/posts/clualua/20200812142853903.png"></p>
+<p>这个报错是说没找到这些东西，因为这些都在lualib库里，查找一下，指定一下即可。</p>
+<p><img src="/images/posts/clualua/20200812143354735.png"></p>
+<p><strong>5.我是直接sudo cp /usr/lib/x86_64-linux-gnu/liblua5.3.so.0 . 将库拷贝到本目录，然后改名为liblua5.3.so。然后编译，-l参数就是用来指定程序要链接的库，-l参数紧接着就是库名 （l），没报错。运行。结果如下</strong></p>
+<p><img src="/images/posts/clualua/20200812152425666.png"></p>
+<p>因为使用lua也有一段时间了，以前一直感觉C与lua交互是不难的，但是感觉是感觉，只有自己实际操作了，才有权力去说难不难。今天尝试了，的确不难。还是需要尽量都是自己去尝试了，才下结论。<strong>“有剑不用，和没有剑，不是用一个概念”</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/08/03/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%88%8FAI%EF%BC%88%E4%B8%89%EF%BC%890-9%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%ABAI%E8%AE%AD%E7%BB%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/03/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%88%8FAI%EF%BC%88%E4%B8%89%EF%BC%890-9%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%ABAI%E8%AE%AD%E7%BB%83/" class="post-title-link" itemprop="url">如何写一个游戏AI（三）0-9手写数字图片识别AI训练</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-03 20:23:32" itemprop="dateCreated datePublished" datetime="2020-08-03T20:23:32+08:00">2020-08-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI%E4%B9%8B%E8%B7%AF-python/" itemprop="url" rel="index"><span itemprop="name">AI之路 python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>接上回书，那么如何写一个入门的简单AI训练（0-9）数字图片试别AI。本文的程序，配合我训练的模型试别准确率只有98.8%，不过也是算是给我开辟了新的知识面。</p>
+<h2 id="1-为什么使用卷积神经网络"><a href="#1-为什么使用卷积神经网络" class="headerlink" title="1.为什么使用卷积神经网络"></a>1.为什么使用卷积神经网络</h2><p>原因有二：1.直观上，使用卷积比全连接网络少很多参数（百度上说的）；2.我经理直接叫我用这个。哈哈哈哈 = =，我只是大概知道，可以用来处理图像。如果有同僚看到这篇文章，有别的见解欢迎指出。</p>
+<h2 id="2-在写这个训练AI的代码之前，需要准备什么"><a href="#2-在写这个训练AI的代码之前，需要准备什么" class="headerlink" title="2.在写这个训练AI的代码之前，需要准备什么"></a><strong>2.在写这个训练AI的代码之前，需要准备什么</strong></h2><p>** ** 使用卷积训练AI，也就是教会AI试别各种数字的是需要大量的数据进行训练了。<strong>因为是入门，所以我的训练图片是32*32的黑白图像，也就是用画图工具画出来的。</strong>0-9每个数字画了十张。然后写了个python脚本，用每个数字的10张样本，经过简单平移或者旋转生成1000张图。0-9总共是10000张图作为所有的输入数据。<strong>设计好输入和输入</strong>，安装好相应的库，例如<strong>tensorflow，numpy</strong>。</p>
+<h2 id="3-代码主要分为4个部分：读取图片，读取训练集和校验集，训练，使用模型"><a href="#3-代码主要分为4个部分：读取图片，读取训练集和校验集，训练，使用模型" class="headerlink" title="3.代码主要分为4个部分：读取图片，读取训练集和校验集，训练，使用模型"></a>3.代码主要分为4个部分：读取图片，读取训练集和校验集，训练，使用模型</h2><p>下面开始进入代码部分，代码部分有足够的注释：</p>
+<p><strong>a.读取图片：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">def read_sample(file_path):</span><br><span class="line">    ret = numpy.zeros((32, 32))                 #使用numpy构建32*32的数组</span><br><span class="line">    im = Image.open(file_path)</span><br><span class="line">    rgb_im = im.convert(&#x27;RGB&#x27;)                  #将打开的image指定真彩色模式 </span><br><span class="line">    for i in range(32):</span><br><span class="line">        for j in range(32):</span><br><span class="line">            r, g, b = rgb_im.getpixel((i, j))   #读取每个点的r,g,b</span><br><span class="line">            average = (r + b + g)/3             </span><br><span class="line">            if average &gt;= 127:                  #因为是黑白图像，非黑即白rgb三原色综合是255，所以可以使用127来区分</span><br><span class="line">                ret[i, j] =  0</span><br><span class="line">            else:</span><br><span class="line">                ret[i, j] = 1</span><br><span class="line"></span><br><span class="line">    return ret</span><br><span class="line"></span><br><span class="line"># 可以使用以下代码输入一下看看图形转化为数字输入的结果</span><br><span class="line"># ret = read_sample(&quot;C:/Users/bfs/Desktop/learning_ai/0/0_1.png&quot;)  </span><br><span class="line"># for j in range(32):</span><br><span class="line">#     for i in range(32):</span><br><span class="line">#         print(int(ret[i, j]), end=&#x27; &#x27;)</span><br><span class="line">#     print(&#x27;&#x27;)      </span><br><span class="line">#</span><br></pre></td></tr></table></figure>
+
+<p>这里随便使用一张图0的图打印结果如下</p>
+<p><img src="/images/posts/ai0-9ai/20200803195905743.png"></p>
+<p>可以清晰的看到，转换成数字输入的结果，的确是一个0。</p>
+<p>**         b.读取训练集和校验集**</p>
+<p>这里补充一下，在所有的数据里面，需要把数据分为训练和校验。校验用来验证训练的结果。校验满意后，再生成模型。之后就是直接使用模型了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def read_trainset_and_validateset():</span><br><span class="line">    trainset_samples = []               #定义训练集</span><br><span class="line">    validateset_samples = []            #定义校验集</span><br><span class="line"></span><br><span class="line">    for i in range(10):</span><br><span class="line">        for root, dirs, files in os.walk(&quot;out/&quot;+str(i), topdown=False):</span><br><span class="line">            for name in files:</span><br><span class="line">                pic_path = os.path.join(root, name)</span><br><span class="line">                rand_num = random.random()</span><br><span class="line">                if rand_num &gt; 0.9:                                            #90%为训练集，剩下10%为校验集</span><br><span class="line">                    trainset_samples.append( (read_sample(pic_path), i) )     #插入训练集，内容为 （图像内容，数字）</span><br><span class="line">                else:</span><br><span class="line">                    validateset_samples.append( (read_sample(pic_path), i) )  #插入校验集，内容为 （图像内容，数字）</span><br><span class="line"></span><br><span class="line">    return (trainset_samples, validateset_samples)</span><br></pre></td></tr></table></figure>
+
+<p><strong>c.训练</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">def train():</span><br><span class="line">    print(&quot;loading....&quot;)</span><br><span class="line">    trainset_samples, valideteset_samples = read_trainset_and_validateset()    #获取训练集和校验集</span><br><span class="line">    x = numpy.zeros((len(trainset_samples), 32, 32, 1))                        #构建训练集, 10个32*32的1通道神经元输入</span><br><span class="line">    y = numpy.zeros((len(trainset_samples), 10))                               #构建训练集, 二维0-9的神经元输出</span><br><span class="line">    validate_x = numpy.zeros((len(valideteset_samples), 32, 32, 1))            #构建校验集, 10个32*32的1通道神经元输入</span><br><span class="line">    validate_y = numpy.zeros((len(valideteset_samples), 10))                   #构建校验集, 二维0-9的神经元输出</span><br><span class="line">    print(&quot;conver......&quot;)</span><br><span class="line"></span><br><span class="line">    for i in range(len(trainset_samples)):</span><br><span class="line">        sample, sample_out = trainset_samples[i]            #sample对应读取的图像结果, sample_out对应结果为哪个数字</span><br><span class="line">        for xi in range(32):    </span><br><span class="line">            for yi in range(32):</span><br><span class="line">                x[i, xi, yi, 0] = sample[xi, yi]            #训练集输入, i对应目前是哪个神经元的输入, sample为读取图像的结果</span><br><span class="line"></span><br><span class="line">        y[i, sample_out] = 1                                #训练集输出, 意思为这个神经元的输出结果为1, 即当以上神经元输入时,对应的这个神经元的sample_out的预测结果为1(100%)</span><br><span class="line"></span><br><span class="line">    for i in range(len(valideteset_samples)):</span><br><span class="line">        sample, sample_out = valideteset_samples[i]         #sample对应读取的图像结果, sample_out对应结果为哪个数字</span><br><span class="line">        for xi in range(32):</span><br><span class="line">            for yi in range(32):</span><br><span class="line">                validate_x[i, xi, yi, 0] = sample[xi, yi]   #校验集输入, i对应目前是哪个神经元的输入, sample为读取图像的结果</span><br><span class="line"></span><br><span class="line">        validate_y[i, sample_out] = 1                       #校验集输出, 意思为这个神经元的输出结果为1, 即当以上神经元输入时,对应的这个神经元的sample_out的预测结果为1(100%)</span><br><span class="line"></span><br><span class="line">    input = keras.Input(shape=(32,32,1))                                                    #输入层，32*32个神经元输入，一个输入通道，因为只是一个二维的黑白图像，一个输入通道即可。复杂的情况则需要多个输入通道，可以自己看看别的例子</span><br><span class="line">    layer = keras.layers.Conv2D(filters=32, kernel_size=(5,5), activation=&#x27;relu&#x27;)(input)    #卷积层，5*5个神经元感受视野，32个卷积核，激励函数relu做非线性映射</span><br><span class="line">    layer = keras.layers.Conv2D(filters=8, kernel_size=(5,5), activation=&#x27;relu&#x27;)(layer)     #卷积层，5*5个神经元感受视野，8个卷积核，激励函数relu做非线性映射</span><br><span class="line">    layer = keras.layers.MaxPool2D(pool_size=(2, 2))(layer)                                 #池化层，maxpool取“池化视野”矩阵中的最大值，当输入经过卷积层时，得到的feature map （特征图）还是比较大，可以通过池化层来对每一个 feature map 进行降维操作</span><br><span class="line">    layer = keras.layers.Dropout(rate=0.4)(layer)                                           #该层的作用相当于对参数进行正则化来防止模型过拟合</span><br><span class="line">    layer = keras.layers.Flatten()(layer)                                                   #将输入“压平”，即把多维的输入一维化，常用在从卷积层到全连接层的过渡。</span><br><span class="line">    layer = keras.layers.Dense(128, activation=&#x27;relu&#x27;)(layer)                               #全连接层，有128个神经元，激活函数采用‘relu’</span><br><span class="line">    layer = keras.layers.Dense(10, activation=&#x27;softmax&#x27;)(layer)                             #输出层，有10个神经元，每个神经元对应一个类别，输出值表示样本属于该类别的概率大小。</span><br><span class="line"></span><br><span class="line">    model = keras.Model(input, layer)                                                       #创建模型</span><br><span class="line">    model.compile(loss=&#x27;categorical_crossentropy&#x27;, optimizer=&#x27;adam&#x27;, metrics=[&#x27;accuracy&#x27;])  #指定一些参数</span><br><span class="line">    print(&quot;training.....&quot;)</span><br><span class="line">    model.fit(x=x, y=y, batch_size=200, epochs=40, validation_data=(validate_x, validate_y)) #训练模型</span><br><span class="line"></span><br><span class="line">    # model.save(&#x27;C:/Users/bfs/Desktop/learning_ai/pictrue_model.h5&#x27;)  #训练满意的话则保存</span><br><span class="line"></span><br><span class="line">    return model</span><br></pre></td></tr></table></figure>
+
+<p>训练结果为</p>
+<p><img src="/images/posts/ai0-9ai/20200803195108826.png">       可以看到校验集的校验结果精确度达到98.8%左右</p>
+<p><strong>d.使用模型</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def verify_modle():</span><br><span class="line">    m_model = keras.models.load_model(&#x27;C:/Users/bfs/Desktop/learning_ai/pictrue_model&#x27;+&#x27;.h5&#x27;)</span><br><span class="line">    verify_sample = read_sample(&#x27;C:/Users/bfs/Desktop/learning_ai/3.png&#x27;)  #我这里随便使用一张图片来进行实际预测</span><br><span class="line">    test_x = numpy.zeros((1, 32, 32, 1))</span><br><span class="line">    for xi in range(32):</span><br><span class="line">            for yi in range(32):</span><br><span class="line">                test_x[0, xi, yi, 0] = verify_sample[xi, yi]</span><br><span class="line">    predict_result = m_model.predict(x=test_x)               #导入实际使用时的图片数据</span><br><span class="line"></span><br><span class="line">    ret = 0</span><br><span class="line">    max_prob = max(predict_result[0])                        #返回最大的概率。训练结果是一个二维数组，相当于一列0-9的概率。最大的概率则为预测结果</span><br><span class="line">    for x in range(10):</span><br><span class="line">        if max_prob == predict_result[0, x]:</span><br><span class="line">            ret = x</span><br><span class="line"></span><br><span class="line">    print(&#x27;解析图片结果结果为&#x27;, ret)</span><br></pre></td></tr></table></figure>
+
+<h3 id="以下为完整代码："><a href="#以下为完整代码：" class="headerlink" title="以下为完整代码："></a>以下为完整代码：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">#coding:utf-8</span><br><span class="line">from PIL import Image, ImageChops</span><br><span class="line">import os</span><br><span class="line">import numpy</span><br><span class="line">import random</span><br><span class="line">import numpy as np</span><br><span class="line">import tensorflow as tf</span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">def read_sample(file_path):</span><br><span class="line">    ret = numpy.zeros((32, 32))                 #使用numpy构建32*32的数组</span><br><span class="line">    im = Image.open(file_path)</span><br><span class="line">    rgb_im = im.convert(&#x27;RGB&#x27;)                  #将打开的image指定真彩色模式 </span><br><span class="line">    for i in range(32):</span><br><span class="line">        for j in range(32):</span><br><span class="line">            r, g, b = rgb_im.getpixel((i, j))   #读取每个点的r,g,b</span><br><span class="line">            average = (r + b + g)/3             </span><br><span class="line">            if average &gt;= 127:                  #因为是黑白图像，非黑即白rgb三原色综合是255，所以可以使用127来区分</span><br><span class="line">                ret[i, j] =  0</span><br><span class="line">            else:</span><br><span class="line">                ret[i, j] = 1</span><br><span class="line"></span><br><span class="line">    return ret</span><br><span class="line"></span><br><span class="line">def read_trainset_and_validateset():</span><br><span class="line">    trainset_samples = []               #定义训练集</span><br><span class="line">    validateset_samples = []            #定义校验集</span><br><span class="line"></span><br><span class="line">    for i in range(10):</span><br><span class="line">        for root, dirs, files in os.walk(&quot;out/&quot;+str(i), topdown=False):</span><br><span class="line">            for name in files:</span><br><span class="line">                pic_path = os.path.join(root, name)</span><br><span class="line">                rand_num = random.random()</span><br><span class="line">                if rand_num &gt; 0.9:                                            #90%为训练集，剩下10%为校验集</span><br><span class="line">                    trainset_samples.append( (read_sample(pic_path), i) )     #插入训练集，内容为 （图像内容，数字）</span><br><span class="line">                else:</span><br><span class="line">                    validateset_samples.append( (read_sample(pic_path), i) )  #插入校验集，内容为 （图像内容，数字）</span><br><span class="line"></span><br><span class="line">    return (trainset_samples, validateset_samples)</span><br><span class="line"></span><br><span class="line"># ret = read_sample(&quot;C:/Users/bfs/Desktop/learning_ai/0/0_1.png&quot;)  </span><br><span class="line"># for j in range(32):</span><br><span class="line">#     for i in range(32):</span><br><span class="line">#         print(int(ret[i, j]), end=&#x27; &#x27;)</span><br><span class="line">#     print(&#x27;&#x27;)      </span><br><span class="line"># </span><br><span class="line"></span><br><span class="line">def train():</span><br><span class="line">    print(&quot;loading....&quot;)</span><br><span class="line">    trainset_samples, valideteset_samples = read_trainset_and_validateset()    #获取训练集和校验集</span><br><span class="line">    x = numpy.zeros((len(trainset_samples), 32, 32, 1))                        #构建训练集, 10个32*32的1通道神经元输入</span><br><span class="line">    y = numpy.zeros((len(trainset_samples), 10))                               #构建训练集, 二维0-9的神经元输出</span><br><span class="line">    validate_x = numpy.zeros((len(valideteset_samples), 32, 32, 1))            #构建校验集, 10个32*32的1通道神经元输入</span><br><span class="line">    validate_y = numpy.zeros((len(valideteset_samples), 10))                   #构建校验集, 二维0-9的神经元输出</span><br><span class="line">    print(&quot;conver......&quot;)</span><br><span class="line"></span><br><span class="line">    for i in range(len(trainset_samples)):</span><br><span class="line">        sample, sample_out = trainset_samples[i]            #sample对应读取的图像结果, sample_out对应结果为哪个数字</span><br><span class="line">        for xi in range(32):    </span><br><span class="line">            for yi in range(32):</span><br><span class="line">                x[i, xi, yi, 0] = sample[xi, yi]            #训练集输入, i对应目前是哪个神经元的输入, sample为读取图像的结果</span><br><span class="line"></span><br><span class="line">        y[i, sample_out] = 1                                #训练集输出, 意思为这个神经元的输出结果为1, 即当以上神经元输入时,对应的这个神经元的sample_out的预测结果为1(100%)</span><br><span class="line"></span><br><span class="line">    for i in range(len(valideteset_samples)):</span><br><span class="line">        sample, sample_out = valideteset_samples[i]         #sample对应读取的图像结果, sample_out对应结果为哪个数字</span><br><span class="line">        for xi in range(32):</span><br><span class="line">            for yi in range(32):</span><br><span class="line">                validate_x[i, xi, yi, 0] = sample[xi, yi]   #校验集输入, i对应目前是哪个神经元的输入, sample为读取图像的结果</span><br><span class="line"></span><br><span class="line">        validate_y[i, sample_out] = 1                       #校验集输出, 意思为这个神经元的输出结果为1, 即当以上神经元输入时,对应的这个神经元的sample_out的预测结果为1(100%)</span><br><span class="line"></span><br><span class="line">    input = keras.Input(shape=(32,32,1))                                                    #输入层，32*32个神经元输入，一个输入通道，因为只是一个二维的黑白图像，一个输入通道即可。复杂的情况则需要多个输入通道，可以自己看看别的例子</span><br><span class="line">    layer = keras.layers.Conv2D(filters=32, kernel_size=(5,5), activation=&#x27;relu&#x27;)(input)    #卷积层，5*5个神经元感受视野，32个卷积核，激励函数relu做非线性映射</span><br><span class="line">    layer = keras.layers.Conv2D(filters=8, kernel_size=(5,5), activation=&#x27;relu&#x27;)(layer)     #卷积层，5*5个神经元感受视野，8个卷积核，激励函数relu做非线性映射</span><br><span class="line">    layer = keras.layers.MaxPool2D(pool_size=(2, 2))(layer)                                 #池化层，maxpool取“池化视野”矩阵中的最大值，当输入经过卷积层时，得到的feature map （特征图）还是比较大，可以通过池化层来对每一个 feature map 进行降维操作</span><br><span class="line">    layer = keras.layers.Dropout(rate=0.4)(layer)                                           #该层的作用相当于对参数进行正则化来防止模型过拟合</span><br><span class="line">    layer = keras.layers.Flatten()(layer)                                                   #将输入“压平”，即把多维的输入一维化，常用在从卷积层到全连接层的过渡。</span><br><span class="line">    layer = keras.layers.Dense(128, activation=&#x27;relu&#x27;)(layer)                               #全连接层，有128个神经元，激活函数采用‘relu’</span><br><span class="line">    layer = keras.layers.Dense(10, activation=&#x27;softmax&#x27;)(layer)                             #输出层，有10个神经元，每个神经元对应一个类别，输出值表示样本属于该类别的概率大小。</span><br><span class="line"></span><br><span class="line">    model = keras.Model(input, layer)                                                       #创建模型</span><br><span class="line">    model.compile(loss=&#x27;categorical_crossentropy&#x27;, optimizer=&#x27;adam&#x27;, metrics=[&#x27;accuracy&#x27;])  #指定一些参数</span><br><span class="line">    print(&quot;training.....&quot;)</span><br><span class="line">    model.fit(x=x, y=y, batch_size=200, epochs=40, validation_data=(validate_x, validate_y)) #训练模型</span><br><span class="line"></span><br><span class="line">    model.save(&#x27;C:/Users/bfs/Desktop/learning_ai/pictrue_model.h5&#x27;)</span><br><span class="line"></span><br><span class="line">    return model</span><br><span class="line"></span><br><span class="line">def verify_modle():</span><br><span class="line">    m_model = keras.models.load_model(&#x27;C:/Users/bfs/Desktop/learning_ai/pictrue_model&#x27;+&#x27;.h5&#x27;)</span><br><span class="line">    verify_sample = read_sample(&#x27;C:/Users/bfs/Desktop/learning_ai/3.png&#x27;)  #我这里随便使用一张图片来进行实际预测</span><br><span class="line">    test_x = numpy.zeros((1, 32, 32, 1))</span><br><span class="line">    for xi in range(32):</span><br><span class="line">            for yi in range(32):</span><br><span class="line">                test_x[0, xi, yi, 0] = verify_sample[xi, yi]</span><br><span class="line">    predict_result = m_model.predict(x=test_x)               #导入实际使用时的图片数据</span><br><span class="line"></span><br><span class="line">    ret = 0</span><br><span class="line">    max_prob = max(predict_result[0])                        #返回最大的概率。训练结果是一个二维数组，相当于一列0-9的概率。最大的概率则为预测结果</span><br><span class="line">    for x in range(10):</span><br><span class="line">        if max_prob == predict_result[0, x]:</span><br><span class="line">            ret = x</span><br><span class="line"></span><br><span class="line">    print(&#x27;解析图片结果结果为&#x27;, ret)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    # train()</span><br><span class="line">    verify_modle()</span><br></pre></td></tr></table></figure>
+
+<p>使用图像3导入模型结果为：</p>
+<p><img src="/images/posts/ai0-9ai/20200803200155783.png"></p>
+<p>最后有几点需要注意。</p>
+<p><strong>1.我这里写的是很简单的0-9手写数字试别，所以再构建输入的时候只有一个输入通道，如果是复杂的问题，可能需要多个输入通道，比如彩色的图像，可能需要R,G,B三个输入通道。</strong></p>
+<p>**        2.训练AI是这么个过程，给定输入，给定输入，让AI像人一样去学习。就像一个人要学习一样，告诉自己，这个图像3输入的结果是3。是一定要给出输出的。**</p>
+<p>**        3.AI模型就像我们以前写的函数，给了输入，它就会给输出。像这个0-9的输入是为数字0-9的概率。而不是直接告诉你是什么数字，取出最大的概率对应的数字，就是AI觉得这张图是个什么数字.**</p>
+<p>**        4.我也是初学者，写的注释什么的都是自己的理解，可能不对。如果有发现错误的/有歧义的地方。欢迎指出**</p>
+<p><strong>5.上面的训练就是不断利用卷积神经网络提取各种图像的特征，最后当给定一副新的图，就去匹配其相应的特征，给出结果。</strong></p>
+<p>增加一些知识补充连接：</p>
+<p>1.知乎&lt;如何通俗易懂的理解卷积&gt; <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/22298352/answer/228543288">https://www.zhihu.com/question/22298352/answer/228543288</a></p>
+<pre><code>    2.卷积神经网络详解 - 卷积层逻辑篇  https://blog.csdn.net/tjlakewalker/article/details/83275322
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/07/30/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%88%8FAI%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/30/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%88%8FAI%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">如何写一个游戏AI（一）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-30 20:27:37" itemprop="dateCreated datePublished" datetime="2020-07-30T20:27:37+08:00">2020-07-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0-AI%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">笔记 AI之路</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>由于目前游戏的ai最后两手牌打的不尽人意，而手头上的工作又暂时弄完了。就被安排去学习AI，最终目标是<strong>重新训练/优化现有的AI</strong>。<strong>而这只是我的记录，仅仅是偏向我的应用，并不偏向研究</strong>。虽然只是这样，但是其实听到这个任务的时候，内心是拒绝的。</p>
+<p>原因有以下几点：</p>
+<p>1.要写出一个斗地主AI，我觉得是很难的，技术和数学都要有一定水平。</p>
+<p>2.老夫就一个刚工作2年的程序员，而且还是非AI专业，让我萌生了就是觉得很难很难得想法。</p>
+<p>3.老夫就拿这点工资(说来惭愧，哎)。。。我如果真能写，我才值这点钱么，我写出来的敢用么。</p>
+<p>虽然内心不愿意，但是身体却很诚实，毕竟做的都是出卖自己的工作。就算叫我去38度的天下晒太阳，叫我去厕所吃快餐，我也没什么好拒绝的吧，毕竟花钱买我时间的。将自己的路程尽量全部记录，给自己看，也分享给和我相似情况下想学写游戏AI的人，如果有同僚看到我说的有什么不对，请指出。<strong>这里要感谢我的经理潇爷，我的天资比较愚钝，他带我了解并写下第一个关于0-9黑白图片的试别ai</strong>。下面开始进入正文。</p>
+<h3 id="1-我们游戏中指的AI是什么"><a href="#1-我们游戏中指的AI是什么" class="headerlink" title="1.我们游戏中指的AI是什么"></a>1.我们游戏中指的AI是什么</h3><p>其实AI没有想象的那么难，AI也是分369等的，比如游戏时的NPC，能和你进行对话，能给你任务，这样的就比较简单不需要用到机器学习；更进一步，mmo游戏中的怪物，boss，知道主动攻击你，知道放技能，知道躲技能（这个可能也不需要用到机器学习，或者用了我不知道，因为我目前只做过棋牌游戏）；再进一步，你以为你玩的棋牌游戏匹配到的都是真人么，或者进一步说，你以为你别的游戏匹配到的队友都是人么，也许它们只是AI而已（这个就需要机器学习了，这个东西已经拥有了类似人类的想法来陪你玩游戏）。</p>
+<h3 id="2-什么是训练一个AI"><a href="#2-什么是训练一个AI" class="headerlink" title="2.什么是训练一个AI"></a>2.什么是训练一个AI</h3><p>就是训练出一个模型，这个模型再你给它一个输入的时候，它能够预测出最大概率的输出是什么（类似一个函数，你给一个输入，它返回输出）。例如图像试别AI，给定的输入是一张图像，它用输出告诉你最大概率这个图像是什么。注意，这里是告诉你最大概率输出是什么，并不是告诉你输出是什么（关于这个之后会继续聊）。</p>
+<h3 id="3-如何训练一个AI"><a href="#3-如何训练一个AI" class="headerlink" title="3.如何训练一个AI"></a>3.如何训练一个AI</h3><p>其实很多事情，前人已经做好了，就像我们要训练AI，并不是所有的东西都要自己写，现在有很多深度学习的框架，就我而已，我只是应用，我只要找到合适的框架、然后使用框架训练出自己想要的AI即可（类似于有很多库函数，只需要找到自己想用的库函数，然后调用它，获取结果即可）。</p>
+<h3 id="4-我的学习路程"><a href="#4-我的学习路程" class="headerlink" title="4.我的学习路程"></a>4.我的学习路程</h3><p>1.补充了一些知识</p>
+<p>2.经理又给我补充了一些知识，然后在他的带领下，写了一个 0-9的黑白图像试别AI</p>
+<p>3.经过以上的路程后，开始自己继续探索，训练一个斗地主AI</p>
+<p>** 注意：训练 == 写，训练一个AI == 写一个AI，有些东西是术语来着，我也不是专业的，但是又接触了，所以有的时候会语无伦次。**</p>
+<p>第一篇大概写这么多，后面会接着更新</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/07/13/redis%20%E6%89%A7%E8%A1%8Clua%E8%84%9A%E6%9C%AC%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BA%94%E7%94%A8%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/13/redis%20%E6%89%A7%E8%A1%8Clua%E8%84%9A%E6%9C%AC%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BA%94%E7%94%A8%E3%80%82/" class="post-title-link" itemprop="url">redis 执行lua脚本实际项目的应用。</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-13 09:16:03" itemprop="dateCreated datePublished" datetime="2020-07-13T09:16:03+08:00">2020-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua-redis/" itemprop="url" rel="index"><span itemprop="name">lua redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>写博客还是习惯先写一下，写下这篇博客的原因。前几天撸的博客《使用redis做排行榜相同积分情况下，如何使用到达时间来排序》，我使用了这个方法修改了原来写的排行榜，之前的排行榜我是没有这样做。修改之后，需要运营先暂停排行榜，将之前排行榜的分数记录，发奖之后再开启新的排行榜。但是策划最后说我忘记了，周四更新之后，导致旧方法记录的分数存在，同时新方法也在记录分数，排行榜就乱了，只能临时暂停排行榜，等我修复后再开启。</p>
+<p>混乱的原因是redis中记录的分数，旧分数是实际分数，新分数为 score&lt;&lt;26 + time。这样新进排行榜的玩家就算是只得1分，也会比之前第一名的玩家分数高，这样旧乱套了。修复的方法就是修改redis中旧分数，用旧分数&lt;&lt;26 + time，写个lua脚本直接让redis运行即可。</p>
+<p>redis执行lua有两种方法：</p>
+<p>**     1.连接redis后，在命令行输入一串字符串，这串字符串是按照一定规则连接起来的lua字符串，这种方法我没有深入研究，大概如下：** <img src="/images/posts/redis-lua/2020071309025779.png"></p>
+<p>**       2.将要执行的lua脚本写成一个文件，直接运行，我用的是第二种方法，也比较推荐第二种方法，第二种方法自己写的清楚，看的清楚，而且执行方便。**</p>
+<p>** **  lua_2_redis.lua如下<strong>：</strong></p>
+<p>** **<img src="/images/posts/redis-lua/20200713090531602.png"></p>
+<p>执行方法如下：</p>
+<p>**      redis-cli -h 127.0.0.1 -p 36001 -a xxxxxxx –eval lua_2_redis.lua &gt;&gt; ret.txt**</p>
+<p>在脚本中写return，则会把自己想要的结果返回，我这里使用了 &gt;&gt;ret.txt是做了重定向，把输出保存到ret.txt文件。执行结果可以看到redis中对应的分数已经被改变：</p>
+<p><img src="/images/posts/redis-lua/20200713090931323.png"></p>
+<p>** **输出的文件ret.txt：</p>
+<p><img src="/images/posts/redis-lua/20200713091022111.png"></p>
+<p><strong>注意：因为redis中支持lua只是辅助，所以lua中有些方法是不支持的，例如os.time()、也不支持位操作。所以我上面时间直接写死了个计算后的时间。位操作用乘法代替。不支持的方法需要自己另外想办法解决了。</strong></p>
+<p><strong>最后有个感悟，在项目中碰到问题不要怕，代码都是人写的，总会有解决方法。</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/07/07/Lua%E4%BD%8D%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/07/Lua%E4%BD%8D%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">Lua位操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-07 20:08:30" itemprop="dateCreated datePublished" datetime="2020-07-07T20:08:30+08:00">2020-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">lua</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在用redis写排行榜的时候，相同积分的情况要按照到达时间排序，用到了Lua的位操作，网上很少这方面的资料，写一下做简单笔记。</p>
+<p>lua位操作其实和c语言一样，例子如下:</p>
+<p><img src="/images/posts/lua/20200707200527919.png"></p>
+<p>结果为:</p>
+<p><img src="/images/posts/lua/20200707200654971.png"></p>
+<p>实际应用可以看看我的另一篇博客，《使用redis做排行榜相同积分情况下，如何使用到达时间来排序》</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/07/07/%E4%BD%BF%E7%94%A8redis%E5%81%9A%E6%8E%92%E8%A1%8C%E6%A6%9C%E7%9B%B8%E5%90%8C%E7%A7%AF%E5%88%86%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%88%B0%E8%BE%BE%E6%97%B6%E9%97%B4%E6%9D%A5%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/07/%E4%BD%BF%E7%94%A8redis%E5%81%9A%E6%8E%92%E8%A1%8C%E6%A6%9C%E7%9B%B8%E5%90%8C%E7%A7%AF%E5%88%86%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%88%B0%E8%BE%BE%E6%97%B6%E9%97%B4%E6%9D%A5%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">使用redis做排行榜相同积分情况下，如何使用到达时间来排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-07 19:59:41" itemprop="dateCreated datePublished" datetime="2020-07-07T19:59:41+08:00">2020-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>好久没更新博客了，杂事多，其实还是就是自己懒惰了吧。哈哈哈哈。言归正传。</p>
+<p>最近需求撸了个排行榜，是用redis实现的，依稀记得，前几个月去面试的时候，面试官老喜欢问我做过排行榜么，做过排行榜么，那时候还没做过，也知道是redis做的，以为会有点难度，但是其实并不难。技术就是这样的，不知道就难，知道了就简单，消除恐惧的最好方法就是面对恐惧，奥里给！</p>
+<p>** redis的有序集合(sorted set)，会元素都会关联一个double类型的分数。然后通过分数来为集合中的成员进行从小到大的排序。<strong>简直就是天生为排行榜设计的，但是有序集合(sorted set)在元素积分相同的情况下居然是</strong>字典排序**(就是同分数的情况下，使用我们存贮的元素进行排序)，这就不符合我们理想中的排行榜了。</p>
+<p><strong>改进如下：</strong></p>
+<p><strong>我们只需要在玩家的积分上关联上时间即可，例如：存入的数据为{uid，score}</strong></p>
+<p>1.我们需要拿到一个时间来做标准，可以是排行榜的结束时间或者是任何别的时间。我使用的是结束时间的时间戳(end_time)。</p>
+<p>2.对score进行处理，**new_score = score &lt;&lt; 26 + (end_time - now)**。进行位操作之后再加上时间戳。这样相同积分的情况下，越后面到达的存入的，处理之后的new_score越小。</p>
+<p>3.存入redis的数据为{uid, new_socre}。</p>
+<p>4.因为是使用了位操作，当需要显示积分的时候，<strong>new_score &gt;&gt;26即会剔除掉时间戳，显示积分。</strong></p>
+<p>因为是使用了位操作并且关联了时间戳，在分数上相同的概率就会很小很小了。但是这样做也是有缺陷的，<strong>即相同时间到达相同积分的，还是会按照元素进行字典排序，不过无关紧要，这种概率很低。</strong>我的需求在这种情况下相同的话，是可以按照uid排序的，所以也没有再进一步优化。如果哪位同行看到了，有更好的方法也欢迎分享。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/02/28/Lua%20%E8%A1%A8%E7%9A%84%E6%8E%92%E5%BA%8F%EF%BC%8Ctable.sort%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/28/Lua%20%E8%A1%A8%E7%9A%84%E6%8E%92%E5%BA%8F%EF%BC%8Ctable.sort%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">Lua 表的排序，table.sort应用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-28 20:27:22" itemprop="dateCreated datePublished" datetime="2020-02-28T20:27:22+08:00">2020-02-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">lua</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>最近项目使用到表的排序，我使用table.sort通过表的value排序，使用key进行排序暂未研究。之前一直不是很清楚table.sort这个方法，刚好有机会记录一下。</p>
+<p>方法原型：<strong>table.sort (table, funtion(a,b))</strong></p>
+<p>两个入参：1.table———–需要排序的table</p>
+<p>2.function——-排序方法，可自定义。如果不填，则按默认排序。形式是固定的，<strong>入参a,b为排序table中的value1、value2….(这个具体不知道怎么描述)</strong></p>
+<p><strong>1.不传排序方法，采用自定义：</strong></p>
+<p><img src="/images/posts/lua-tablesort/20200228181909324.png"></p>
+<p>结果：</p>
+<p><img src="/images/posts/lua-tablesort/20200228181946524.png"></p>
+<p>可以看到，table.sort默认是使用table中存贮的 value进行从小到大的排序，有一点需要注意的是，如果table中含有number和string，使用默认的方法进行比较会报 number和string比较的错误。也有一些别的坑，使用的时候需要谨慎(默认的我用的比较少)</p>
+<p><strong>2.传入自定义的排序方法：</strong></p>
+<p>例如传入的table是 :</p>
+<p><img src="/images/posts/lua-tablesort/20200228200424965.png"></p>
+<p>传入的方法的格式是固定的，也就是一个</p>
+<p>匿名函数function(a,b)</p>
+<p>……..(你的实现)</p>
+<p>end</p>
+<p>匿名函数中的a,b是传入的table的2个value，table.sort每次会返回两个value传入比较函数。上例是t中的value。</p>
+<p>比较函数是这样的：</p>
+<p><img src="/images/posts/lua-tablesort/20200228201556405.png"></p>
+<p>结果为：</p>
+<p><img src="/images/posts/lua-tablesort/20200228201704536.png"></p>
+<p>自定义的比较函数功能十分强大，但是也有一些坑。</p>
+<p><strong>注意：</strong></p>
+<p><strong>1.table.sort并不稳定，当条件的两个元素相等时，它们在排序后的相对位置可能会改变(据说，我自己暂未出现，可能用的少)</strong></p>
+<p><strong>2.要求需要排序table中间元素不能有nil，否则会报错</strong></p>
+<p><strong>3.当比较的两个元素相等的时候，比较函数一定要返回false，返回true会报错，table.sort会根据你返回的bool来判断两个value是否保持原来的顺序</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fushen Ban"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Fushen Ban</p>
+  <div class="site-description" itemprop="description">正在进化</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fushen Ban</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

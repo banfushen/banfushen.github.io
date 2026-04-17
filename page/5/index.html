@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"banfushen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="正在进化">
+<meta property="og:type" content="website">
+<meta property="og:title" content="拼图收集者">
+<meta property="og:url" content="https://banfushen.github.io/page/5/index.html">
+<meta property="og:site_name" content="拼图收集者">
+<meta property="og:description" content="正在进化">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fushen Ban">
+<meta property="article:tag" content="linux，golang，lua，c，python，nodejs，k8s，redis">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://banfushen.github.io/page/5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+  <title>拼图收集者</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">拼图收集者</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欠的技术债，早晚要还</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/resume/" rel="section"><i class="fa fa-fw fa-user"></i>resume</a>
+
+  </li>
+        <li class="menu-item menu-item-simplefolio">
+
+    <a href="/simplefolio/" rel="section"><i class="fa fa-fw fa-id-card"></i>simplefolio</a>
+
+  </li>
+        <li class="menu-item menu-item-game">
+
+    <a href="/game/" rel="section"><i class="fa fa-fw fa-gamepad"></i>game</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/12/21/k8s%E4%B8%AD%EF%BC%8C%E5%90%AF%E5%8A%A8pod%E5%A4%B1%E8%B4%A5%EF%BC%8C%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/21/k8s%E4%B8%AD%EF%BC%8C%E5%90%AF%E5%8A%A8pod%E5%A4%B1%E8%B4%A5%EF%BC%8C%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E3%80%82/" class="post-title-link" itemprop="url">k8s中，启动pod失败，调试方法。</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-21 18:45:20" itemprop="dateCreated datePublished" datetime="2020-12-21T18:45:20+08:00">2020-12-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/k8s/" itemprop="url" rel="index"><span itemprop="name">k8s</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在k8s中，是不能够直接启动容器的，容器必须要依附于pod的形式启动。当pod启动失败的时候，可以这么去调试。</p>
+<p>1.找到pod启动的镜像，将镜像进行二次封装，修改镜像的入口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM xxxxx            //pod启动的镜像</span><br><span class="line">ENTRYPOINT [&quot;python&quot;, &quot;-m&quot;, &quot;SimpleHTTPServer&quot;, &quot;8080&quot;] //修改镜像的入口</span><br></pre></td></tr></table></figure>
+
+<p>2.将镜像上传到镜像库</p>
+<p>3.修改pod的yaml文件，修改镜像地址，修改探针</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">containers:</span><br><span class="line">    - name: containers_name</span><br><span class="line">    image: image_path</span><br><span class="line"></span><br><span class="line">//这里要注意要把levenesspoint给屏蔽了，要不会一直kill掉containers，然后重启</span><br></pre></td></tr></table></figure>
+
+<p>4.使用kubectl exec -it -n <namespaces>  <podname> /bin/sh进入到containers内部进行运行自己的代码，调试。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/12/21/k8s%E4%B8%AD%EF%BC%8C%E6%80%8E%E4%B9%88%E5%9C%A8container%E4%B8%AD%E5%88%87%E6%8D%A2%E8%A7%92%E8%89%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/21/k8s%E4%B8%AD%EF%BC%8C%E6%80%8E%E4%B9%88%E5%9C%A8container%E4%B8%AD%E5%88%87%E6%8D%A2%E8%A7%92%E8%89%B2/" class="post-title-link" itemprop="url">k8s中，怎么在container中切换角色</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-21 11:20:40" itemprop="dateCreated datePublished" datetime="2020-12-21T11:20:40+08:00">2020-12-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/k8s/" itemprop="url" rel="index"><span itemprop="name">k8s</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>工作中，需要在k8s中调试container，但是container中有可能很多东西又没有，比如vim等，没有就无法修改代码，想使用su 更改为root用户又不知道密码。可以使用以下方法。</p>
+<p>直接修改pod的yaml文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">containers:</span><br><span class="line">  - name: ...</span><br><span class="line">    image: ...</span><br><span class="line">    securityContext:</span><br><span class="line">      runAsUser: 0</span><br></pre></td></tr></table></figure>
+
+<p>这样登录进去就是root角色，<strong>0指root用户的uid</strong>。在里面就可以安装自己想安装的工具进行调试。</p>
+<p>比如我，进去调试之后安装了vim</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install vim</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/12/13/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E8%AF%BBskynet%E6%BA%90%E7%A0%81%EF%BC%882%EF%BC%89%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8%E7%9A%84%E5%89%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1%20bootstrap%20%E4%B8%8E%20skynte.newservice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/13/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E8%AF%BBskynet%E6%BA%90%E7%A0%81%EF%BC%882%EF%BC%89%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8%E7%9A%84%E5%89%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1%20bootstrap%20%E4%B8%8E%20skynte.newservice/" class="post-title-link" itemprop="url">从头开始读skynet源码（2）服务器启动的前置任务 bootstrap 与 skynte.newservice</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-13 15:28:46" itemprop="dateCreated datePublished" datetime="2020-12-13T15:28:46+08:00">2020-12-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skynet/" itemprop="url" rel="index"><span itemprop="name">skynet</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>上一篇分析之后，本来第二部分分析是想分析start之后的逻辑的，这样会让人比较快速的理解skynet框架。但想想还是顺着代码启动的思路写下去会比较好，我觉得这样我自己更容易理解。</p>
+<p>bootstrap是引导程序的意思，在skynet中，的确也是做了服务器工作的前置任务。</p>
+<p>再skynet_start.c中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//启动logger服务</span><br><span class="line">struct skynet_context *ctx = skynet_context_new(config-&gt;logservice, config-&gt;logger);</span><br><span class="line">    if (ctx == NULL) &#123;</span><br><span class="line">    fprintf(stderr, &quot;Can&#x27;t launch %s service\n&quot;, config-&gt;logservice);</span><br><span class="line">    exit(1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">skynet_handle_namehandle(skynet_context_handle(ctx), &quot;logger&quot;);</span><br><span class="line"></span><br><span class="line">//启动配置中的bootstrap服务</span><br><span class="line">bootstrap(ctx, config-&gt;bootstrap);</span><br><span class="line"></span><br><span class="line">//调用start传入配置线程数量</span><br><span class="line">start(config-&gt;thread);</span><br></pre></td></tr></table></figure>
+
+<p>查询配置</p>
+<p><img src="/images/posts/skynet2-bootstrap-skyntenewservice/20201213131031565.png"></p>
+<p>可以得知，传入的参数是”snlua bootsrtap”，再看到函数的实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">static void</span><br><span class="line">bootstrap(struct skynet_context * logger, const char * cmdline) &#123;</span><br><span class="line">    int sz = strlen(cmdline);</span><br><span class="line">    char name[sz+1];</span><br><span class="line">    char args[sz+1];</span><br><span class="line">    sscanf(cmdline, &quot;%s %s&quot;, name, args);</span><br><span class="line">    //name = snlua, args = bootstrap</span><br><span class="line">    struct skynet_context *ctx = skynet_context_new(name, args);</span><br><span class="line">    if (ctx == NULL) &#123;</span><br><span class="line">    skynet_error(NULL, &quot;Bootstrap error : %s\n&quot;, cmdline);</span><br><span class="line">    skynet_context_dispatchall(logger);</span><br><span class="line">    exit(1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来看到skynet_context_new方法，在skynet_server.c</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">struct skynet_context * </span><br><span class="line">skynet_context_new(const char * name, const char *param) &#123;</span><br><span class="line">        //先查询snlua模块，这是一个C写的服务，在skynet_start.c中</span><br><span class="line">        //skynet_statc方法，skynet_module_init(config-&gt;module_path)进行初始化</span><br><span class="line">    struct skynet_module * mod = skynet_module_query(name);</span><br><span class="line"></span><br><span class="line">    if (mod == NULL)</span><br><span class="line">        return NULL;</span><br><span class="line"></span><br><span class="line">        //分析1</span><br><span class="line">        //这里创建一个新的lua虚拟机，所以会有各个服务的隔离</span><br><span class="line">    void *inst = skynet_module_instance_create(mod);</span><br><span class="line">    if (inst == NULL)</span><br><span class="line">        return NULL;</span><br><span class="line">    struct skynet_context * ctx = skynet_malloc(sizeof(*ctx));</span><br><span class="line">    CHECKCALLING_INIT(ctx)</span><br><span class="line"></span><br><span class="line">    ctx-&gt;mod = mod;</span><br><span class="line">    ctx-&gt;instance = inst;</span><br><span class="line">    ctx-&gt;ref = 2;</span><br><span class="line">    ctx-&gt;cb = NULL;</span><br><span class="line">    ctx-&gt;cb_ud = NULL;</span><br><span class="line">    ctx-&gt;session_id = 0;</span><br><span class="line">    ctx-&gt;logfile = NULL;</span><br><span class="line"></span><br><span class="line">    ctx-&gt;init = false;</span><br><span class="line">    ctx-&gt;endless = false;</span><br><span class="line"></span><br><span class="line">    ctx-&gt;cpu_cost = 0;</span><br><span class="line">    ctx-&gt;cpu_start = 0;</span><br><span class="line">    ctx-&gt;message_count = 0;</span><br><span class="line">    ctx-&gt;profile = G_NODE.profile;</span><br><span class="line">    // Should set to 0 first to avoid skynet_handle_retireall get an uninitialized handle</span><br><span class="line">    ctx-&gt;handle = 0;    </span><br><span class="line">    ctx-&gt;handle = skynet_handle_register(ctx);</span><br><span class="line">    struct message_queue * queue = ctx-&gt;queue = skynet_mq_create(ctx-&gt;handle);</span><br><span class="line">    // init function maybe use ctx-&gt;handle, so it must init at last</span><br><span class="line">    context_inc();</span><br><span class="line"></span><br><span class="line">    CHECKCALLING_BEGIN(ctx)</span><br><span class="line">        //分析2</span><br><span class="line">        //这里使用snlua，启动传入的bootstrap.lua</span><br><span class="line">    int r = skynet_module_instance_init(mod, inst, ctx, param);</span><br><span class="line">    CHECKCALLING_END(ctx)</span><br><span class="line">    if (r == 0) &#123;</span><br><span class="line">        struct skynet_context * ret = skynet_context_release(ctx);</span><br><span class="line">        if (ret) &#123;</span><br><span class="line">            ctx-&gt;init = true;</span><br><span class="line">        &#125;</span><br><span class="line">        skynet_globalmq_push(queue);</span><br><span class="line">        if (ret) &#123;</span><br><span class="line">            skynet_error(ret, &quot;LAUNCH %s %s&quot;, name, param ? param : &quot;&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return ret;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        skynet_error(ctx, &quot;FAILED launch %s&quot;, name);</span><br><span class="line">        uint32_t handle = ctx-&gt;handle;</span><br><span class="line">        skynet_context_release(ctx);</span><br><span class="line">        skynet_handle_retire(handle);</span><br><span class="line">        struct drop_t d = &#123; handle &#125;;</span><br><span class="line">        skynet_mq_release(queue, drop_message, &amp;d);</span><br><span class="line">        return NULL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>按照分析1、分析2的顺序。先看到skynet_module_instance_create，分析1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void * </span><br><span class="line">skynet_module_instance_create(struct skynet_module *m) &#123;</span><br><span class="line">    if (m-&gt;create) &#123;</span><br><span class="line">        return m-&gt;create(); // 调用c模块的create</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return (void *)(intptr_t)(~0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>看到snlua的create，再service_snlua.c，构建新的lua虚拟机，所以有服务之间的隔离。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">struct snlua *</span><br><span class="line">snlua_create(void) &#123;</span><br><span class="line">    struct snlua * l = skynet_malloc(sizeof(*l));    </span><br><span class="line">    memset(l,0,sizeof(*l));</span><br><span class="line">    l-&gt;mem_report = MEMORY_WARNING_REPORT;</span><br><span class="line">    l-&gt;mem_limit = 0;</span><br><span class="line">    l-&gt;L = lua_newstate(lalloc, l); // 这里构建了新的lua虚拟机</span><br><span class="line">    return l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建完虚拟机后，看到分析2，到skynet_module_instance_init，在skynet_module.c中，可以看到，其实就是上面代码注释说的，使用snlua的init去启动bootstarp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int</span><br><span class="line">skynet_module_instance_init(struct skynet_module *m, void * inst, struct skynet_context *ctx, const char * parm) &#123;</span><br><span class="line">    return m-&gt;init(inst, ctx, parm);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们到service_snlua.lua中看是怎么使用snlua去启动一个lua脚本的，skynet中，C模块的定义，必须要有一些方法，比如init，上面的m-&gt;init，最后会调用到下面的函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int</span><br><span class="line">snlua_init(struct snlua *l, struct skynet_context *ctx, const char * args) &#123;</span><br><span class="line">    int sz = strlen(args);</span><br><span class="line">    char * tmp = skynet_malloc(sz);</span><br><span class="line">    memcpy(tmp, args, sz);</span><br><span class="line">        //给需要初始化的服务设置回调函数为上面的luanch_cb</span><br><span class="line">    skynet_callback(ctx, l , launch_cb);</span><br><span class="line">    const char * self = skynet_command(ctx, &quot;REG&quot;, NULL);</span><br><span class="line">    uint32_t handle_id = strtoul(self+1, NULL, 16);</span><br><span class="line">    // it must be first message</span><br><span class="line">        // 给服务发送消息触发上面的launch_cb</span><br><span class="line">        // 这里先知道触发上面，具体的消息处理我们的分析会说明</span><br><span class="line">        // 给服务发送消息之后，具体的服务是怎么去处理的</span><br><span class="line">    skynet_send(ctx, 0, handle_id, PTYPE_TAG_DONTCOPY,0, tmp, sz);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>发送消息后，调用到luanch_cb</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">static int</span><br><span class="line">launch_cb(struct skynet_context * context, void *ud, int type, int session, uint32_t source , const void * msg, size_t sz) &#123;</span><br><span class="line">    assert(type == 0 &amp;&amp; session == 0);</span><br><span class="line">    struct snlua *l = ud;</span><br><span class="line">    skynet_callback(context, NULL, NULL);</span><br><span class="line">    int err = init_cb(l, context, msg, sz);//再这进行服务的最后初始化，分析在下面</span><br><span class="line">    if (err) &#123;</span><br><span class="line">        skynet_command(context, &quot;EXIT&quot;, NULL);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后调用init_cb，下面是精简了的代码，只是为了说明调用流程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">static int</span><br><span class="line">init_cb(struct snlua *l, struct skynet_context *ctx, const char * args, size_t sz) &#123;</span><br><span class="line">        ......</span><br><span class="line"></span><br><span class="line">        //这里，就是使用loader.lua去加载我们的bootstrap</span><br><span class="line">        const char * loader = optstring(ctx, &quot;lualoader&quot;, &quot;./lualib/loader.lua&quot;);</span><br><span class="line"></span><br><span class="line">    int r = luaL_loadfile(L,loader);</span><br><span class="line">    if (r != LUA_OK) &#123;</span><br><span class="line">        skynet_error(ctx, &quot;Can&#x27;t load %s : %s&quot;, loader, lua_tostring(L, -1));</span><br><span class="line">        report_launcher_error(ctx);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    lua_pushlstring(L, args, sz);</span><br><span class="line">    r = lua_pcall(L,1,0,1); // 这里，就又通过C语言的lua接口，调用回了lua层面。</span><br><span class="line">    if (r != LUA_OK) &#123;</span><br><span class="line">        skynet_error(ctx, &quot;lua loader error : %s&quot;, lua_tostring(L, -1));</span><br><span class="line">        report_launcher_error(ctx);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    lua_settop(L,0);</span><br><span class="line">    if (lua_getfield(L, LUA_REGISTRYINDEX, &quot;memlimit&quot;) == LUA_TNUMBER) &#123;</span><br><span class="line">        size_t limit = lua_tointeger(L, -1);</span><br><span class="line">        l-&gt;mem_limit = limit;</span><br><span class="line">        skynet_error(ctx, &quot;Set memory limit to %.2f M&quot;, (float)limit / (1024 * 1024));</span><br><span class="line">        lua_pushnil(L);</span><br><span class="line">        lua_setfield(L, LUA_REGISTRYINDEX, &quot;memlimit&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    lua_pop(L, 1);</span><br><span class="line"></span><br><span class="line">    lua_gc(L, LUA_GCRESTART, 0);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动了bootstrap又怎样呢，往下看bootstrap.lua</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">skynet.start(function()</span><br><span class="line">    local sharestring = tonumber(skynet.getenv &quot;sharestring&quot; or 4096)</span><br><span class="line">    memory.ssexpand(sharestring)</span><br><span class="line"></span><br><span class="line">    local standalone = skynet.getenv &quot;standalone&quot;</span><br><span class="line"></span><br><span class="line">        // 这里又用snlua去启动了launcher.lua，启动过程和bootstrap一样</span><br><span class="line">        // 这个launcher服务先记住，待会儿就知道干嘛的了</span><br><span class="line">    local launcher = assert(skynet.launch(&quot;snlua&quot;,&quot;launcher&quot;))</span><br><span class="line">    skynet.name(&quot;.launcher&quot;, launcher)</span><br><span class="line"></span><br><span class="line">        // 这下面还有一些是bootstrap这个前置任务做的</span><br><span class="line">        // 这里skynet.newservice是啥？</span><br><span class="line">    ......</span><br><span class="line">        skynet.newservice &quot;service_mgr&quot;</span><br><span class="line">    pcall(skynet.newservice,skynet.getenv &quot;start&quot; or &quot;main&quot;)</span><br><span class="line">    skynet.exit()// 启动完上面的，完成了任务，这个服务就退出了</span><br><span class="line"></span><br><span class="line">end)</span><br></pre></td></tr></table></figure>
+
+<p>看到skynet.newservice，这个在skynet中，就是lua层用来启动新服务的。在skynet.lua中，可以看到，call  .launcher就是使用上面启动的launcher.lua去启动一个服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function skynet.newservice(name, ...)</span><br><span class="line">        // 这个参数 &quot;LAUNCH&quot;, &quot;snlua&quot;, name, ...特别注意一下</span><br><span class="line">        // 最后也是用调用snlua去启动一个lua服务</span><br><span class="line">    return skynet.call(&quot;.launcher&quot;, &quot;lua&quot; , &quot;LAUNCH&quot;, &quot;snlua&quot;, name, ...)</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>在看到launcher中的LAUNCH，在launcher.lua中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">require &quot;skynet.manager&quot;    -- import manager apis</span><br><span class="line"></span><br><span class="line">local function launch_service(service, ...)</span><br><span class="line">    local param = table.concat(&#123;...&#125;, &quot; &quot;)</span><br><span class="line">    local inst = skynet.launch(service, param)</span><br><span class="line">    local session = skynet.context()</span><br><span class="line">    local response = skynet.response()</span><br><span class="line">    if inst then</span><br><span class="line">        services[inst] = service .. &quot; &quot; .. param</span><br><span class="line">        instance[inst] = response</span><br><span class="line">        launch_session[inst] = session</span><br><span class="line">    else</span><br><span class="line">        response(false)</span><br><span class="line">        return</span><br><span class="line">    end</span><br><span class="line">    return inst</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">function command.LAUNCH(_, service, ...)</span><br><span class="line">    launch_service(service, ...)</span><br><span class="line">    return NORET</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>下面看到skyne.launch，在manager.lua</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">local c = require &quot;skynet.core&quot;</span><br><span class="line"></span><br><span class="line">function skynet.launch(...)</span><br><span class="line">    local addr = c.command(&quot;LAUNCH&quot;, table.concat(&#123;...&#125;,&quot; &quot;))</span><br><span class="line">    if addr then</span><br><span class="line">        return tonumber(&quot;0x&quot; .. string.sub(addr , 2))</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>调用到c.command，</p>
+<p>这里的skynet.core是一个C语言模块，至此，我们将进入C语言实现部分，调用skynet.core.command(“LAUNCH”, “snlua …”)。</p>
+<p>我们先总结一下lua部分的内容：</p>
+<p>newservice–&gt;skynet.call .launcher–&gt;.launcher=skynet.launch(“snlua”, “launcher”)–&gt;skynet.core.command(“LAUNCH”, “snlua …”)</p>
+<p>skynet.core其实是在lua_skynet.c中定义的，其command对应于lcommand函数。 这时的参数其实都压进了lua_State中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">static int</span><br><span class="line">lcommand(lua_State *L) &#123;</span><br><span class="line">    struct skynet_context * context = lua_touserdata(L, lua_upvalueindex(1));</span><br><span class="line">    const char * cmd = luaL_checkstring(L,1);</span><br><span class="line">    const char * result;</span><br><span class="line">    const char * parm = NULL;</span><br><span class="line">    if (lua_gettop(L) == 2) &#123;</span><br><span class="line">        parm = luaL_checkstring(L,2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">        // 这里就是调用skynet_server.c</span><br><span class="line">    result = skynet_command(context, cmd, parm);</span><br><span class="line">    if (result) &#123;</span><br><span class="line">        lua_pushstring(L, result);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也就最后调用到skynet_server.c中skynet_command</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">static struct command_func cmd_funcs[] = &#123;</span><br><span class="line">    &#123; &quot;TIMEOUT&quot;, cmd_timeout &#125;,</span><br><span class="line">    &#123; &quot;REG&quot;, cmd_reg &#125;,</span><br><span class="line">    &#123; &quot;QUERY&quot;, cmd_query &#125;,</span><br><span class="line">    &#123; &quot;NAME&quot;, cmd_name &#125;,</span><br><span class="line">    &#123; &quot;EXIT&quot;, cmd_exit &#125;,</span><br><span class="line">    &#123; &quot;KILL&quot;, cmd_kill &#125;,</span><br><span class="line">    &#123; &quot;LAUNCH&quot;, cmd_launch &#125;, //LAUNCH对应这个</span><br><span class="line">    &#123; &quot;GETENV&quot;, cmd_getenv &#125;,</span><br><span class="line">    &#123; &quot;SETENV&quot;, cmd_setenv &#125;,</span><br><span class="line">    &#123; &quot;STARTTIME&quot;, cmd_starttime &#125;,</span><br><span class="line">    &#123; &quot;ABORT&quot;, cmd_abort &#125;,</span><br><span class="line">    &#123; &quot;MONITOR&quot;, cmd_monitor &#125;,</span><br><span class="line">    &#123; &quot;STAT&quot;, cmd_stat &#125;,</span><br><span class="line">    &#123; &quot;LOGON&quot;, cmd_logon &#125;,</span><br><span class="line">    &#123; &quot;LOGOFF&quot;, cmd_logoff &#125;,</span><br><span class="line">    &#123; &quot;SIGNAL&quot;, cmd_signal &#125;,</span><br><span class="line">    &#123; NULL, NULL &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const char * </span><br><span class="line">skynet_command(struct skynet_context * context, const char * cmd , const char * param) &#123;</span><br><span class="line">    struct command_func * method = &amp;cmd_funcs[0];</span><br><span class="line">    while(method-&gt;name) &#123;</span><br><span class="line">        if (strcmp(cmd, method-&gt;name) == 0) &#123;</span><br><span class="line">            return method-&gt;func(context, param);</span><br><span class="line">        &#125;</span><br><span class="line">        ++method;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return NULL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再看到cmd_launch，这里就十分熟悉了，接入回上面的bootstrap的分析</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">static const char *</span><br><span class="line">cmd_launch(struct skynet_context * context, const char * param) &#123;</span><br><span class="line">    size_t sz = strlen(param);</span><br><span class="line">    char tmp[sz+1];</span><br><span class="line">    strcpy(tmp,param);</span><br><span class="line">    char * args = tmp;</span><br><span class="line">    char * mod = strsep(&amp;args, &quot; \t\r\n&quot;);</span><br><span class="line">    args = strsep(&amp;args, &quot;\r\n&quot;);</span><br><span class="line"></span><br><span class="line">        // 这里这几行是不是特别熟悉</span><br><span class="line">        // 没错，就是和上面的bootstrap的启动一模一样</span><br><span class="line">        // 就是使用snlua去启动另外的服务</span><br><span class="line">    struct skynet_context * inst = skynet_context_new(mod,args);</span><br><span class="line">    if (inst == NULL) &#123;</span><br><span class="line">        return NULL;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        id_to_hex(context-&gt;result, inst-&gt;handle);</span><br><span class="line">        return context-&gt;result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，之后我们在lua层使用的skynet.newservice都是通过launcher.lua去启动新服务器的了。</p>
+<p>最后bootstrap做的事情中一个重要就是，启动了launcher.lua服务，之后框架中skynet.newservice就是调用launcher去启动lua服务。</p>
+<p>所以叫他服务器的前置任务。之后的启动新服务之后，回调函数怎么挂钩之类的，之后在分析。</p>
+<p>下一篇分享bootstrap后skynet_start做了什么</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/11/23/Linux%20%E6%97%A0root%E6%9D%83%E9%99%90%E5%AE%89%E8%A3%85tmux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/23/Linux%20%E6%97%A0root%E6%9D%83%E9%99%90%E5%AE%89%E8%A3%85tmux/" class="post-title-link" itemprop="url">Linux 无root权限安装tmux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-23 09:57:06" itemprop="dateCreated datePublished" datetime="2020-11-23T09:57:06+08:00">2020-11-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在新公司中，开发是需要连接到开发机上的，而且员工作为普通用户，无法安装软件到除用户目录以外的目录(也就是没有root权限)。当我们需要下载安装一些常用工具时，因为没网，所以无法使用<code>apt-get</code>等下载指令。</p>
+<p><strong>ps：为什么没有root，就无法使用apt-get，因为apt-get是会去写一些文件到root用户才有权限的文件夹(例如/user….)或者修改系统环境变量的。而普通用户是没有权限，所以没法使用。</strong></p>
+<p>**       要解决这个问题，最主要的方法就是，修改安装的目录，添加自己用户下指定目录为环境变量。**</p>
+<p>最后使用以下方法安装tmux，亲测可行。</p>
+<h1 id="1-下载及其依赖软件"><a href="#1-下载及其依赖软件" class="headerlink" title="1.下载及其依赖软件"></a><strong>1.下载及其依赖软件</strong></h1><p>这里有一个坑，待会儿说。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://github.com/tmux/tmux/releases/download/3.0a/tmux-3.0a.tar.gz </span><br><span class="line"></span><br><span class="line">wget -c https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz </span><br><span class="line"></span><br><span class="line">wget -c https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-解压"><a href="#2-解压" class="headerlink" title="2.解压"></a>2.解压</h1><p>tar -zxvf xxxxxx</p>
+<h1 id="3-先安装依赖，在安装tmux"><a href="#3-先安装依赖，在安装tmux" class="headerlink" title="3.先安装依赖，在安装tmux"></a>3.先安装依赖，在安装tmux</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># libevent</span><br><span class="line">./configure --prefix=$HOME/.local --disable-shared</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"># ncurses</span><br><span class="line">./configure --prefix=$HOME/.local</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"># tmux</span><br><span class="line">./configure CFLAGS=&quot;-I$HOME/.local/include -I$HOME/.local/include/ncurses&quot; LDFLAGS=&quot;-L$HOME/.local/lib -L$HOME/.local/include/ncurses -L$HOME/.local/include&quot; --prefix=$HOME/.local/bin</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">cp tmux $HOME/.local/bin</span><br></pre></td></tr></table></figure>
+
+<p>这里，如果出现类似这种错误，就是我上面说的坑。我自己也碰到了，最后改了过来，这个图是引用网上的，我的情况忘记截图了。</p>
+<p><img src="/images/posts/linux-roottmux/20201123095157736.png"></p>
+<p>看这位的回答就知道原因了，原地址在<a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000015949611">https://segmentfault.com/q/1010000015949611</a></p>
+<p><img src="/images/posts/linux-roottmux/20201123095348446.png"></p>
+<p>我选了相应版本后，解决了以上问题。最后安装成功。</p>
+<p>最后设置环境变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#环境变量设置</span><br><span class="line">#将下面的语句添加到.bashrc中</span><br><span class="line">export $PATH=&quot;$HOME/.local/bin:$PATH&quot;</span><br><span class="line">#重载环境</span><br><span class="line">source .bashrc</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/10/24/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E8%AF%BBskynet%E6%BA%90%E7%A0%81%EF%BC%881%EF%BC%89main%E5%85%A5%E5%8F%A3%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/24/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E8%AF%BBskynet%E6%BA%90%E7%A0%81%EF%BC%881%EF%BC%89main%E5%85%A5%E5%8F%A3%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88/" class="post-title-link" itemprop="url">从头开始读skynet源码（1）main入口干了什么</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-24 19:32:03" itemprop="dateCreated datePublished" datetime="2020-10-24T19:32:03+08:00">2020-10-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skynet/" itemprop="url" rel="index"><span itemprop="name">skynet</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>使用skynet一年半了。源码也断断续续读了不少，也看了几篇skynet的源码分析。他们都说的很好。但是觉得分析只是给你一个理解代码的观点，但是没个人的理解方式是不一样的，我也写一写我自己的理解。</p>
+<p>下面进入正题。</p>
+<p>首先，还是要有一个观念，skynet是干嘛的，云风前辈的Skynet 设计综述，wiki什么的都是要读的。然后进入正题。</p>
+<p>从我学习开始，我理解的一个C/C++程序都是从main函数开始运行的，skynet也不例外。<strong>以下的代码关键部分都带有注释。</strong></p>
+<p>**skynet_main.c    **</p>
+<p><strong>main函数其实就是，解析配置，做一些初始化，然后使用配置去调用启动函数。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">int</span><br><span class="line">main(int argc, char *argv[]) &#123;</span><br><span class="line">    const char * config_file = NULL ;</span><br><span class="line">    if (argc &gt; 1) &#123;</span><br><span class="line">        config_file = argv[1];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        fprintf(stderr, &quot;Need a config file. Please read skynet wiki : https://github.com/cloudwu/skynet/wiki/Config\n&quot;</span><br><span class="line">            &quot;usage: skynet configfilename\n&quot;);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //这里做一些初始化</span><br><span class="line">    luaS_initshr();</span><br><span class="line">    skynet_globalinit();  //全局数据的一些初始化</span><br><span class="line">    skynet_env_init();    //环境初始化</span><br><span class="line"></span><br><span class="line">    sigign();</span><br><span class="line"></span><br><span class="line">    struct skynet_config config;</span><br><span class="line"></span><br><span class="line">    //打开一个lua虚拟机用于解析传入的配置</span><br><span class="line">    struct lua_State *L = luaL_newstate();    </span><br><span class="line">    luaL_openlibs(L);    // link lua lib</span><br><span class="line"></span><br><span class="line">    int err =  luaL_loadbufferx(L, load_config, strlen(load_config), &quot;=[skynet config]&quot;, &quot;t&quot;);</span><br><span class="line">    assert(err == LUA_OK);</span><br><span class="line">    lua_pushstring(L, config_file);</span><br><span class="line"></span><br><span class="line">    err = lua_pcall(L, 1, 1, 0);</span><br><span class="line">    if (err) &#123;</span><br><span class="line">        fprintf(stderr,&quot;%s\n&quot;,lua_tostring(L,-1));</span><br><span class="line">        lua_close(L);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    _init_env(L);    //这里看函数就知道是初始化环境</span><br><span class="line"></span><br><span class="line">    //记录配置</span><br><span class="line">    config.thread =  optint(&quot;thread&quot;,8);</span><br><span class="line">    config.module_path = optstring(&quot;cpath&quot;,&quot;./cservice/?.so&quot;);</span><br><span class="line">    config.harbor = optint(&quot;harbor&quot;, 1);</span><br><span class="line">    config.bootstrap = optstring(&quot;bootstrap&quot;,&quot;snlua bootstrap&quot;);</span><br><span class="line">    config.daemon = optstring(&quot;daemon&quot;, NULL);</span><br><span class="line">    config.logger = optstring(&quot;logger&quot;, NULL);</span><br><span class="line">    config.logservice = optstring(&quot;logservice&quot;, &quot;logger&quot;);</span><br><span class="line">    config.profile = optboolean(&quot;profile&quot;, 1);</span><br><span class="line"></span><br><span class="line">    //解析完，关闭用于解析的lua虚拟机</span><br><span class="line">    lua_close(L);</span><br><span class="line"></span><br><span class="line">    //通过配置启动调用skynet_start</span><br><span class="line">    skynet_start(&amp;config);</span><br><span class="line">    skynet_globalexit();</span><br><span class="line">    luaS_exitshr();</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>skynet_start.c</strong></p>
+<p><strong>skynet_start做的就是继续初始化，这里需要注意的是bootstrap，这里通过配置可以知道，其实是启动的是snlua（用C写的模块），之后所有的lua服务都是通过snlua启动的（snlua加载lua文件））先记着，之后再分析。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">void </span><br><span class="line">skynet_start(struct skynet_config * config) &#123;</span><br><span class="line">    // register SIGHUP for log file reopen</span><br><span class="line">    // 这里处理一些信号的问题。</span><br><span class="line">    struct sigaction sa;</span><br><span class="line">    sa.sa_handler = &amp;handle_hup;</span><br><span class="line">    sa.sa_flags = SA_RESTART;</span><br><span class="line">    sigfillset(&amp;sa.sa_mask);</span><br><span class="line">    sigaction(SIGHUP, &amp;sa, NULL);</span><br><span class="line"></span><br><span class="line">    //看看是否配置了守护进程</span><br><span class="line">    if (config-&gt;daemon) &#123;</span><br><span class="line">        if (daemon_init(config-&gt;daemon)) &#123;</span><br><span class="line">            exit(1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    skynet_harbor_init(config-&gt;harbor);            // harbor(港口)初始化</span><br><span class="line">    skynet_handle_init(config-&gt;harbor);            // handler初始化，存贮全部的服务句柄</span><br><span class="line">    skynet_mq_init();                            // 全局队列初始化</span><br><span class="line">    skynet_module_init(config-&gt;module_path);    // C模块初始化</span><br><span class="line">    skynet_timer_init();                        // 定时器初始化</span><br><span class="line">    skynet_socket_init();                        // socket初始化</span><br><span class="line">    skynet_profile_enable(config-&gt;profile);        </span><br><span class="line"></span><br><span class="line">    //启动logger服务</span><br><span class="line">    struct skynet_context *ctx = skynet_context_new(config-&gt;logservice, config-&gt;logger);</span><br><span class="line">    if (ctx == NULL) &#123;</span><br><span class="line">        fprintf(stderr, &quot;Can&#x27;t launch %s service\n&quot;, config-&gt;logservice);</span><br><span class="line">        exit(1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    skynet_handle_namehandle(skynet_context_handle(ctx), &quot;logger&quot;);</span><br><span class="line"></span><br><span class="line">    //启动配置中的bootstrap服务</span><br><span class="line">    bootstrap(ctx, config-&gt;bootstrap);</span><br><span class="line"></span><br><span class="line">    //调用start传入配置线程数量</span><br><span class="line">    start(config-&gt;thread);</span><br><span class="line"></span><br><span class="line">    // harbor_exit may call socket send, so it should exit before socket_free</span><br><span class="line">    skynet_harbor_exit();</span><br><span class="line">    skynet_socket_free();</span><br><span class="line">    if (config-&gt;daemon) &#123;</span><br><span class="line">        daemon_exit(config-&gt;daemon);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后调用，start，这是整个逻辑的启动，下篇先分析bootstrap。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/10/23/skynet%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89cluster%E9%9B%86%E7%BE%A4%E9%80%9A%E4%BF%A1%E4%B8%AD%EF%BC%8C%E4%BC%A0%E9%80%92%E7%9A%84%E6%B6%88%E6%81%AF%E8%BF%87%E5%A4%A7%E9%80%A0%E6%88%90%E7%9A%84%E9%97%AE%E9%A2%98%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/23/skynet%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89cluster%E9%9B%86%E7%BE%A4%E9%80%9A%E4%BF%A1%E4%B8%AD%EF%BC%8C%E4%BC%A0%E9%80%92%E7%9A%84%E6%B6%88%E6%81%AF%E8%BF%87%E5%A4%A7%E9%80%A0%E6%88%90%E7%9A%84%E9%97%AE%E9%A2%98%E3%80%82/" class="post-title-link" itemprop="url">skynet踩坑记录（四）cluster集群通信中，传递的消息过大造成的问题。</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-23 09:26:58" itemprop="dateCreated datePublished" datetime="2020-10-23T09:26:58+08:00">2020-10-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skynet/" itemprop="url" rel="index"><span itemprop="name">skynet</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>昨天更新后，一直触发这个报错。第一眼看我都吓懵了，这什么鬼报错，call fail。框架级别的报错。这怎么解决。</p>
+<p><img src="/images/posts/skynetcluster/20201023090638345.png"></p>
+<p>理性分析，然后在同事的提醒下查看了core的日志，然后发现</p>
+<p><img src="/images/posts/skynetcluster/20201023090722415.png"></p>
+<p>一查代码，发现</p>
+<p><img src="/images/posts/skynetcluster/20201023090801288.png"></p>
+<p>原来是集群通信中，传递的包过大造成的。获取玩家排行榜历史的时候，我缓存的所有玩家的历史，这样每个玩家只需要去拿就行了，不需要再进行多余的db操作。检查自己的逻辑，的确是发了很大的包。测试的时候数据不足，并没有发现。</p>
+<p>想起在云风的blog中也说过，集群通信有错误会提示，但是业务层面要自己重新处理。</p>
+<p>最后修改业务层面的代码解决，其实也可以把过大的包拆成几分发送。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/10/09/Ubuntu%20Lua%E8%B0%83%E7%94%A8C%E5%87%BD%E6%95%B0%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/09/Ubuntu%20Lua%E8%B0%83%E7%94%A8C%E5%87%BD%E6%95%B0%E3%80%82/" class="post-title-link" itemprop="url">Ubuntu Lua调用C函数。</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-09 19:54:53" itemprop="dateCreated datePublished" datetime="2020-10-09T19:54:53+08:00">2020-10-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">lua</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>用了很久lua，框架原因，今天写一下lua调用so库。</p>
+<p>真的是不做不知道，一做真奇妙。网上那么多篇文章，基本上都是你抄我，我抄你。错误都一样，验证都没验证过。。。</p>
+<p>先声明一下我的环境，Ubuntu 18.04，lua5.3</p>
+<p><strong>1.概念补充，lua和c交互是通过一个虚拟的栈来交互的，为什么是这样？</strong></p>
+<p>C与Lua之间通信关键内容在于一个虚拟的栈。几乎所有的调用都是对栈上的值进行操作，所有C与Lua之间的数据交换也都通过这个栈来完成。另外，也可以使用栈来保存临时变量。每一个与Lua通信的C函数都有其独有的虚拟栈，虚拟栈由Lua管理。</p>
+<p>栈的使用解决了C和Lua之间两个不协调的问题：第一，Lua会自动进行垃圾收集，而C要求显式的分配存储单元，两者引起的矛盾。第二，Lua中的动态类型和C中的静态类型不一致引起的混乱。</p>
+<p><strong>2.要想调用C中的方法，则需要把C编译成动态库，我是在linux下，所以是.so，代码如下</strong></p>
+<p>c_so.cpp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">extern &quot;C&quot; &#123;</span><br><span class="line">  #include &lt;stdio.h&gt;</span><br><span class="line">  #include &lt;lua.h&gt;</span><br><span class="line">  #include &lt;lualib.h&gt;</span><br><span class="line">  #include &lt;lauxlib.h&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//自定义函数</span><br><span class="line">static int my_add(lua_State *L)</span><br><span class="line">&#123;</span><br><span class="line">    int x = lua_tonumber(L,1); //第一个参数,转换为数字</span><br><span class="line">    int y = lua_tonumber(L,2); //第二个参数,转换为数字</span><br><span class="line">    int sum = x + y;           </span><br><span class="line">    lua_pushnumber(L, sum);    //将函数的结果压入栈中。如果有多个返回值，可以在这里多次压入栈中。</span><br><span class="line">    return 1; //返回sum计算结果</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static int showstr(lua_State *L)</span><br><span class="line">&#123;</span><br><span class="line">   //从lua中传入的第一个参数</span><br><span class="line">   const char *str = lua_tostring (L, 1);</span><br><span class="line"></span><br><span class="line">   printf (&quot;c program str = %s\n&quot;, str);</span><br><span class="line">   return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 需要一个&quot;luaL_Reg&quot;类型的结构体，其中每一个元素对应一个提供给Lua的函数。</span><br><span class="line"> * 每一个元素中包含此函数在Lua中的名字，以及该函数在C库中的函数指针。</span><br><span class="line"> * 最后一个元素为“哨兵元素”（两个&quot;NULL&quot;），用于告诉Lua没有其他的函数需要注册。</span><br><span class="line"> */</span><br><span class="line">static luaL_Reg funclist[] =</span><br><span class="line">&#123;</span><br><span class="line">    &#123;&quot;add&quot;, my_add&#125;, //my_add()函数，lua中访问时使用名称为add</span><br><span class="line">    &#123;&quot;show&quot;, showstr&#125;, //showstr()函数，lua中访问时使用名称为show</span><br><span class="line">    &#123;NULL, NULL&#125;,  //最后必须有这个</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/* 此函数为C库中的“特殊函数”。</span><br><span class="line"> * 通过调用它注册所有C库中的函数，并将它们存储在适当的位置。</span><br><span class="line"> * 此函数的命名规则应遵循：</span><br><span class="line"> * 1、使用&quot;luaopen_&quot;作为前缀。</span><br><span class="line"> * 2、前缀之后的名字将作为&quot;require&quot;的参数。</span><br><span class="line"> */</span><br><span class="line">extern &quot;C&quot; int luaopen_mylib(lua_State *L )</span><br><span class="line">&#123;</span><br><span class="line">     /* void luaL_newlib (lua_State *L, const luaL_Reg l[]);</span><br><span class="line">     * 创建一个新的&quot;table&quot;，并将&quot;l&quot;中所列出的函数注册为&quot;table&quot;的域。</span><br><span class="line">     */ </span><br><span class="line">    luaL_newlib(L, funclist);</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后编译 <strong>gcc -shared -fPIC c_so.cpp -o mylib.so -I /home/lk/my_skynet_learning/skynet/3rd/lua/</strong></p>
+<p>编译完成后将会得到mylib.so</p>
+<p><img src="/images/posts/ubuntu-luac/20201009195100952.png"></p>
+<p>testso.lua</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">local mylib = require &quot;mylib&quot;</span><br><span class="line"></span><br><span class="line">local i = mylib.add(1, 2)</span><br><span class="line">print(i)</span><br><span class="line"></span><br><span class="line">local j = mylib.show(&#x27;真的太多坑了&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下</p>
+<p><img src="/images/posts/ubuntu-luac/20201009195329107.png"></p>
+<p>网上搜的真的是各种坑。哎。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/09/23/%E6%9C%80%E8%BF%91%E7%A2%B0%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/23/%E6%9C%80%E8%BF%91%E7%A2%B0%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">最近碰到的一些服务器问题的总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-23 19:23:05" itemprop="dateCreated datePublished" datetime="2020-09-23T19:23:05+08:00">2020-09-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>随着业务的熟悉，也多出更多的时间在注意技术。碰到了一下问题，做一下记录。</p>
+<p>1.怎么查看服务器当前的网络状态，怎么看socket是否断开，怎么查看各个端口的连接情况。</p>
+<p>使用 <strong>ifconfig</strong> 用来显示所有网络接口的详细情况的，如：ip地址，子网掩码等。</p>
+<p>使用 **netstat -na **显示当前网络各个端口连接信息，会显示各个连接的状态（a所有，n显示地址，可以加t指定tcp，l指定显示监听的套接字）。</p>
+<p>2.linux fd(文件描述符)复用时怎么确保不出错。</p>
+<p>3.客户端怎么异步的去连接服务器。</p>
+<p>使用多线程或者多进程去连接服务器（线程池）</p>
+<p>4.怎么查找一个目录和多个目录下含有指定输出的文件</p>
+<p>使用 <strong>grep ‘xxxx’ [目录1] [目录2] -rn，</strong>查找目录1，目录2中出现 ‘xxxx’ 的文件，并显示出现在第几行。</p>
+<p>5.skynet 不小心再 for 循环中使用了 call，另一个服务没有处理，这种情况怎么解决。</p>
+<p>6.lua的table是怎么实现的。</p>
+<p>这个我还没有看过，只知道 lua 的 table 是数组和hash一起实现的。有一个有意思的事情是，有一个 table ，table[1000] = 1，这种情况下是数组还是hash（虽然在我们看来是数组，但是实际上却是hash，简单的想，如果是数组也不实际，创建1000个地址，只存贮一个地址）。table 的 取长度，会查找一个整形的key，达成条件</p>
+<p>table[key] != <strong>nil</strong><br>table[key+1] == <strong>nil</strong></p>
+<p>所以，如果中间含有nil的table，计算长度，会出错。</p>
+<p>7.怎么判断服务器是否发生死循环。</p>
+<p><strong>top</strong>：找出占用cpu过高的程序<br><strong>top -H -p</strong>：记录下占用cpu的线程号<br>**gdb attach &lt;进程号&gt;**： 对占用cpu过高的程序进行gdb调试<br><strong>info thread</strong> ： 列出线程状态<br><strong>thread &lt;线程号&gt;</strong> ： 根据线程号切换到某个线程<br><strong>bt</strong> ： 输出堆栈<br><strong>l</strong> ： 查看当前代码<br><strong>print &lt;变量名&gt;</strong> ：输出必要的变量内容<br><strong>detach</strong>：分离线程<br><strong>q 退出gdb调试</strong><br><strong>处理死循环，重启进程/线程</strong>。</p>
+<p>8.怎么查看自己的服务器到底能够承载多少人。</p>
+<p>查看linux服务器的内存，查看一个玩家需要多少内存，进行计算。</p>
+<p>9.socket write的时候，对方如果关闭了，内核缓冲区又还没满，尝试继续写会怎样。</p>
+<p>先写入缓冲区，再写得话会返回错误，触发信号。</p>
+<p>10.动态库静态库那个效率高。C++动态库为什么要声明 extern c。调用动态库的方法。</p>
+<h3 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h3><p>当程序与静态库连接时，库中目标文件所含的所有将被程序使用的函数的机器码被 copy 到最终的可执行文件中。这就会导致最终生成的可执行代码量相对变多，相当于编译器将代码补充完整了，<strong>优点</strong>，这样运行起来相对就快些。不过会有个<strong>缺点</strong>: 占用磁盘和内存空间. 静态库会被添加到和它连接的每个程序中, 而且这些程序运行时, 都会被加载到内存中. 无形中又多消耗了更多的内存空间。</p>
+<h3 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h3><p>与共享库连接的可执行文件只包含它需要的函数的引用表，而不是所有的函数代码，只有在程序执行时, 那些需要的函数代码才被拷贝到内存中。<strong>优点</strong>，这样就使可执行文件比较小, 节省磁盘空间，更进一步，操作系统使用虚拟内存，使得一份共享库驻留在内存中被多个程序使用，也同时节约了内存。<strong>缺点</strong>，不过由于运行时要去链接库会花费一定的时间，执行速度相对会慢一些，总的来说静态库是牺牲了空间效率，换取了时间效率，共享库是牺牲了时间效率换取了空间效率，没有好与坏的区别，只看具体需要了。</p>
+<p>另外，一个程序编好后，有时需要做一些修改和优化，如果我们要修改的刚好是库函数的话，在接口不变的前提下，使用共享库的程序只需要将共享库重新编译就可以了，而使用静态库的程序则需要将静态库重新编译好后，将程序再重新编译一便。这也是使用过程当中的差别，以现在的项目举例，在远程更新的时候，如果只是*.so动态库封装内容变化了，那么只需要更新*.so即可。</p>
+<p><strong>被extern “C”修饰的变量和函数是按照C语言方式进行编译和链接的</strong></p>
+<p>11.skynet 使用的 epoll是什么模式，epoll 的水平触发和边缘触发有什么区别</p>
+<p><strong>水平触发（Level_triggered****）</strong>，epoll默认是水平触发的，skynet没做修改。</p>
+<p><strong>水平触发（Level_triggered****）</strong>：对于socket读来说，文件描述符关联的读内核缓冲区非空，有数据可以读取，就会触发读就绪，对于socket写来说，描述符关联的内核写缓冲区不满，就可以触发写就绪。</p>
+<p><strong>边缘触发（Edge_triggered）</strong>：对于socket读来说，一旦有消息达到，触发一次读就绪，如果一次没有读完缓冲区，则剩余的消息将会留在缓冲区，不会触发读就绪。对于socket写来说，只触发一次写就绪，如果写满了缓冲区，当缓冲区发送完毕时，会再触发一次写就绪。如果未满，则也不会触发写就绪。</p>
+<p>12.C++虚函数怎么实现的。</p>
+<p>带有虚函数的类，编译器会为其额外分配一个虚函数表，里面记录的使虚函数的地址，当此类被继承时，子类如果也写了虚函数就在子类的虚函数表中将父类的函数地址覆盖，否则继承父类的虚函数地址。</p>
+<p>实例化之后，对象有一个虚函数指针，虚函数指针指向虚函数表，这样程序运行的时候，通过虚函数指针找到的虚函数表就是根据对象的类型来指向的了。</p>
+<p><img src="/images/posts/post/20200923173733453.png"></p>
+<p>13.skynet定时器是怎么实现的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/09/18/skynet%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%89%EF%BC%89skynet.call%E7%9A%84%E6%8C%82%E8%B5%B7%E5%AE%9E%E9%99%85%E4%B8%AD%E5%8F%AF%E8%83%BD%E9%80%A0%E6%88%90%E7%9A%84%E5%90%8E%E6%9E%9C%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/18/skynet%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%89%EF%BC%89skynet.call%E7%9A%84%E6%8C%82%E8%B5%B7%E5%AE%9E%E9%99%85%E4%B8%AD%E5%8F%AF%E8%83%BD%E9%80%A0%E6%88%90%E7%9A%84%E5%90%8E%E6%9E%9C%E3%80%82/" class="post-title-link" itemprop="url">skynet踩坑记录（三）skynet.call的挂起实际中可能造成的后果。</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-18 16:51:02" itemprop="dateCreated datePublished" datetime="2020-09-18T16:51:02+08:00">2020-09-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skynet/" itemprop="url" rel="index"><span itemprop="name">skynet</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在刚开始使用skynet的时候，就已经知道call方法会挂起。但是一直到今天，都无法深刻理解这个挂起的意思。直到碰到了这个问题。解决后做此记录。</p>
+<p>1.先描述一下出现的情况。</p>
+<p><img src="/images/posts/skynetskynetcall/20200918162401369.png"></p>
+<p>先暂且不管为什么要对db进行这么多次操作（原因太多）。在这个需求下，我本是想执行顺序为 1234，但是实际上确时1324。这会导致3拿到的是2更新之前的数据。今日参加次数就会在执行4的时候，没有能更新到2更新的内容。</p>
+<p>2.为什么会出现这样的情况呢。</p>
+<p>首先要了解 lua协程。<strong>在任一指定时刻只有一个协同程序在运行，并且这个正在运行的协同程序只有在明确的被要求挂起的时候才会被挂起。</strong>一般使用协程的时候，因为cpu的性能问题，会让我们感觉和多线程差不多。但是重点就是，同一时刻，只有一个协程在运行，而且在他让出cpu的时候，cpu才回去处理别的协程。</p>
+<p>在上面的情况下，就是因为在步骤1的时候，调用了skynet.call。这个东西会挂起协程，也就是让出cpu。然后cpu就是处理了下面的协程，所以先调用了3。</p>
+<p>3.怎么处理</p>
+<p>有两个方法：a.修改业务，将这两个增加写到一起。</p>
+<p>b.使用消息队列，skynet.queue。(代码很简单，就几行，即处理完当前协程的方法再调用下一个协程的方法)（云风前辈在blog也写过，skynet.queue，就是用来处理这了多协程，又要保证次序的问题。）</p>
+<p>4.处理的注意事项，使用skynet.queue的时候，一定要确保丢进队列的顺序是1234，我自己就因为没有能很好的理解call的挂起，让上面两个协程分别把方法丢到队列里（再次踩坑，加深理解），最后丢进去的顺序又是1324。。。。查了好久，才找到。再次提醒，<strong>skynet.call会挂起协程。</strong>其实再很多游戏业务中，也会有这种场景，需要多注意。（如果是关于重要数据的修改，麻烦就大了，例如金币变动等）</p>
+<p>5.虽然从技术上也解决了，但是最后我是修改了逻辑，将两个方法写成一个。没必要进行四次DB操作。但是这次的确也加深了我对协程挂起的理解。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2020/09/15/Lua%20%E8%A1%A8%E7%9A%84%E5%BC%B1%E5%BC%95%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/15/Lua%20%E8%A1%A8%E7%9A%84%E5%BC%B1%E5%BC%95%E7%94%A8/" class="post-title-link" itemprop="url">Lua 表的弱引用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-15 20:29:41" itemprop="dateCreated datePublished" datetime="2020-09-15T20:29:41+08:00">2020-09-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">lua</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>最近被问到一个问题，什么是lua表的弱引用，之前看过lua程序设计第四版，但是当时不记得了，并不能回答出来。之后做了简单查阅，作此记录。</p>
+<p>lua的垃圾回收机制是，当一个变量不再被引用了。当触发垃圾回收机制的时候，会回收这部分内存。<strong>而弱引用，则是更好的回收内存的一种方法。</strong>下面上代码：</p>
+<p><strong>对key设置弱引用之前：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">local t = &#123;&#125;</span><br><span class="line">local key1 = &#123; name  = &#x27;key1&#x27; &#125;</span><br><span class="line">t[key1] = 1</span><br><span class="line">key1 = nil</span><br><span class="line"></span><br><span class="line">for k,v in pairs(t) do</span><br><span class="line">    print(k,v)</span><br><span class="line">    for k1,v1 in pairs(k) do    --由于k是一个table，再次打印</span><br><span class="line">        print(k1,v1)</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>输出结果是这样的：</p>
+<p><img src="/images/posts/lua/20200915201431469.png"></p>
+<p>可以看到，即使我们的表key1置为空了，但是表t依然能够打印出来（是表 t 还是包含着对表 key1 的引用）。<strong>下面我们设置key的弱引用</strong>，代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">local t = &#123;&#125;</span><br><span class="line">local key1 = &#123; name  = &#x27;key1&#x27; &#125;</span><br><span class="line">t[key1] = 1</span><br><span class="line">key1 = nil</span><br><span class="line">setmetatable(t, &#123;__mode = &quot;k&quot;&#125;)   --设置 table 中 key 的弱引用</span><br><span class="line">collectgarbage()                  --手动触发垃圾回收  </span><br><span class="line"></span><br><span class="line">for k,v in pairs(t) do</span><br><span class="line">    print(k,v)</span><br><span class="line">    for k1,v1 in pairs(k) do</span><br><span class="line">        print(k1,v1)</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果是这样的：</strong></p>
+<p><img src="/images/posts/lua/20200915200902928.png"></p>
+<p>可以看到，当触发垃圾回收的时候，表t 已经被清空了。这就是由于对 table key 的弱引用，<strong>当key值没有被别的值引用时，垃圾回收会直接回收含有这个指定key的表的内存。</strong></p>
+<p>**        弱引用也可以设置位 table 的 value**。</p>
+<p>** 对value设置弱引用之前：**</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">local t = &#123;&#125;</span><br><span class="line">local key2 = &#123; name = &#x27;key2&#x27;&#125;</span><br><span class="line">table.insert(t, key2)</span><br><span class="line">key2 = nil</span><br><span class="line"></span><br><span class="line">for k,v in pairs(t) do</span><br><span class="line">    print(k,v)</span><br><span class="line">    for k1,v1 in pairs(v) do      --由于 v 是一个table 再次打印</span><br><span class="line">        print(k1,v1)</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p><strong>结果如下：</strong></p>
+<p><img src="/images/posts/lua/20200915201721105.png"></p>
+<p>** 对value设置弱引用：**</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">local t = &#123;&#125;</span><br><span class="line">local key2 = &#123; name = &#x27;key2&#x27;&#125;</span><br><span class="line">table.insert(t, key2)</span><br><span class="line">key2 = nil</span><br><span class="line"></span><br><span class="line">setmetatable(t, &#123;__mode = &quot;v&quot;&#125;)   --设置 table value的弱引用</span><br><span class="line">collectgarbage()                  --手动触发垃圾回收</span><br><span class="line"></span><br><span class="line">for k,v in pairs(t) do</span><br><span class="line">    print(k,v)</span><br><span class="line">    for k1,v1 in pairs(v) do</span><br><span class="line">        print(k1,v1)</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p><strong>结果如下：</strong></p>
+<p><img src="/images/posts/lua/2020091520251692.png"></p>
+<p><strong>也可以同时设置对 key 和 value 的弱引用。</strong>这样一旦有一个被置为nil，则垃圾回收时直接触发回收。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">local t = &#123;&#125;</span><br><span class="line">local key2 = &#123; name = &#x27;key2&#x27;&#125;</span><br><span class="line">table.insert(t, key2)</span><br><span class="line">key2 = nil</span><br><span class="line"></span><br><span class="line">setmetatable(t, &#123;__mode = &quot;v&quot;&#125;)   --设置 table，key 和 value 的弱引用</span><br><span class="line">collectgarbage()                  --手动触发垃圾回收</span><br><span class="line"></span><br><span class="line">for k,v in pairs(t) do</span><br><span class="line">    print(k,v)</span><br><span class="line">    for k1,v1 in pairs(v) do</span><br><span class="line">        print(k1,v1)</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>** 结果如下：**</p>
+<p><img src="/images/posts/lua/2020091520251692.png"></p>
+<p>** **最后，合理的使用弱引用，可以加强垃圾回收。但是如果不熟悉，也可能造成意想不到的后果。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fushen Ban"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Fushen Ban</p>
+  <div class="site-description" itemprop="description">正在进化</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fushen Ban</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

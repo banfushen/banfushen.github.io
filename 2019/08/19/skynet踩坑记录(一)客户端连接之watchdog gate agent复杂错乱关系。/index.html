@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"banfushen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="笔者转行做游戏服务器开发有四个月了，现在公司用的是skynet框架，由于之前没做过服务器开发，现在还是处于边学习，边跟项目的情况。由于工作原因，网络这一块断断续续看了两个星期，一直没理解，今天再看的时候，终于懂了skynet监听网络端口的流程，也懂了，客户端是怎么连接的。果然应了那句话：欠了技术债，早晚要还的。（学习一定要专注啊！！！可以省好多时间。） ** **这张图是在网上找的，非常的清晰">
+<meta property="og:type" content="article">
+<meta property="og:title" content="skynet踩坑记录(一)客户端连接之watchdog gate agent复杂错乱关系。">
+<meta property="og:url" content="https://banfushen.github.io/2019/08/19/skynet%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95(%E4%B8%80)%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5%E4%B9%8Bwatchdog%20gate%20agent%E5%A4%8D%E6%9D%82%E9%94%99%E4%B9%B1%E5%85%B3%E7%B3%BB%E3%80%82/index.html">
+<meta property="og:site_name" content="拼图收集者">
+<meta property="og:description" content="笔者转行做游戏服务器开发有四个月了，现在公司用的是skynet框架，由于之前没做过服务器开发，现在还是处于边学习，边跟项目的情况。由于工作原因，网络这一块断断续续看了两个星期，一直没理解，今天再看的时候，终于懂了skynet监听网络端口的流程，也懂了，客户端是怎么连接的。果然应了那句话：欠了技术债，早晚要还的。（学习一定要专注啊！！！可以省好多时间。） ** **这张图是在网上找的，非常的清晰">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://banfushen.github.io/images/posts/skynetwatchdog-gate-agent/20190819195844523.png">
+<meta property="article:published_time" content="2019-08-19T12:23:20.000Z">
+<meta property="article:modified_time" content="2023-07-16T09:11:17.000Z">
+<meta property="article:author" content="Fushen Ban">
+<meta property="article:tag" content="skynet 网络模块">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://banfushen.github.io/images/posts/skynetwatchdog-gate-agent/20190819195844523.png">
+
+<link rel="canonical" href="https://banfushen.github.io/2019/08/19/skynet%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95(%E4%B8%80)%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5%E4%B9%8Bwatchdog%20gate%20agent%E5%A4%8D%E6%9D%82%E9%94%99%E4%B9%B1%E5%85%B3%E7%B3%BB%E3%80%82/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+  <title>skynet踩坑记录(一)客户端连接之watchdog gate agent复杂错乱关系。 | 拼图收集者</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">拼图收集者</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欠的技术债，早晚要还</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/resume/" rel="section"><i class="fa fa-fw fa-user"></i>resume</a>
+
+  </li>
+        <li class="menu-item menu-item-simplefolio">
+
+    <a href="/simplefolio/" rel="section"><i class="fa fa-fw fa-id-card"></i>simplefolio</a>
+
+  </li>
+        <li class="menu-item menu-item-game">
+
+    <a href="/game/" rel="section"><i class="fa fa-fw fa-gamepad"></i>game</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2019/08/19/skynet%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95(%E4%B8%80)%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5%E4%B9%8Bwatchdog%20gate%20agent%E5%A4%8D%E6%9D%82%E9%94%99%E4%B9%B1%E5%85%B3%E7%B3%BB%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          skynet踩坑记录(一)客户端连接之watchdog gate agent复杂错乱关系。
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-19 20:23:20" itemprop="dateCreated datePublished" datetime="2019-08-19T20:23:20+08:00">2019-08-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skynet/" itemprop="url" rel="index"><span itemprop="name">skynet</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <span id="more"></span>
+
+<p>笔者转行做游戏服务器开发有四个月了，现在公司用的是skynet框架，由于之前没做过服务器开发，现在还是处于边学习，边跟项目的情况。由于工作原因，网络这一块断断续续看了两个星期，一直没理解，今天再看的时候，终于懂了skynet监听网络端口的流程，也懂了，客户端是怎么连接的。果然应了那句话：<strong>欠了技术债，早晚要还的。（学习一定要专注啊！！！可以省好多时间。）</strong></p>
+<p>** **这张图是在网上找的，非常的清晰，要顺着标识看，并结合代码，就能大致了解这个过程。<img src="/images/posts/skynetwatchdog-gate-agent/20190819195844523.png"></p>
+<p>1.在main中会newservice watchdog启动看门狗服务，lua start conf给看门狗发送lua消息start参数为conf。</p>
+<p>2.在watchdog服务中会，newservice gate启动网关服务(实际上是通过gateserver.start启动)，然后监听传入或者默认的端口。</p>
+<p>3.当有新连接接入的时候，实际上是gate server监听到的。</p>
+<p>4.gate server send2watchdog open，并传入参数。</p>
+<p>5.在watchdog server中会创建一个agent(每个连接接入，创建一个agent)，并传入相关的信息(gate，fd，watchdog)。</p>
+<p>6.由于有watchdog传入的信息，agent可以call2gate server forward(用于打开fd，一定要打开，链接成功不代表马上可以读到数据，需要打开这个套接字，允许fd接收数据，这样才能接受到client传入的数据)。</p>
+<p>7.当client send requste，首先到达gate。</p>
+<p>8.gate server 的message方法中处理，转发给agent。</p>
+<p>9.agent处理之后，在发回给client。</p>
+<p>需要注意的是：</p>
+<p>1.实际上client连接到的是gate server。</p>
+<p>2.gate server把具体的client消息转发给agent由agent处理具体逻辑。</p>
+<p>3.gate 与 watchdog 与 agent是相互配合的。</p>
+<p>至于为什么要这么做，目前我也不是很清楚。。。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/skynet-%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9D%97/" rel="tag"># skynet 网络模块</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/08/12/Ubuntu%2018.04.3%20%E5%AE%89%E8%A3%85svn/" rel="prev" title="Ubuntu 18.04.3 安装svn">
+      <i class="fa fa-chevron-left"></i> Ubuntu 18.04.3 安装svn
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/09/04/Ubuntu%E8%BF%9E%E6%8E%A5redis%E6%97%B6%E5%8F%AF%E6%8C%87%E5%AE%9Aip%EF%BC%8C%E7%AB%AF%E5%8F%A3%EF%BC%8C%E5%AF%86%E7%A0%81%E3%80%82/" rel="next" title="Ubuntu连接redis时可指定ip，端口，密码。">
+      Ubuntu连接redis时可指定ip，端口，密码。 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fushen Ban"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Fushen Ban</p>
+  <div class="site-description" itemprop="description">正在进化</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fushen Ban</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

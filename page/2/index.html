@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"banfushen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="正在进化">
+<meta property="og:type" content="website">
+<meta property="og:title" content="拼图收集者">
+<meta property="og:url" content="https://banfushen.github.io/page/2/index.html">
+<meta property="og:site_name" content="拼图收集者">
+<meta property="og:description" content="正在进化">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fushen Ban">
+<meta property="article:tag" content="linux，golang，lua，c，python，nodejs，k8s，redis">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://banfushen.github.io/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+  <title>拼图收集者</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">拼图收集者</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欠的技术债，早晚要还</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/resume/" rel="section"><i class="fa fa-fw fa-user"></i>resume</a>
+
+  </li>
+        <li class="menu-item menu-item-simplefolio">
+
+    <a href="/simplefolio/" rel="section"><i class="fa fa-fw fa-id-card"></i>simplefolio</a>
+
+  </li>
+        <li class="menu-item menu-item-game">
+
+    <a href="/game/" rel="section"><i class="fa fa-fw fa-gamepad"></i>game</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2022/01/09/redis%20%E6%80%8E%E4%B9%88%E6%9F%A5%E8%AF%A2%E4%B8%80%E4%B8%AAkey%E6%9C%89%E5%A4%9A%E5%A4%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/09/redis%20%E6%80%8E%E4%B9%88%E6%9F%A5%E8%AF%A2%E4%B8%80%E4%B8%AAkey%E6%9C%89%E5%A4%9A%E5%A4%A7/" class="post-title-link" itemprop="url">redis 怎么查询一个key有多大</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-09 17:06:27" itemprop="dateCreated datePublished" datetime="2022-01-09T17:06:27+08:00">2022-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>在项目开发过程中，最好是能估计出自己开发的功能要使用多大的redis内存</p>
+<h1 id="使用redis自带的方法"><a href="#使用redis自带的方法" class="headerlink" title="使用redis自带的方法"></a>使用redis自带的方法</h1><h2 id="debug-object-key"><a href="#debug-object-key" class="headerlink" title="debug object key"></a>debug object key</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6006&gt; get testkey</span><br><span class="line"><span class="string">&quot;this is a test&quot;</span></span><br><span class="line">127.0.0.1:6006&gt; debug object testkey</span><br><span class="line">Value at:0x7f4f19e2b500 refcount:1 encoding:embstr serializedlength:15 lru:14327341 lru_seconds_idle:6</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Value at: 内存地址</li>
+<li>refcount: 引用次数</li>
+<li>encoding: 编码类型</li>
+<li>serializedlength: 序列化后的长度（注意这里的长度是序列化后的长度，保存为rdb文件时使用了该算法，不是真正存贮在内存的大小，不过可以用于比较）memory usage1<br>2</li>
+</ul>
+<p>127.0.0.1:6006&gt; memory usage queuesSet<br>(integer) 1489075554</p>
+<p>返回字节数</p>
+<h1 id="借助工具"><a href="#借助工具" class="headerlink" title="借助工具"></a>借助工具</h1><p>借助redis rdb tools工具，需要下载rdbtools，<code>pip install rdbtools</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">banfushen@banfushen:~$ redis-memory-for-key -p 6006 testkey</span><br><span class="line">Key                             testkey</span><br><span class="line">Bytes                           72</span><br><span class="line">Type                            string</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用脚本"><a href="#使用脚本" class="headerlink" title="使用脚本"></a>使用脚本</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line">h = <span class="string">&#x27;localhost&#x27;</span></span><br><span class="line">p = <span class="number">6006</span></span><br><span class="line"></span><br><span class="line">rd = redis.Redis(host=h, port=p, decode_responses=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(rd.<span class="built_in">type</span>(<span class="string">&#x27;testkey&#x27;</span>), rd.strlen(<span class="string">&#x27;testkey&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">banfushen@banfushen:~/gitlab/dbsync/test$ python redis_size.py </span><br><span class="line">(u<span class="string">&#x27;string&#x27;</span>, 14)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/12/26/linux%20top%E6%98%BE%E7%A4%BACPU%E5%8D%A0%E7%94%A8%E9%AB%98%EF%BC%8CSteal%E9%AB%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/26/linux%20top%E6%98%BE%E7%A4%BACPU%E5%8D%A0%E7%94%A8%E9%AB%98%EF%BC%8CSteal%E9%AB%98/" class="post-title-link" itemprop="url">linux top显示CPU占用高，Steal高</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-26 21:50:18" itemprop="dateCreated datePublished" datetime="2021-12-26T21:50:18+08:00">2021-12-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>开发这么久，第一次这种问题，记录一下。<br>在某天开发中，开发机的cpu忽然飙升，一直降不下来，刚开始没注意，一直删除cpu占用高的进程，一直无效，仔细看。top显示Steal高。<img src="/images/posts/linux-topcpusteal/b51ef36628bb49698905550605f2054c.png"><br>经过查询是因为宿主机出了问题，<a target="_blank" rel="noopener" href="https://scoutapm.com/blog/understanding-cpu-steal-time-when-should-you-be-worried">详细说明看这里。</a><br>然后联系了运维，更换了宿主机，解决。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/12/07/docker%20%E5%90%AF%E5%8A%A8%20redis%20cluster%EF%BC%8C%E4%BD%BF%E7%94%A8%E5%87%BA%E7%8E%B0CLUSTERDOWN%20Hash%20slot%20not%20served%EF%BC%88redis%20cluster%E9%87%8D%E6%96%B0%E5%88%86%E9%85%8Dslot%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/07/docker%20%E5%90%AF%E5%8A%A8%20redis%20cluster%EF%BC%8C%E4%BD%BF%E7%94%A8%E5%87%BA%E7%8E%B0CLUSTERDOWN%20Hash%20slot%20not%20served%EF%BC%88redis%20cluster%E9%87%8D%E6%96%B0%E5%88%86%E9%85%8Dslot%EF%BC%89/" class="post-title-link" itemprop="url">docker 启动 redis cluster，使用出现CLUSTERDOWN Hash slot not served（redis cluster重新分配slot）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-07 22:24:21" itemprop="dateCreated datePublished" datetime="2021-12-07T22:24:21+08:00">2021-12-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>就像上一篇所说，我使用了docker-componse启动了redis cluster集群。经过了一天的测试，本来测试已经完毕了，但是今天修改了点代码，再次测试的时候发现redis cluster起不来了。报错<code>CLUSTERDOWN Hash slot not served</code>。从这个错误提示，可以看出是slot分配原因造成的。上网找，真的蛋疼，你复制我，我复制你，最后还是得自己解决。</p>
+<h1 id="查看详细"><a href="#查看详细" class="headerlink" title="查看详细"></a>查看详细</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">banfushen@banfushen:~/redis-cluster$ redis-cli -p 16379</span><br><span class="line">127.0.0.1:16379&gt;</span><br><span class="line">127.0.0.1:16379&gt;</span><br><span class="line">127.0.0.1:16379&gt; CLUSTER info</span><br><span class="line">cluster_state:fail</span><br><span class="line">cluster_slots_assigned:0</span><br><span class="line">cluster_slots_ok:0</span><br><span class="line">cluster_slots_pfail:0</span><br><span class="line">cluster_slots_fail:0</span><br><span class="line">...</span><br><span class="line">127.0.0.1:16379&gt; CLUSTER SLOTS</span><br><span class="line">Empty slot</span><br></pre></td></tr></table></figure>
+
+<h1 id="直接修复"><a href="#直接修复" class="headerlink" title="直接修复"></a>直接修复</h1><p>猜测就是slot分配的问题，进入具体container，重新分配slot</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">banfushen@banfushen:~/redis-cluster$ docker <span class="built_in">exec</span> -it redis-node-0 /bin/bash</span><br><span class="line">root@a77b8222eba2:/<span class="comment">#</span></span><br><span class="line"><span class="comment">## 先查看命令</span></span><br><span class="line">root@a77b8222eba2:/<span class="comment"># redis-cli --cluster help</span></span><br><span class="line">Cluster Manager Commands:</span><br><span class="line">  create         host1:port1 ... hostN:portN</span><br><span class="line">                 --cluster-replicas &lt;arg&gt;</span><br><span class="line">  check          host:port</span><br><span class="line">                 --cluster-search-multiple-owners</span><br><span class="line">  info           host:port</span><br><span class="line">  fix            host:port</span><br><span class="line">                 --cluster-search-multiple-owners</span><br><span class="line">                 --cluster-fix-with-unreachable-masters</span><br><span class="line">  reshard        host:port</span><br><span class="line">                 --cluster-from &lt;arg&gt;</span><br><span class="line">                 --cluster-to &lt;arg&gt;</span><br><span class="line">                 --cluster-slots &lt;arg&gt;</span><br><span class="line">                 --cluster-yes</span><br><span class="line">                 --cluster-timeout &lt;arg&gt;</span><br><span class="line">                 --cluster-pipeline &lt;arg&gt;</span><br><span class="line">                 --cluster-replace</span><br><span class="line">  rebalance      host:port</span><br><span class="line">                 --cluster-weight &lt;node1=w1...nodeN=wN&gt;</span><br><span class="line">                 --cluster-use-empty-masters</span><br><span class="line">                 --cluster-timeout &lt;arg&gt;</span><br><span class="line">                 --cluster-simulate</span><br><span class="line">                 --cluster-pipeline &lt;arg&gt;</span><br><span class="line">                 --cluster-threshold &lt;arg&gt;</span><br><span class="line">                 --cluster-replace</span><br><span class="line">  add-node       new_host:new_port existing_host:existing_port</span><br><span class="line">                 --cluster-slave</span><br><span class="line">                 --cluster-master-id &lt;arg&gt;</span><br><span class="line">  del-node       host:port node_id</span><br><span class="line">  call           host:port <span class="built_in">command</span> arg arg .. arg</span><br><span class="line">                 --cluster-only-masters</span><br><span class="line">                 --cluster-only-replicas</span><br><span class="line">  set-timeout    host:port milliseconds</span><br><span class="line">  import         host:port</span><br><span class="line">                 --cluster-from &lt;arg&gt;</span><br><span class="line">                 --cluster-from-user &lt;arg&gt;</span><br><span class="line">                 --cluster-from-pass &lt;arg&gt;</span><br><span class="line">                 --cluster-from-askpass</span><br><span class="line">                 --cluster-copy</span><br><span class="line">                 --cluster-replace</span><br><span class="line">  backup         host:port backup_directory</span><br><span class="line">  <span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">For check, fix, reshard, del-node, set-timeout you can specify the host and port of any working node <span class="keyword">in</span> the cluster.</span><br><span class="line"></span><br><span class="line">Cluster Manager Options:</span><br><span class="line">  --cluster-yes  Automatic <span class="built_in">yes</span> to cluster commands prompts</span><br><span class="line"></span><br><span class="line"><span class="comment">## 直接修复</span></span><br><span class="line">root@a77b8222eba2:/<span class="comment"># redis-cli --cluster fix --cluster-search-multiple-owners 127.0.0.1:6379</span></span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; Covering slot 694 with 192.168.88.3:6379</span><br><span class="line">&gt;&gt;&gt; Check <span class="keyword">for</span> multiple slot owners...</span><br><span class="line">[OK] No multiple owners found.</span><br><span class="line">root@f3f2043dba55:/<span class="comment">#</span></span><br><span class="line">root@f3f2043dba55:/<span class="comment">#</span></span><br><span class="line">root@f3f2043dba55:/<span class="comment">#</span></span><br><span class="line">root@f3f2043dba55:/<span class="comment"># redis-cli -p 6379</span></span><br><span class="line">127.0.0.1:6379&gt; cluster info</span><br><span class="line">cluster_state:ok</span><br><span class="line">cluster_slots_assigned:16384</span><br><span class="line">cluster_slots_ok:16384</span><br><span class="line">cluster_slots_pfail:0</span><br><span class="line">cluster_slots_fail:0</span><br><span class="line">cluster_known_nodes:6</span><br><span class="line">cluster_size:6</span><br><span class="line">cluster_current_epoch:33</span><br><span class="line">cluster_my_epoch:30</span><br><span class="line">cluster_stats_messages_ping_sent:489</span><br><span class="line">cluster_stats_messages_pong_sent:523</span><br><span class="line">cluster_stats_messages_meet_sent:6</span><br><span class="line">cluster_stats_messages_sent:1018</span><br><span class="line">cluster_stats_messages_ping_received:523</span><br><span class="line">cluster_stats_messages_pong_received:495</span><br><span class="line">cluster_stats_messages_received:1018</span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">exit</span></span><br><span class="line">root@f3f2043dba55:/<span class="comment"># exit</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/12/05/linux%E4%BD%BF%E7%94%A8docker%20+%20docker%20compose%20%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAredis%20cluster%E9%9B%86%E7%BE%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/05/linux%E4%BD%BF%E7%94%A8docker%20+%20docker%20compose%20%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAredis%20cluster%E9%9B%86%E7%BE%A4/" class="post-title-link" itemprop="url">linux使用docker + docker compose 本地搭建redis cluster集群</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-05 23:19:04" itemprop="dateCreated datePublished" datetime="2021-12-05T23:19:04+08:00">2021-12-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis-Linux/" itemprop="url" rel="index"><span itemprop="name">redis Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>项目用到一个redis库，对于里面的集群相关功能要自己测试（就像《代码简洁之道》中说的，使用第三方库需要自己有测试用例，这样即使第三方库更新了，直接用原来的测试用例，也知道是否能兼容）。所以需要自己本地搭建redis集群测试。</p>
+<p><strong>搭建是使用docker搭建的，一下需要启动很多个container，所以使用docker-compose作为容器编排</strong>我的环境已经有了，没有的自己下载</p>
+<h2 id="直接上redis-cluster模式"><a href="#直接上redis-cluster模式" class="headerlink" title="直接上redis-cluster模式"></a>直接上redis-cluster模式</h2><p>redis集群有三种模式：<strong>master+slave(主从)、sentinel(哨兵)、cluster(集群)</strong><br>我实际项目用的cluster模式，所以这里直接使用cluster模式。这个docker-compose.yml参考至<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45444133/article/details/119642841">docker 部署 redis 的三种集群模式</a>，里面还有一些关于redis集群的说明，docker-compose.yml我亲自使用，没问题。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## docker-compose.yml</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">&#x27;2&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">redis-node-0:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-0</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16379</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-0:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.2</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis-node-1:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-1</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16380</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-1:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.3</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis-node-2:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-2</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16381</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-2:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.4</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis-node-3:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-3</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16382</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-3:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.5</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis-node-4:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-4</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16383</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-4:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.6</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis-node-5:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-node-5</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/redis-cluster:6.2</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="number">16384</span><span class="string">:6379</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./redis_data-5:/bitnami/redis/data</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis-node-0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis-node-1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis-node-2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis-node-3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis-node-4</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;ALLOW_EMPTY_PASSWORD=yes&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDISCLI_AUTH=bfsbfs&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_CLUSTER_REPLICAS=1&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;REDIS_CLUSTER_CREATOR=yes&#x27;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">redis-cluster-network:</span> </span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.7</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">redis-cluster-network:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">bridge</span></span><br><span class="line">    <span class="attr">ipam:</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">subnet:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.0</span><span class="string">/24</span></span><br></pre></td></tr></table></figure>
+
+<p>直接<code>docker-compose up -d</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 在dockers-compose.yml目录</span></span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line">Creating network <span class="string">&quot;rediscluster_redis-cluster-network&quot;</span> with driver <span class="string">&quot;bridge&quot;</span></span><br><span class="line">Pulling redis-node-4 (docker.io/bitnami/redis-cluster:6.2)...</span><br><span class="line">6.2: Pulling from bitnami/redis-cluster</span><br><span class="line">1d7019cad1df: Pull complete</span><br><span class="line">0c20d9bbd5c0: Pull complete</span><br><span class="line">7434cc9f2f61: Pull complete</span><br><span class="line">01dd376516ef: Pull complete</span><br><span class="line">a10fc7cec580: Pull complete</span><br><span class="line">2e7c2cbaa852: Pull complete</span><br><span class="line">eef01af132bf: Pull complete</span><br><span class="line">234dbecfe19a: Pull complete</span><br><span class="line">Digest: sha256:57e9093dfaa412c691592e7e2ca6402a6f7d76b10cff04669fca4a82365f1874</span><br><span class="line">Status: Downloaded newer image <span class="keyword">for</span> bitnami/redis-cluster:6.2</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">Creating redis-node-2</span><br><span class="line">Creating redis-node-4</span><br><span class="line">Creating redis-node-0</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">Creating redis-node-3</span><br><span class="line">Creating redis-node-1</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">WARNING: Connection pool is full, discarding connection: localhost</span><br><span class="line">Creating redis-node-5</span><br></pre></td></tr></table></figure>
+
+<p>测试完毕，停止redis</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 在dockers-compose.yml目录</span></span><br><span class="line">docker-compose stop</span><br><span class="line">docker-compose <span class="built_in">rm</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/09/29/linux%20%E7%A3%81%E7%9B%98IO%E6%BB%A1%E5%AF%BC%E8%87%B4%E7%9A%84%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%8D%A1%E6%9C%BA%EF%BC%8Cpod%E5%A4%B1%E8%B4%A5(!kubepods!besteffort!pod4909103c-cdc)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/29/linux%20%E7%A3%81%E7%9B%98IO%E6%BB%A1%E5%AF%BC%E8%87%B4%E7%9A%84%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%8D%A1%E6%9C%BA%EF%BC%8Cpod%E5%A4%B1%E8%B4%A5(!kubepods!besteffort!pod4909103c-cdc)/" class="post-title-link" itemprop="url">linux 磁盘IO满导致的宿主机卡机，pod失败(/kubepods/besteffort/pod4909103c-cdc)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-29 19:35:42" itemprop="dateCreated datePublished" datetime="2021-09-29T19:35:42+08:00">2021-09-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-k8s/" itemprop="url" rel="index"><span itemprop="name">Linux k8s</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>开发机上装了minikube，起了一个docker镜像当minikube的宿主机，在启动了一定量的deployment A之后，deployment A就全挂了（启动1~2个deployment A，没有问题，启动到第三个，就全挂）。然后宿主机卡爆。</p>
+<h1 id="查询pod挂的原因"><a href="#查询pod挂的原因" class="headerlink" title="查询pod挂的原因"></a>查询pod挂的原因</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe pod </span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">  Exit Code:    137</span><br><span class="line">      Started:      Wed, 29 Sep 2021 16:02:30 +0800</span><br><span class="line">      Finished:     Wed, 29 Sep 2021 16:04:19 +0800</span><br><span class="line">    Ready:          False</span><br><span class="line">    Restart Count:  12</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>看到了其中镜像挂了的返回值是137，此状态码一般是因为 pod 中容器内存达到了它的资源限制(resources.limits)，一般是内存溢出(OOM)，CPU达到限制只需要不分时间片给程序就可以。因为限制资源是通过 linux 的 cgroup 实现的，所以 cgroup 会将此容器强制杀掉，类似于 kill -9。<br>但是通过top查看发现cpu和内存都没满，但是内存交换满了（KiB Swap），感觉是因为宿主机没资源了，所以干掉pod中的资源，接着往下查，寻找更多node的信息。</p>
+<p>因为minikube是起在docker中的，所以查看一下docker状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker stats</span><br><span class="line"></span><br><span class="line">94ec0f757f48        banfushen6_elasticsearch_1         1.24%               1.653GiB / 4.657GiB   35.49%              9.15GB / 6.79GB     85.3MB / 38.6GB     205</span><br><span class="line">a57d56927433        banfushen6_dynamodb_1              17.73%              329.7MiB / 31.42GiB   1.02%               223MB / 188MB       17MB / 12.3kB       86</span><br><span class="line">6aa3384e7433        banfushen6_mongooseim_1            0.02%               287.6MiB / 31.42GiB   0.89%               4.22MB / 0B         19.3MB / 1.03MB     27</span><br><span class="line">6f8203c6c8bd        banfushen6_rabbitmq_1              0.11%               98.38MiB / 31.42GiB   0.31%               4.22MB / 0B         19.9MB / 3.94MB     307</span><br><span class="line">722f40c6405f        minikube                           205.57%             7.398GiB / 7.812GiB   94.69%              441MB / 8.04MB      4.08MB / 48.1kB     2218</span><br></pre></td></tr></table></figure>
+
+<p>这下，找到了pod失败的原因。接下来查找宿主机卡住的原因。</p>
+<h1 id="查看node信息"><a href="#查看node信息" class="headerlink" title="查看node信息"></a>查看node信息</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe node minikube</span><br><span class="line">Name:               minikube</span><br><span class="line">Roles:              master</span><br><span class="line">Labels:             beta.kubernetes.io/arch=amd64</span><br><span class="line">                    beta.kubernetes.io/os=linux</span><br><span class="line">                    kubernetes.io/arch=amd64</span><br><span class="line">                    kubernetes.io/hostname=minikube</span><br><span class="line">                    kubernetes.io/os=linux</span><br><span class="line">                    minikube.k8s.io/commit=2c82918e2347188e21c4e44c8056fc80408bce10</span><br><span class="line">                    minikube.k8s.io/name=minikube</span><br><span class="line">                    minikube.k8s.io/updated_at=2021_07_20T17_14_34_0700</span><br><span class="line">                    minikube.k8s.io/version=v1.14.2</span><br><span class="line">                    node-role.kubernetes.io/master=</span><br><span class="line">Annotations:        kubeadm.alpha.kubernetes.io/cri-socket: /var/run/dockershim.sock</span><br><span class="line">                    node.alpha.kubernetes.io/ttl: 0</span><br><span class="line">                    volumes.kubernetes.io/controller-managed-attach-detach: <span class="literal">true</span></span><br><span class="line">CreationTimestamp:  Tue, 20 Jul 2021 17:14:27 +0800</span><br><span class="line">Taints:             &lt;none&gt;</span><br><span class="line">Unschedulable:      <span class="literal">false</span></span><br><span class="line">Conditions:</span><br><span class="line">  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message</span><br><span class="line">  ----             ------  -----------------                 ------------------                ------                       -------</span><br><span class="line">  MemoryPressure   False   Wed, 29 Sep 2021 17:02:14 +0800   Wed, 29 Sep 2021 16:37:39 +0800   KubeletHasSufficientMemory   kubelet has sufficient memory available</span><br><span class="line">  DiskPressure     False   Wed, 29 Sep 2021 17:02:14 +0800   Wed, 29 Sep 2021 16:37:39 +0800   KubeletHasNoDiskPressure     kubelet has no disk pressure</span><br><span class="line">  PIDPressure      False   Wed, 29 Sep 2021 17:02:14 +0800   Wed, 29 Sep 2021 16:37:39 +0800   KubeletHasSufficientPID      kubelet has sufficient PID available</span><br><span class="line">  Ready            True    Wed, 29 Sep 2021 17:02:14 +0800   Wed, 29 Sep 2021 16:57:04 +0800   KubeletReady                 kubelet is posting ready status</span><br></pre></td></tr></table></figure>
+
+<p>看到了这句话kubelet has no disk pressure，在结合之前top的交换内存满了，判定磁盘的问题。通过公司的monitor查看到机器的磁盘io使用率已满。<br><img src="/images/posts/linux-iopodkubepodsbesteffortpod4909103c-cdc/883d70f6cf0546e0b201a61923f999b0.png" alt="在这里插入图片描述"></p>
+<h1 id="找出导致io爆炸的容器"><a href="#找出导致io爆炸的容器" class="headerlink" title="找出导致io爆炸的容器"></a>找出导致io爆炸的容器</h1><p>我先用了pidstat -d 1查看哪个进程对io的占用最高，但是缺没找到任何相关信息，然后直接在宿主机查看内核日志</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /var/log/messages | ag killed</span><br><span class="line"></span><br><span class="line">Sep 29 17:50:31 bfs kernel: [5618442.047786] Task <span class="keyword">in</span> /docker/722f40c6405f6933ac2722e40a40fef4c52e36b2ba0e44bdd1a8aba0027ca313/kubepods/besteffort/pod4909103c-cdc2-432e-92aa-2e06c2c7d1e3/9d62c1f82041c40d691498b2ded86caa663404489f7c3a62ad37c72eb2470911 killed as a result of <span class="built_in">limit</span> of /docker/722f40c6405f6933ac2722e40a40fef4c52e36b2ba0e44bdd1a8aba0027ca313</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，docker被内核干掉了，拿到docker的id前缀，去查找看是什么容器造成的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker@minikube:~$ docker ps | grep  e5bdaaef</span><br><span class="line">e5bdaaefff4a        7c797432e61c           <span class="string">&quot;/usr/local/bin/dock…&quot;</span>   11 minutes ago      Up 11 minutes                               k8s_elasticsearch</span><br></pre></td></tr></table></figure>
+
+<p>发现，原来是pod中启动了es，多个es导致io炸裂，最后修改pod资源，不启动es，解决问题</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/08/05/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%99%90%E9%9C%80%E8%A6%81%E8%B5%84%E6%BA%90%E8%AF%84%E4%BC%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/05/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%99%90%E9%9C%80%E8%A6%81%E8%B5%84%E6%BA%90%E8%AF%84%E4%BC%B0/" class="post-title-link" itemprop="url">第一次服务器上限需要资源评估</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-05 21:53:08" itemprop="dateCreated datePublished" datetime="2021-08-05T21:53:08+08:00">2021-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0-k8s/" itemprop="url" rel="index"><span itemprop="name">笔记 k8s</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>本是小辣鸡。以前也只是写业务代码，全靠领导给机会让我自己负责一个服务器的编写，部署，上线需要的资源评估。记录第一次做上线资源评估的过程。</p>
+<p>项目背景是，搭在云服务商上的集群，集群管理是kubernetes。首次内测目标5000个用户。</p>
+<h1 id="主要如下"><a href="#主要如下" class="headerlink" title="主要如下"></a>主要如下</h1><p>1.服务器需要多少内存<br>2.服务器需要多少cpu<br>3.了解购买的云服务参数<br>4.修改kubernetes部署文件</p>
+<p>首先需要做压测，我写的服务器是用golang写的用于聊天服务器，所以在世界聊天的时候，压力就会非常大。压力也是要测试这里，看看需要消耗多少性能。</p>
+<h1 id="服务器需要多少内存"><a href="#服务器需要多少内存" class="headerlink" title="服务器需要多少内存"></a>服务器需要多少内存</h1><p>我使用了golang的profile进行分析，登录了5000玩家后，在profile中，查看到内存情况总共消耗171000000字节左右。计算出一个玩家大约使用32KB的内存。服务器本身启动不占多少内存，最后评估需要256m的内存。</p>
+<h1 id="服务器需要多少cpu"><a href="#服务器需要多少cpu" class="headerlink" title="服务器需要多少cpu"></a>服务器需要多少cpu</h1><p>在压测的时候，已经看了cpu的profile，看上去一切正常。剩下就是发消息。我启动服务器的机器是16核，2.2GHz的服务器。在每秒200人同时发消息到世界频道，5000人接收的情况下。使用top命令查看最高的时候，跑了586%的cpu，按6个计算，就是6*2200mhz = 13200mhz。也就是说在最极端的情况下，全部人都不玩游戏，只在大厅聊天，每秒200个人发，按照计算最多需要13200mhz的cpu。</p>
+<h1 id="了解购买的云服务参数"><a href="#了解购买的云服务参数" class="headerlink" title="了解购买的云服务参数"></a>了解购买的云服务参数</h1><p>集群中总共有8台机器，每台8G内存，4个cpu，每个cpu是3.4Ghz约等于3400mhz，4个cpu大约13600mhz。</p>
+<h1 id="修改kubernetes部署文件"><a href="#修改kubernetes部署文件" class="headerlink" title="修改kubernetes部署文件"></a>修改kubernetes部署文件</h1><p>因为要充分利用机器性能，所以不能够只部署一个pod，我的服务器之部署一个pod的话，会直接压干一台云服务器的cpu，导致这台云服务器只剩下400mhz的cpu，可能无法起别的pod，上面的内存也将被浪费掉。所以必须起多个pod。最终决定用以下配置，每个pod请求1000M内存，1整个核心的cpu，最大只给2000M内存和两个核心的cpu。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">requests:</span></span><br><span class="line">    <span class="attr">memory:</span> <span class="string">1000Mi</span></span><br><span class="line">    <span class="attr">cpu:</span> <span class="string">1000m</span></span><br><span class="line"><span class="attr">limits:</span></span><br><span class="line">    <span class="attr">memory:</span> <span class="string">2000Mi</span></span><br><span class="line">    <span class="attr">cpu:</span> <span class="string">2000m</span></span><br></pre></td></tr></table></figure>
+
+<p>这样，一台云机器最少还有6G内存，和3个cpu可以分配给别的pod，不会造成资源浪费。另外，等到真正上线的时候，如果人太多了，资源不够用也是不怕的。kubernetes还有自动扩容。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/07/24/Kubernetes%20nodes%20are%20not%20ready%E5%8E%9F%E5%9B%A0%E6%9F%A5%E7%9C%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/24/Kubernetes%20nodes%20are%20not%20ready%E5%8E%9F%E5%9B%A0%E6%9F%A5%E7%9C%8B/" class="post-title-link" itemprop="url">Kubernetes nodes are not ready原因查看</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-24 18:02:50" itemprop="dateCreated datePublished" datetime="2021-07-24T18:02:50+08:00">2021-07-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/k8s/" itemprop="url" rel="index"><span itemprop="name">k8s</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>今早收到了Prometheus的报警，4% of Kubernetes nodes are not ready。</p>
+<p>直接查看node情况即可知道原因。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">banfushen@pro:~/helm-chart/prometheus-netease/templates$ kubectl describe nodes ip-xx-x-xxx-xxx.ap-northeast-1.compute.internal</span><br><span class="line">Name:               ip-xx-x-xxx-xxx.ap-northeast-1.compute.internal</span><br><span class="line">Roles:              node</span><br><span class="line">Labels:             beta.kubernetes.io/arch=amd64</span><br><span class="line">                    beta.kubernetes.io/instance-type=c5.xlarge</span><br><span class="line">                    beta.kubernetes.io/os=linux</span><br><span class="line">                    failure-domain.beta.kubernetes.io/region=ap-northeast-1</span><br><span class="line">                    failure-domain.beta.kubernetes.io/zone=ap-northeast-1c</span><br><span class="line">                    kubernetes.io/hostname=ip-xx-x-xxx-xxx.ap-northeast-1.compute.internal</span><br><span class="line">                    kubernetes.io/role=node</span><br><span class="line">                    node-role.kubernetes.io/node=</span><br><span class="line">Annotations:        node.alpha.kubernetes.io/ttl: 0</span><br><span class="line">                    volumes.kubernetes.io/controller-managed-attach-detach: <span class="literal">true</span></span><br><span class="line">CreationTimestamp:  Sat, 24 Jul 2021 03:05:08 +0800</span><br><span class="line">Taints:             &lt;none&gt;</span><br><span class="line">Unschedulable:      <span class="literal">false</span></span><br><span class="line">Conditions:</span><br><span class="line">  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message</span><br><span class="line">  ----             ------  -----------------                 ------------------                ------                       -------</span><br><span class="line">  OutOfDisk        False   Sat, 24 Jul 2021 18:00:31 +0800   Sat, 24 Jul 2021 03:05:08 +0800   KubeletHasSufficientDisk     kubelet has sufficient disk space available</span><br><span class="line">  MemoryPressure   False   Sat, 24 Jul 2021 18:00:31 +0800   Sat, 24 Jul 2021 03:05:08 +0800   KubeletHasSufficientMemory   kubelet has sufficient memory available</span><br><span class="line">  DiskPressure     False   Sat, 24 Jul 2021 18:00:31 +0800   Sat, 24 Jul 2021 03:05:08 +0800   KubeletHasNoDiskPressure     kubelet has no disk pressure</span><br><span class="line">  PIDPressure      False   Sat, 24 Jul 2021 18:00:31 +0800   Sat, 24 Jul 2021 03:05:08 +0800   KubeletHasSufficientPID      kubelet has sufficient PID available</span><br><span class="line">  Ready            True    Sat, 24 Jul 2021 18:00:31 +0800   Sat, 24 Jul 2021 03:05:28 +0800   KubeletReady                 kubelet is posting ready status</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/07/23/redis%E9%9B%86%E7%BE%A4%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%9F%A5%E8%AF%A2%E8%BF%87%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/23/redis%E9%9B%86%E7%BE%A4%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%9F%A5%E8%AF%A2%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">redis集群数据倾斜查询过程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-23 18:08:05" itemprop="dateCreated datePublished" datetime="2021-07-23T18:08:05+08:00">2021-07-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>项目上redis cluster数据产生了倾斜，项目是有3个节点，但第一个节点用了80%的内存，第二第三个节点基本没存数据。</p>
+<h1 id="redis-cluster存贮规律"><a href="#redis-cluster存贮规律" class="headerlink" title="redis cluster存贮规律"></a>redis cluster存贮规律</h1><p>redis 集群有16384个槽，会先对要存贮的key进行hash，将得到的结果放到对应的槽。一般会对整个key进行hash，如果key中含有{}，会对{}中的字符串进行哈希。</p>
+<h1 id="先查看集群中是否是因为key的原因造成倾斜"><a href="#先查看集群中是否是因为key的原因造成倾斜" class="headerlink" title="先查看集群中是否是因为key的原因造成倾斜"></a>先查看集群中是否是因为key的原因造成倾斜</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h xxx.xxx.xxx.xxx -p xxx -c</span><br><span class="line">keys *&#123;*&#125;*</span><br></pre></td></tr></table></figure>
+
+<p>查看之后发现，并不是因为{}导致key全部塞到第一个节点，说明应该不是key的原因</p>
+<h1 id="查找集群中的大key"><a href="#查找集群中的大key" class="headerlink" title="查找集群中的大key"></a>查找集群中的大key</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h xxx.xxx.xxx.xxx -p xxx -c --bigkeys</span><br><span class="line">redis-memory-for-key -s xxx.xxx.xxx.xxx -p xxx keyname</span><br></pre></td></tr></table></figure>
+
+<p>这里有一点需要注意，bigkeys命令会再各个节点中遍历，一个节点一个节点的插，所以要多执行几遍。最后发现有一个list里面有3W多个数据，查看大小，就是这个原因导致的，最后再查询代码，发现是业务代码问题，解决即可。<br>redis-memory-for-key也可能没连接到指定节点，需要多执行几次。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/07/23/golang%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%AF%BB%E5%86%99channel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/23/golang%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%AF%BB%E5%86%99channel/" class="post-title-link" itemprop="url">golang非阻塞读写channel</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-23 14:27:08" itemprop="dateCreated datePublished" datetime="2021-07-23T14:27:08+08:00">2021-07-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>服务器最近压测的时候发现了问题。发现是往channel写数据，但是channel满了，导致服务器部分功能阻塞。golang的channel读或写是会造成阻塞的，但是可以用select的多路复用解决这个问题。</p>
+<p>不阻塞读channel（也可以加上超时）</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">readChan</span><span class="params">(c <span class="keyword">chan</span> <span class="type">int</span>)</span></span> (<span class="type">int</span>, <span class="type">error</span>) &#123;</span><br><span class="line">	<span class="keyword">select</span> &#123;</span><br><span class="line">	<span class="keyword">case</span> num := &lt;-c:</span><br><span class="line">		<span class="keyword">return</span> num, <span class="literal">nil</span></span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>, errors.New(<span class="string">&quot;chan do not have data&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加上超时时间</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">readChanWithTimeout</span><span class="params">(c <span class="keyword">chan</span> <span class="type">int</span>)</span></span> (<span class="type">int</span>, <span class="type">error</span>) &#123;</span><br><span class="line">	timeout := time.NewTimer(time.Microsecond * <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">select</span> &#123;</span><br><span class="line">	<span class="keyword">case</span> num := &lt;-c:</span><br><span class="line">		<span class="keyword">return</span> num , <span class="literal">nil</span></span><br><span class="line">	<span class="keyword">case</span> &lt;-timeout.C:</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>, errors.New(<span class="string">&quot;read chan time out&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>非阻塞写入channel（也可以加上超时）</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">writeChan</span><span class="params">(num <span class="type">int</span>, c <span class="keyword">chan</span> <span class="type">int</span>)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">	<span class="keyword">select</span> &#123;</span><br><span class="line">	<span class="keyword">case</span> ch &lt;- num:</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		<span class="keyword">return</span> errors.New(<span class="string">&quot;chan is full&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加上超时时间</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">writeChanWithTimeout</span><span class="params">(num <span class="type">int</span>, c <span class="keyword">chan</span> <span class="type">int</span>)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">	timeout := time.NewTimer(time.Microsecond * <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">select</span> &#123;</span><br><span class="line">	<span class="keyword">case</span> c &lt;- num:</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">	<span class="keyword">case</span> &lt;-timeout.C:</span><br><span class="line">		<span class="keyword">return</span> errors.New(<span class="string">&quot;write chan time out&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/07/21/linux%20%E4%BD%BF%E7%94%A8tcpdump%E6%8A%93%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/21/linux%20%E4%BD%BF%E7%94%A8tcpdump%E6%8A%93%E5%8C%85/" class="post-title-link" itemprop="url">linux 使用tcpdump抓包</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-21 17:50:09" itemprop="dateCreated datePublished" datetime="2021-07-21T17:50:09+08:00">2021-07-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>最近更换了服务器的消息队列，客户端反馈说服务器有时候会多发消息下去，十分纳闷，只改了服务器的消息队列，但是服务器像客户端发消息的代码一行没改，日志也只是发一条消息下去，但是因为改了消息队列，最后使用linux抓包看看，以证清白。</p>
+<p>tcpdump输出demo如下（这不是调试时的数据，只是demo）。这里我指定查看8060端口。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@mdev-2:/home/banfushen/webclient<span class="comment"># tcpdump port 8060</span></span><br><span class="line">tcpdump: verbose output suppressed, use -v or -vv <span class="keyword">for</span> full protocol decode</span><br><span class="line">listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes</span><br><span class="line">17:41:07.061086 IP 10.xxx.xxx.xxx.51321 &gt; 11.xxx.xxx.xxx.8060: Flags [.], <span class="built_in">seq</span> 2312385062:2312385063, ack 2244282406, win 1021, length 1</span><br><span class="line">17:41:07.061177 IP 11.xxx.xxx.xxx.8060 &gt; 10.xxx.xxx.xxx.51321: Flags [.], ack 1, win 101, options [nop,nop,sack 1 &#123;0:1&#125;], length 0</span><br></pre></td></tr></table></figure>
+
+<p>抓包之后，发现的确只发下去一条，然后去抓客户端，在客户端打断点调试，最后发现是客户端自己的确收到一条，但是别的逻辑导致事件重复触发。最后证明清白。</p>
+<p>tcpdump还有一些别的命令做一下记录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 监听指定网卡</span></span><br><span class="line">tcpdump -i en0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 监听本机与192.xxx.xxx.xx之间的通信包，出\入都会监听</span></span><br><span class="line">tcpdump host 192.xxx.xxx.xx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 监听192.xxx.xxx.xx来源的通信</span></span><br><span class="line">tcpdump src host 192.xxx.xxx.xx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 监听192.xxx.xxx.xx为目标的通信</span></span><br><span class="line">tcpdump dst host 192.xxx.xxx.xx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 监听3000端口</span></span><br><span class="line">tcpdump port 3000</span><br></pre></td></tr></table></figure>
+
+<p>tcpdump非常强大，还有一些更多的功能用到的时候再查询。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fushen Ban"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Fushen Ban</p>
+  <div class="site-description" itemprop="description">正在进化</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fushen Ban</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

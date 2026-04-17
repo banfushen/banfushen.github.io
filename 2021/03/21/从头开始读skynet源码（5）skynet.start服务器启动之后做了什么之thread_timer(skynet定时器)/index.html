@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"banfushen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="继续按照skynet.start中的顺序分析。分析skynet定时器。启动各个线程都会做类似的初始化。 定时器分析这里要做一个前置理解，定时器，是只需要关心最近即将到来的任务，而不用关心距离现在比较远的任务，例如1.你注册了100个定时任务，定时任务按照时间排序后2.A任务2s后触发，B任务3h后触发，C任务h后触发……3.当刷新时间的时候，需要去拿到即将到来的任务而需要关心之后的任务，这里就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从头开始读skynet源码（5）skynet.start服务器启动之后做了什么之thread_timer(skynet定时器)">
+<meta property="og:url" content="https://banfushen.github.io/2021/03/21/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E8%AF%BBskynet%E6%BA%90%E7%A0%81%EF%BC%885%EF%BC%89skynet.start%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8%E4%B9%8B%E5%90%8E%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%E4%B9%8Bthread_timer(skynet%E5%AE%9A%E6%97%B6%E5%99%A8)/index.html">
+<meta property="og:site_name" content="拼图收集者">
+<meta property="og:description" content="继续按照skynet.start中的顺序分析。分析skynet定时器。启动各个线程都会做类似的初始化。 定时器分析这里要做一个前置理解，定时器，是只需要关心最近即将到来的任务，而不用关心距离现在比较远的任务，例如1.你注册了100个定时任务，定时任务按照时间排序后2.A任务2s后触发，B任务3h后触发，C任务h后触发……3.当刷新时间的时候，需要去拿到即将到来的任务而需要关心之后的任务，这里就">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-21T13:48:14.000Z">
+<meta property="article:modified_time" content="2023-07-16T09:11:17.000Z">
+<meta property="article:author" content="Fushen Ban">
+<meta property="article:tag" content="后端 c语言">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://banfushen.github.io/2021/03/21/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E8%AF%BBskynet%E6%BA%90%E7%A0%81%EF%BC%885%EF%BC%89skynet.start%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8%E4%B9%8B%E5%90%8E%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%E4%B9%8Bthread_timer(skynet%E5%AE%9A%E6%97%B6%E5%99%A8)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+  <title>从头开始读skynet源码（5）skynet.start服务器启动之后做了什么之thread_timer(skynet定时器) | 拼图收集者</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">拼图收集者</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欠的技术债，早晚要还</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/resume/" rel="section"><i class="fa fa-fw fa-user"></i>resume</a>
+
+  </li>
+        <li class="menu-item menu-item-simplefolio">
+
+    <a href="/simplefolio/" rel="section"><i class="fa fa-fw fa-id-card"></i>simplefolio</a>
+
+  </li>
+        <li class="menu-item menu-item-game">
+
+    <a href="/game/" rel="section"><i class="fa fa-fw fa-gamepad"></i>game</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://banfushen.github.io/2021/03/21/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E8%AF%BBskynet%E6%BA%90%E7%A0%81%EF%BC%885%EF%BC%89skynet.start%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8%E4%B9%8B%E5%90%8E%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%E4%B9%8Bthread_timer(skynet%E5%AE%9A%E6%97%B6%E5%99%A8)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fushen Ban">
+      <meta itemprop="description" content="正在进化">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="拼图收集者">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          从头开始读skynet源码（5）skynet.start服务器启动之后做了什么之thread_timer(skynet定时器)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-21 21:48:14" itemprop="dateCreated datePublished" datetime="2021-03-21T21:48:14+08:00">2021-03-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:11:17" itemprop="dateModified" datetime="2023-07-16T17:11:17+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skynet/" itemprop="url" rel="index"><span itemprop="name">skynet</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <span id="more"></span>
+
+<p>继续按照skynet.start中的顺序分析。分析skynet定时器。启动各个线程都会做类似的初始化。</p>
+<h2 id="定时器分析"><a href="#定时器分析" class="headerlink" title="定时器分析"></a>定时器分析</h2><p>这里要做一个前置理解，定时器，是只需要关心最近即将到来的任务，而不用关心距离现在比较远的任务，例如<br>1.你注册了100个定时任务，定时任务按照时间排序后<br>2.A任务2s后触发，B任务3h后触发，C任务h后触发……<br>3.当刷新时间的时候，需要去拿到即将到来的任务而需要关心之后的任务，这里就是只需要关心A任务，也就是你不需要去遍历所有任务列表拿到即将发生的任务，因为B之后的任务包括B，时间间隔太远了都不需要去关心。</p>
+<p>所以定时器的设计需要：<br>1.查询快<br>2.做好排序<br>3.删除做完的任务之后不影响之前结构</p>
+<p>常见的设计例如使用最小堆，时间轮，红黑树，而skynet使用的是时间轮。</p>
+<p>时间轮的设计就类似于我们生活中的钟表，大概说就是，秒针走一圈，分针走一格，分针走一圈，时针走一格。<br>运用到程序中，大概就是，<br>1.我们只关心秒针的任务。<br>2.秒针的一圈任务执行完了之后，拿分针一格的任务分配到秒针各秒中。这样就我们每次都只会从秒针的任务中拿到需要执行的任务，和第1点一致。<br>3.分针的一圈任务执行完了之后，拿时针一格的任务分配到分针各分中。</p>
+<h3 id="先看定时器结构"><a href="#先看定时器结构" class="headerlink" title="先看定时器结构"></a>先看定时器结构</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> TIME_NEAR_SHIFT 8					<span class="comment">// 临近时间转移量</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TIME_NEAR (1 &lt;&lt; TIME_NEAR_SHIFT)	<span class="comment">// 临近时间量 0x10000</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TIME_LEVEL_SHIFT 6					<span class="comment">// 别的时间等级转移量</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TIME_LEVEL (1 &lt;&lt; TIME_LEVEL_SHIFT)	<span class="comment">// 时间等级 0x1100</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TIME_NEAR_MASK (TIME_NEAR-1)		<span class="comment">// 临近时间掩码 0x1111</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TIME_LEVEL_MASK (TIME_LEVEL-1)		<span class="comment">// 别的时间等级掩码 0x1011</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">timer_event</span> &#123;</span></span><br><span class="line">    <span class="type">uint32_t</span> handle; <span class="comment">//即是设置定时器的来源，又是超时消息发送的目标</span></span><br><span class="line">    <span class="type">int</span> session; <span class="comment">//session，一个增ID，溢出了从1开始，所以不要设时间很长的timer</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 时间节点链表</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">timer_node</span> &#123;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">timer_node</span> *<span class="title">next</span>;</span>	<span class="comment">// 下一个节点地址</span></span><br><span class="line">	<span class="type">uint32_t</span> expire;			<span class="comment">// 到期时间</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定时器任务链表，</span></span><br><span class="line"><span class="comment">// 链表每个节点是一个时间节点链表</span></span><br><span class="line"><span class="comment">// 这里一定要清楚，定时器任务链表上每个节点是一个时间节点链表</span></span><br><span class="line"><span class="comment">// 即同一时间的任务链表</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">link_list</span> &#123;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">timer_node</span> <span class="title">head</span>;</span>		<span class="comment">// 头节点</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">timer_node</span> *<span class="title">tail</span>;</span>	<span class="comment">// 尾节点</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">timer</span> &#123;</span></span><br><span class="line">	<span class="comment">// (临近时间)8 + 4*(另外等级)6 = 32，刚好32位</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">link_list</span> <span class="title">near</span>[<span class="title">TIME_NEAR</span>];</span>	<span class="comment">// 临近时间的定时器任务链表，也就是我上面说的秒针</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">link_list</span> <span class="title">t</span>[4][<span class="title">TIME_LEVEL</span>];</span>	<span class="comment">// 剩下的四个等级的任务链表</span></span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">spinlock</span> <span class="title">lock</span>;</span>				<span class="comment">// 自旋锁</span></span><br><span class="line">	<span class="type">uint32_t</span> time;						<span class="comment">// 服务器经过的的tick数，每10毫秒tick一次</span></span><br><span class="line">	<span class="type">uint32_t</span> starttime;					<span class="comment">// 程序启动时间戳</span></span><br><span class="line">	<span class="type">uint64_t</span> current;					<span class="comment">// 启动到现在的耗时，精度10毫秒级</span></span><br><span class="line">	<span class="type">uint64_t</span> current_point;				<span class="comment">// 当前时间，精度10毫秒级</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="定时器初始化"><a href="#定时器初始化" class="headerlink" title="定时器初始化"></a>定时器初始化</h3><p>skynet_start中调用 skynet_timer_init初始化，在我的《从头开始读skynet源码（1）》中有写。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// skynet_start中调用 skynet_timer_init初始化</span></span><br><span class="line"><span class="type">void</span> </span><br><span class="line"><span class="title function_">skynet_timer_init</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">	TI = timer_create_timer();</span><br><span class="line">	<span class="type">uint32_t</span> current = <span class="number">0</span>;</span><br><span class="line">	systime(&amp;TI-&gt;starttime, &amp;current);</span><br><span class="line">	TI-&gt;current = current;</span><br><span class="line">	TI-&gt;current_point = gettime();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="keyword">struct</span> timer *</span><br><span class="line"><span class="title function_">timer_create_timer</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">timer</span> *<span class="title">r</span>=</span>(<span class="keyword">struct</span> timer *)skynet_malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> timer));</span><br><span class="line">	<span class="built_in">memset</span>(r,<span class="number">0</span>,<span class="keyword">sizeof</span>(*r));</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> i,j;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 重置临近时间定时器任务链表</span></span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;TIME_NEAR;i++) &#123;</span><br><span class="line">		link_clear(&amp;r-&gt;near[i]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 重置别的等级定时器任务链表</span></span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (j=<span class="number">0</span>;j&lt;TIME_LEVEL;j++) &#123;</span><br><span class="line">			link_clear(&amp;r-&gt;t[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 初始化按互斥锁</span></span><br><span class="line">	SPIN_INIT(r)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 重置启动到现在的耗时</span></span><br><span class="line">	r-&gt;current = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清空该任务节点</span></span><br><span class="line"><span class="comment">// 一次取出该任务节点的所有任务</span></span><br><span class="line"><span class="type">static</span> <span class="keyword">inline</span> <span class="keyword">struct</span> timer_node *</span><br><span class="line"><span class="title function_">link_clear</span><span class="params">(<span class="keyword">struct</span> link_list *<span class="built_in">list</span>)</span> &#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">timer_node</span> * <span class="title">ret</span> =</span> <span class="built_in">list</span>-&gt;head.next;</span><br><span class="line">	<span class="built_in">list</span>-&gt;head.next = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">list</span>-&gt;tail = &amp;(<span class="built_in">list</span>-&gt;head);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动定时器线程"><a href="#启动定时器线程" class="headerlink" title="启动定时器线程"></a>启动定时器线程</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">void</span></span><br><span class="line"><span class="title function_">start</span><span class="params">(<span class="type">int</span> thread)</span> &#123;</span><br><span class="line"> 	...</span><br><span class="line">	create_thread(&amp;pid[<span class="number">1</span>], thread_timer, m);</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定时器线程</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> *</span><br><span class="line"><span class="title function_">thread_timer</span><span class="params">(<span class="type">void</span> *p)</span> &#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">monitor</span> * <span class="title">m</span> =</span> p;				<span class="comment">// 拿到服务器 monitor</span></span><br><span class="line">	skynet_initthread(THREAD_TIMER);    <span class="comment">// 设置线程共享变量，标记为定时器线程</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 线程死循环</span></span><br><span class="line">	<span class="keyword">for</span> (;;) &#123;</span><br><span class="line">		skynet_updatetime();			<span class="comment">// 刷新skynet时间</span></span><br><span class="line">		skynet_socket_updatetime();		<span class="comment">// 更新socket的时间</span></span><br><span class="line">		CHECK_ABORT						<span class="comment">// 检查是否还有skynet服务</span></span><br><span class="line">		wakeup(m,m-&gt;count<span class="number">-1</span>);			<span class="comment">// 尝试唤醒</span></span><br><span class="line">		usleep(<span class="number">2500</span>);	               	<span class="comment">// 休息2.5毫秒</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 如果收到退出信号，则退出循环</span></span><br><span class="line">		<span class="keyword">if</span> (SIG) &#123;</span><br><span class="line">			signal_hup();</span><br><span class="line">			SIG = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// wakeup socket thread</span></span><br><span class="line">	skynet_socket_exit();</span><br><span class="line">	<span class="comment">// wakeup all worker thread</span></span><br><span class="line">	pthread_mutex_lock(&amp;m-&gt;mutex);</span><br><span class="line">	m-&gt;quit = <span class="number">1</span>;</span><br><span class="line">	pthread_cond_broadcast(&amp;m-&gt;cond);</span><br><span class="line">	pthread_mutex_unlock(&amp;m-&gt;mutex);</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果有未工作的线程，将其唤醒（虚假唤醒）</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span></span><br><span class="line"><span class="title function_">wakeup</span><span class="params">(<span class="keyword">struct</span> monitor *m, <span class="type">int</span> busy)</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (m-&gt;sleep &gt;= m-&gt;count - busy) &#123;</span><br><span class="line">		<span class="comment">// signal sleep worker, &quot;spurious wakeup&quot; is harmless</span></span><br><span class="line">		pthread_cond_signal(&amp;m-&gt;cond);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，定时器就是每2.5毫秒刷新一次，至于定时任务的处理，<strong>看到skynet_updatetime。这里就是skynet定时器的精华。</strong></p>
+<h3 id="skynet-updatetime，定时器刷新"><a href="#skynet-updatetime，定时器刷新" class="headerlink" title="skynet_updatetime，定时器刷新"></a>skynet_updatetime，定时器刷新</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span></span><br><span class="line"><span class="title function_">skynet_updatetime</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">	<span class="type">uint64_t</span> cp = gettime();		<span class="comment">// 获取当前时间</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(cp &lt; TI-&gt;current_point) &#123;	</span><br><span class="line">		<span class="comment">// 如果当前时间小于服务器时间则重置时间</span></span><br><span class="line">		skynet_error(<span class="literal">NULL</span>, <span class="string">&quot;time diff error: change from %lld to %lld&quot;</span>, cp, TI-&gt;current_point);</span><br><span class="line">		TI-&gt;current_point = cp;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cp != TI-&gt;current_point) &#123;</span><br><span class="line">		<span class="comment">// 如果当前时间大于等于服务器时间</span></span><br><span class="line">		<span class="comment">// 获取相差时间</span></span><br><span class="line">		<span class="type">uint32_t</span> diff = (<span class="type">uint32_t</span>)(cp - TI-&gt;current_point);</span><br><span class="line"></span><br><span class="line">		TI-&gt;current_point = cp;	<span class="comment">// 更新服务器时间</span></span><br><span class="line">		TI-&gt;current += diff;	<span class="comment">// 更新启动到现在的耗时</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 处理相差时间的定时任务</span></span><br><span class="line">		<span class="type">int</span> i;</span><br><span class="line">		<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;diff;i++) &#123;</span><br><span class="line">			timer_update(TI);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给一个时间差，处理相差时间的定时器任务</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> </span><br><span class="line"><span class="title function_">timer_update</span><span class="params">(<span class="keyword">struct</span> timer *T)</span> &#123;</span><br><span class="line">	SPIN_LOCK(T);		<span class="comment">// 加锁</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// try to dispatch timeout 0 (rare condition)</span></span><br><span class="line">	timer_execute(T);	<span class="comment">// 处理任务</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// shift time first, and then dispatch timer message</span></span><br><span class="line">	<span class="comment">// 重新分配任务，也就是我说的秒针走了一圈，</span></span><br><span class="line">	<span class="comment">// 把分针任务分配到秒针的概念</span></span><br><span class="line">	timer_shift(T);		</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 再次尝试处理任务，类似分针走一格，重新分配秒针</span></span><br><span class="line">	<span class="comment">// 重新分配后，第一秒的任务也触发了</span></span><br><span class="line">	timer_execute(T); 	</span><br><span class="line"></span><br><span class="line">	SPIN_UNLOCK(T);	<span class="comment">// 解锁</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理任务</span></span><br><span class="line"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">void</span></span><br><span class="line"><span class="title function_">timer_execute</span><span class="params">(<span class="keyword">struct</span> timer *T)</span> &#123;</span><br><span class="line">	<span class="comment">// 当前时间与时间掩码做&amp;运算</span></span><br><span class="line">	<span class="comment">// 时间掩码 0x1111，&amp;运算之后</span></span><br><span class="line">	<span class="comment">// 获得当前时间需要处理的所有任务链表</span></span><br><span class="line">	<span class="comment">// 我们只关心即将到来的所有任务</span></span><br><span class="line">	<span class="type">int</span> idx = T-&gt;time &amp; TIME_NEAR_MASK; </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (T-&gt;near[idx].head.next) &#123;</span><br><span class="line">		<span class="comment">// 如果该任务节点有任务，取出所有任务</span></span><br><span class="line">		<span class="class"><span class="keyword">struct</span> <span class="title">timer_node</span> *<span class="title">current</span> =</span> link_clear(&amp;T-&gt;near[idx]);</span><br><span class="line">		SPIN_UNLOCK(T);</span><br><span class="line">		<span class="comment">// dispatch_list don&#x27;t need lock T</span></span><br><span class="line">		dispatch_list(current);</span><br><span class="line">		SPIN_LOCK(T);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 分发时间任务</span></span><br><span class="line"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">void</span></span><br><span class="line"><span class="title function_">dispatch_list</span><span class="params">(<span class="keyword">struct</span> timer_node *current)</span> &#123;</span><br><span class="line">	<span class="comment">// 循环处理这个任务节点的所有任务</span></span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		<span class="comment">// 获取任务结构，这个是注册定时器任务的时候加入的</span></span><br><span class="line">		<span class="comment">// 下面会有分析</span></span><br><span class="line">		<span class="class"><span class="keyword">struct</span> <span class="title">timer_event</span> * <span class="title">event</span> =</span> (<span class="keyword">struct</span> timer_event *)(current+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 给任务加上信息</span></span><br><span class="line">		<span class="class"><span class="keyword">struct</span> <span class="title">skynet_message</span> <span class="title">message</span>;</span></span><br><span class="line">		message.source = <span class="number">0</span>;</span><br><span class="line">		message.session = event-&gt;session; <span class="comment">//这个很重要，接收侧靠它来识别是哪个timer</span></span><br><span class="line">		message.data = <span class="literal">NULL</span>;</span><br><span class="line">		message.sz = (<span class="type">size_t</span>)PTYPE_RESPONSE &lt;&lt; MESSAGE_TYPE_SHIFT;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 将任务放入消息队列</span></span><br><span class="line">		skynet_context_push(event-&gt;handle, &amp;message);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 获取下一个任务</span></span><br><span class="line">		<span class="class"><span class="keyword">struct</span> <span class="title">timer_node</span> * <span class="title">temp</span> =</span> current;</span><br><span class="line">		current=current-&gt;next;</span><br><span class="line">		skynet_free(temp);	</span><br><span class="line">	&#125; <span class="keyword">while</span> (current);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// skynet服务注册定时器任务</span></span><br><span class="line"><span class="type">int</span></span><br><span class="line"><span class="title function_">skynet_timeout</span><span class="params">(<span class="type">uint32_t</span> handle, <span class="type">int</span> time, <span class="type">int</span> session)</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (time &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="comment">// 立刻触发</span></span><br><span class="line">		<span class="class"><span class="keyword">struct</span> <span class="title">skynet_message</span> <span class="title">message</span>;</span></span><br><span class="line">		message.source = <span class="number">0</span>;</span><br><span class="line">		message.session = session;</span><br><span class="line">		message.data = <span class="literal">NULL</span>;</span><br><span class="line">		message.sz = (<span class="type">size_t</span>)PTYPE_RESPONSE &lt;&lt; MESSAGE_TYPE_SHIFT;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (skynet_context_push(handle, &amp;message)) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// 稍后触发</span></span><br><span class="line">		<span class="keyword">struct</span> timer_event event;</span><br><span class="line">		event.handle = handle;	<span class="comment">//记录是哪个skynet服务</span></span><br><span class="line">		event.session = session;</span><br><span class="line">		timer_add(TI, &amp;event, <span class="keyword">sizeof</span>(event), time);	<span class="comment">//加入定时器任务链表</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> session;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//加入定时器任务链表</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span></span><br><span class="line"><span class="title function_">timer_add</span><span class="params">(<span class="keyword">struct</span> timer *T,<span class="type">void</span> *arg,<span class="type">size_t</span> sz,<span class="type">int</span> time)</span> &#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">timer_node</span> *<span class="title">node</span> =</span> (<span class="keyword">struct</span> timer_node *)skynet_malloc(<span class="keyword">sizeof</span>(*node)+sz);</span><br><span class="line">	<span class="built_in">memcpy</span>(node+<span class="number">1</span>,arg,sz);</span><br><span class="line"></span><br><span class="line">	SPIN_LOCK(T);</span><br><span class="line">		</span><br><span class="line">	node-&gt;expire=time+T-&gt;time;	<span class="comment">// 记录触发时间</span></span><br><span class="line">	add_node(T,node);			<span class="comment">// 加入到合适的节点</span></span><br><span class="line"></span><br><span class="line">	SPIN_UNLOCK(T);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入到合适的节点</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span></span><br><span class="line"><span class="title function_">add_node</span><span class="params">(<span class="keyword">struct</span> timer *T,<span class="keyword">struct</span> timer_node *node)</span> &#123;</span><br><span class="line">	<span class="type">uint32_t</span> time=node-&gt;expire;		<span class="comment">// 触发时间</span></span><br><span class="line">	<span class="type">uint32_t</span> current_time=T-&gt;time;	<span class="comment">// 启动到现在经过的tick</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> ((time|TIME_NEAR_MASK)==(current_time|TIME_NEAR_MASK)) &#123;</span><br><span class="line">		<span class="comment">// 如果是临近发生的，则丢入临近发生链表的对应节点</span></span><br><span class="line">		<span class="comment">// 触发时间 &amp; 0x1111，获得触发时间对应的节点</span></span><br><span class="line">		link(&amp;T-&gt;near[time&amp;TIME_NEAR_MASK],node);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// 如果不是临近发生的，则丢入对应的链表</span></span><br><span class="line">		<span class="type">int</span> i;</span><br><span class="line">		<span class="type">uint32_t</span> mask=TIME_NEAR &lt;&lt; TIME_LEVEL_SHIFT;</span><br><span class="line">		<span class="comment">// 在接下来的三等级中寻找</span></span><br><span class="line">		<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> ((time|(mask<span class="number">-1</span>))==(current_time|(mask<span class="number">-1</span>))) &#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			mask &lt;&lt;= TIME_LEVEL_SHIFT;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 如果不是前面三个等级，则是第四个等级</span></span><br><span class="line">		link(&amp;T-&gt;t[i][((time&gt;&gt;(TIME_NEAR_SHIFT + i*TIME_LEVEL_SHIFT)) &amp; TIME_LEVEL_MASK)],node);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将时间节点加入</span></span><br><span class="line">tatic <span class="keyword">inline</span> <span class="type">void</span></span><br><span class="line"><span class="title function_">link</span><span class="params">(<span class="keyword">struct</span> link_list *<span class="built_in">list</span>,<span class="keyword">struct</span> timer_node *node)</span> &#123;</span><br><span class="line">	<span class="built_in">list</span>-&gt;tail-&gt;next = node;</span><br><span class="line">	<span class="built_in">list</span>-&gt;tail = node;</span><br><span class="line">	node-&gt;next=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="skynet-socket-updatetime-网络线程刷新时间"><a href="#skynet-socket-updatetime-网络线程刷新时间" class="headerlink" title="skynet_socket_updatetime 网络线程刷新时间"></a>skynet_socket_updatetime 网络线程刷新时间</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span></span><br><span class="line"><span class="title function_">skynet_socket_updatetime</span><span class="params">()</span> &#123;</span><br><span class="line">	socket_server_updatetime(SOCKET_SERVER, skynet_now());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span></span><br><span class="line"><span class="title function_">socket_server_updatetime</span><span class="params">(<span class="keyword">struct</span> socket_server *ss, <span class="type">uint64_t</span> time)</span> &#123;</span><br><span class="line">	ss-&gt;time = time;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>至此，定时器方面的分析，大概完毕，下篇分享thread_socket，skynet网络线程。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%90%8E%E7%AB%AF-c%E8%AF%AD%E8%A8%80/" rel="tag"># 后端 c语言</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/21/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E8%AF%BBskynet%E6%BA%90%E7%A0%81%EF%BC%884%EF%BC%89skynet.start%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8%E4%B9%8B%E5%90%8E%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%E4%B9%8Bmonitor(%E7%9B%91%E8%A7%86%E8%80%85)/" rel="prev" title="从头开始读skynet源码（4）skynet.start服务器启动之后做了什么之monitor(监视者)">
+      <i class="fa fa-chevron-left"></i> 从头开始读skynet源码（4）skynet.start服务器启动之后做了什么之monitor(监视者)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/04/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E8%AF%BBskynet%E6%BA%90%E7%A0%81%EF%BC%886%EF%BC%89skynet.start%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8%E4%B9%8B%E5%90%8E%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%E4%B9%8Bthread_socket(skynet%E7%BD%91%E7%BB%9C%E7%BA%BF%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89)/" rel="next" title="从头开始读skynet源码（6）skynet.start服务器启动之后做了什么之thread_socket(skynet网络线程（一）)">
+      从头开始读skynet源码（6）skynet.start服务器启动之后做了什么之thread_socket(skynet网络线程（一）) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">定时器分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E7%9C%8B%E5%AE%9A%E6%97%B6%E5%99%A8%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">先看定时器结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.2.</span> <span class="nav-text">定时器初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%9A%E6%97%B6%E5%99%A8%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">启动定时器线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#skynet-updatetime%EF%BC%8C%E5%AE%9A%E6%97%B6%E5%99%A8%E5%88%B7%E6%96%B0"><span class="nav-number">2.1.</span> <span class="nav-text">skynet_updatetime，定时器刷新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#skynet-socket-updatetime-%E7%BD%91%E7%BB%9C%E7%BA%BF%E7%A8%8B%E5%88%B7%E6%96%B0%E6%97%B6%E9%97%B4"><span class="nav-number">2.2.</span> <span class="nav-text">skynet_socket_updatetime 网络线程刷新时间</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fushen Ban"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Fushen Ban</p>
+  <div class="site-description" itemprop="description">正在进化</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fushen Ban</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>
