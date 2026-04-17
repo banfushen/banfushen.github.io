@@ -22,6 +22,102 @@
       defer
       src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"
     ></script>
+    <style>
+      .games-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .game-card {
+        background: #fff;
+        border-radius: 0.8rem;
+        overflow: hidden;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        opacity: 0;
+        transform: translateY(24px);
+        animation: game-card-reveal 0.8s cubic-bezier(0.5, 0, 0, 1) forwards;
+      }
+
+      .game-card:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+
+      .game-card:nth-child(2) {
+        animation-delay: 0.35s;
+      }
+
+      .game-card:nth-child(3) {
+        animation-delay: 0.5s;
+      }
+
+      .game-card:nth-child(4) {
+        animation-delay: 0.65s;
+      }
+
+      .game-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 1.4rem 3.6rem rgba(0, 0, 0, 0.12);
+      }
+
+      .game-card__image-wrap {
+        aspect-ratio: 16 / 9;
+        background: #111;
+        overflow: hidden;
+      }
+
+      .game-card__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .game-card__body {
+        padding: 1.6rem 1.8rem 1.8rem;
+      }
+
+      .game-card__title {
+        margin: 0;
+        font-size: 2rem;
+        color: #272341;
+      }
+
+      .game-card__meta {
+        margin: 0.8rem 0 0;
+        font-size: 1.4rem;
+        color: #6c63a8;
+        font-weight: 600;
+      }
+
+      @keyframes game-card-reveal {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .game-card {
+          opacity: 1;
+          transform: none;
+          animation: none;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .games-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="top"></div>
@@ -38,6 +134,7 @@
           <a rel="noreferrer" class="cta-btn text-color-main" href="#projects">查看项目</a>
           <a rel="noreferrer" class="cta-btn text-color-main" href="#skills">Skills</a>
           <a rel="noreferrer" class="cta-btn text-color-main" href="#career">Career</a>
+          <a rel="noreferrer" class="cta-btn text-color-main" href="#games">Games</a>
           <a rel="noreferrer" class="cta-btn text-color-main" href="#highlights">Highlights</a>
           <a rel="noreferrer" class="cta-btn text-color-main" href="#contact">Contact</a>
         </p>
@@ -150,6 +247,67 @@
                 <p class="mb-4">持续承担负责人或主导者角色，推进方案落地与关键模块演进。</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="games">
+      <div class="container">
+        <div class="project-wrapper">
+          <h2 class="section-title dark-blue-text load-hidden">Games I've Worked On</h2>
+          <div class="games-grid">
+            <article class="game-card">
+              <div class="game-card__image-wrap">
+                <img
+                  alt="网易狼人杀"
+                  class="game-card__image"
+                  src="./lrs.jpg"
+                />
+              </div>
+              <div class="game-card__body">
+                <h3 class="game-card__title">网易狼人杀</h3>
+                <p class="game-card__meta">Current · Backend Engineer</p>
+              </div>
+            </article>
+
+            <article class="game-card">
+              <div class="game-card__image-wrap">
+                <img
+                  alt="跑跑狼人杀"
+                  class="game-card__image"
+                  src="./pplrs.png"
+                />
+              </div>
+              <div class="game-card__body">
+                <h3 class="game-card__title">跑跑狼人杀</h3>
+                <p class="game-card__meta">Current · Backend Engineer</p>
+              </div>
+            </article>
+
+            <article class="game-card">
+              <div class="game-card__image-wrap">
+                <img
+                  alt="Dead by Daylight Mobile"
+                  class="game-card__image"
+                  src="./dbd.jpg"
+                />
+              </div>
+              <div class="game-card__body">
+                <h3 class="game-card__title">Dead by Daylight Mobile</h3>
+                <p class="game-card__meta">Backend / Infra / Live Ops</p>
+              </div>
+            </article>
+
+            <article class="game-card">
+              <div class="game-card__image-wrap">
+                <img alt="老K斗地主" class="game-card__image" src="./lkgame.jpg" />
+              </div>
+              <div class="game-card__body">
+                <h3 class="game-card__title">老K斗地主</h3>
+                <p class="game-card__meta">Backend Engineer</p>
+              </div>
+            </article>
           </div>
         </div>
       </div>
