@@ -35,6 +35,8 @@ skip_render:
   - simplefolio/index.js
   - simplefolio/profile.jpg
   - simplefolio/project.jpg
+  - game/*
+  - game/**/*
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -98,6 +100,7 @@ pagination_dir: page
 ## include:/exclude: options only apply to the 'source/' folder
 include:
 exclude:
+  - 'game/**'
 ignore:
 
 # Extensions
