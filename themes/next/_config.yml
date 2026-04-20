@@ -118,7 +118,6 @@ darkmode: false
 # External url should start with http:// or https://
 menu:
   home: / || home
-  resume: /resume/ || user
   simplefolio: /simplefolio/ || id-card
   game: /game/ || gamepad
   tags: /tags/ || tags

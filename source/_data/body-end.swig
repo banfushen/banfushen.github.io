@@ -1,3 +1,1 @@
-{% if page.path == 'resume/index.html' %}
-  <script src="{{ url_for('/js/resume/index.js') }}"></script>
-{% endif %}
+{# reserved for site-level body-end injection #}
