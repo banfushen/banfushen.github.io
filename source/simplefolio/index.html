@@ -130,10 +130,64 @@
         margin-bottom: 1rem;
       }
 
+      #projects .project-wrapper > .row {
+        display: none;
+      }
+
+      #projects .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2.4rem;
+      }
+
+      #projects .project-card {
+        height: 100%;
+        text-align: left;
+        background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+        border: 1px solid rgba(39, 35, 65, 0.08);
+        border-radius: 1.6rem;
+        padding: 2.4rem;
+        box-shadow: 0 1.2rem 3rem rgba(39, 35, 65, 0.08);
+      }
+
+      #projects .project-card__title {
+        margin: 0 0 0.8rem;
+        font-size: 2.4rem;
+        color: #272341;
+      }
+
+      #projects .project-card__role {
+        margin: 0 0 1.2rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #00a99d;
+      }
+
+      #projects .project-card__stack {
+        margin: 0 0 1.6rem;
+        font-size: 1.4rem;
+        color: #6b7280;
+      }
+
+      #projects .project-card__summary {
+        margin: 0;
+        font-size: 1.6rem;
+        line-height: 1.8;
+        color: #334155;
+      }
+
       #projects .project-archive-note {
         margin-top: 1.6rem;
         margin-bottom: 0;
         text-align: left;
+      }
+
+      @media (max-width: 992px) {
+        #projects .project-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 576px) {
@@ -408,6 +462,68 @@
       <div class="container">
         <div class="project-wrapper">
           <h2 class="section-title dark-blue-text load-hidden">Featured Projects</h2>
+
+          <div class="project-grid">
+            <article class="project-card load-hidden">
+              <h3 class="project-card__title">Dead by Daylight Mobile</h3>
+              <p class="project-card__role">Backend / Infra / Live Ops</p>
+              <p class="project-card__stack">TypeScript / Golang / Kubernetes / Redis / AWS</p>
+              <p class="project-card__summary">
+                负责服务端集群部署、线上问题处理、成本优化，以及部分服务端与玩法功能开发。
+                在长期 live service 场景下，持续平衡稳定性、交付效率与线上质量，并承担过服务端组长职责。
+              </p>
+            </article>
+
+            <article class="project-card load-hidden">
+              <h3 class="project-card__title">GamePond</h3>
+              <p class="project-card__role">Platform Owner</p>
+              <p class="project-card__stack">Golang / Kubernetes / Multi-Cloud / Game Server Hosting</p>
+              <p class="project-card__summary">
+                自研对标 AWS GameLift 的战斗服托管平台，负责整体架构、任务拆分、核心模块推进与迭代。
+                支持多云部署、更快激活与弹性扩缩，落地后帮助项目显著降低战斗服成本。
+              </p>
+            </article>
+
+            <article class="project-card load-hidden">
+              <h3 class="project-card__title">DBSync</h3>
+              <p class="project-card__role">Architecture / Core Implementation</p>
+              <p class="project-card__stack">Golang / Async Pipeline / Stateless Server</p>
+              <p class="project-card__summary">
+                面向无状态服务架构设计并实现异步数据库同步器，承接玩家数据异步落地链路。
+                配合新架构后，明显降低数据库成本，并提升了服务拆分后的数据一致性与可维护性。
+              </p>
+            </article>
+
+            <article class="project-card load-hidden">
+              <h3 class="project-card__title">Server Migration</h3>
+              <p class="project-card__role">Migration Lead</p>
+              <p class="project-card__stack">AWS / GCP / Kubernetes / Delivery Process</p>
+              <p class="project-card__summary">
+                主导服务器从 AWS 迁移至 GCP，负责技术调研、集群搭建、迁移执行与流程规范制定。
+                为后续多云能力建设和基础设施切换打下标准化基础。
+              </p>
+            </article>
+
+            <article class="project-card load-hidden">
+              <h3 class="project-card__title">RealTimeMessageServer</h3>
+              <p class="project-card__role">Realtime Backend</p>
+              <p class="project-card__stack">Golang / Long Connection / Presence / Queue</p>
+              <p class="project-card__summary">
+                使用 Golang 独立重写实时通信服务，支持长连接消息推送，并重构消息队列与在线状态判断链路。
+                强化非实时架构下的掉线、离线与状态同步处理能力。
+              </p>
+            </article>
+
+            <article class="project-card load-hidden">
+              <h3 class="project-card__title">Database Migration</h3>
+              <p class="project-card__role">Data Migration</p>
+              <p class="project-card__stack">DynamoDB / MongoDB / Full Sync / Incremental Sync</p>
+              <p class="project-card__summary">
+                主导数据库从 DynamoDB 迁移到 MongoDB，建设全量同步、增量同步与数据校验能力。
+                推进核心数据链路平滑切换，为后续架构演进预留了更大的成本和扩展空间。
+              </p>
+            </article>
+          </div>
 
           <div class="row">
             <div class="col-lg-12 col-sm-12">
