@@ -12,6 +12,7 @@
     "deploy": "npm run deploy:cloudflare",
     "deploy:cloudflare": "npm run build && npx wrangler@4.107.0 pages deploy public --project-name seanban --branch source --commit-dirty=true",
     "deploy:github": "hexo deploy",
+    "optimize:profile-images": "node tools/optimize-profile-images.mjs",
     "server": "hexo server"
   },
   "hexo": {
@@ -29,5 +30,8 @@
     "hexo-renderer-marked": "^4.0.0",
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
   }
 }
