@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build": "hexo clean && hexo generate",
     "clean": "hexo clean",
-    "deploy": "hexo deploy",
+    "deploy": "npm run deploy:cloudflare",
+    "deploy:cloudflare": "npm run build && npx wrangler pages deploy public --project-name seanban --branch source --commit-dirty=true",
+    "deploy:github": "hexo deploy",
     "server": "hexo server"
   },
   "hexo": {

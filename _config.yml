@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 拼图收集者
-subtitle: "欠的技术债，早晚要还"
-description: 正在进化
-keywords: "linux，golang，lua，c，python，nodejs，k8s，redis"
-author: Fushen Ban
+title: SeanBan
+subtitle: "Game Backend Engineer"
+description: "SeanBan's personal site about game backend engineering, infrastructure, cloud, and real-time systems."
+keywords: "SeanBan, game backend, Golang, TypeScript, Kubernetes, Redis, cloud infrastructure"
+author: SeanBan
 language: zh-CN
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://banfushen.github.io
+url: https://seanban.pages.dev
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -101,6 +101,7 @@ pagination_dir: page
 include:
 exclude:
   - 'game/**'
+  - 'resume-game/**'
 ignore:
 
 # Extensions
