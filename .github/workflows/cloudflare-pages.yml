@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Install dependencies
@@ -30,7 +30,7 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         run: >
-          npx wrangler pages deploy public
+          npx wrangler@4.107.0 pages deploy public
           --project-name seanban
           --branch source
           --commit-hash "${{ github.sha }}"

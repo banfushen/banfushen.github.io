@@ -2,11 +2,15 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=22 <23",
+    "npm": ">=10"
+  },
   "scripts": {
     "build": "hexo clean && hexo generate",
     "clean": "hexo clean",
     "deploy": "npm run deploy:cloudflare",
-    "deploy:cloudflare": "npm run build && npx wrangler pages deploy public --project-name seanban --branch source --commit-dirty=true",
+    "deploy:cloudflare": "npm run build && npx wrangler@4.107.0 pages deploy public --project-name seanban --branch source --commit-dirty=true",
     "deploy:github": "hexo deploy",
     "server": "hexo server"
   },

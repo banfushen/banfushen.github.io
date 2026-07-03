@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SeanBan | Game Backend Engineer</title>
+    <title>SeanBan（班富珅）| Game Backend Engineer</title>
     <meta
       name="description"
-      content="SeanBan 的个人主页，记录游戏服务端、实时系统、云基础设施与作品集。"
+      content="SeanBan（班富珅）的个人主页，聚焦游戏服务端、实时通信、Kubernetes 基础设施、live service 稳定性与工程降本。"
     />
     <link rel="canonical" href="https://seanban.pages.dev/" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://seanban.pages.dev/" />
-    <meta property="og:title" content="SeanBan | Game Backend Engineer" />
+    <meta property="og:title" content="SeanBan（班富珅）| Game Backend Engineer" />
     <meta
       property="og:description"
-      content="Game backend engineer focused on realtime systems, cloud infrastructure, and live game operations."
+      content="Game backend engineer focused on online game backend systems, realtime messaging, cloud infrastructure, and live operations."
     />
     <meta property="og:image" content="https://seanban.pages.dev/profile/profile.jpg" />
     <style>
@@ -92,6 +92,35 @@
         flex-wrap: wrap;
         gap: 14px;
         margin-top: 34px;
+      }
+
+      .proof-points {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        max-width: 720px;
+        margin-top: 28px;
+      }
+
+      .proof {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(15, 23, 42, 0.52);
+      }
+
+      .proof strong {
+        display: block;
+        color: var(--accent);
+        font-size: 1.25rem;
+        line-height: 1.1;
+      }
+
+      .proof span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        line-height: 1.55;
       }
 
       .button {
@@ -194,7 +223,8 @@
 
       @media (max-width: 860px) {
         .hero,
-        .cards {
+        .cards,
+        .proof-points {
           grid-template-columns: 1fr;
         }
 
@@ -212,21 +242,36 @@
             <p class="eyebrow">Game Backend Engineer</p>
             <h1>SeanBan</h1>
             <p class="lead">
-              我关注游戏服务端、实时消息、容器化基础设施和线上稳定性。这里是我的主页入口：
-              简历作品集、互动作品集和技术博客都从这里开始。
+              SeanBan（班富珅），游戏服务端工程师，专注在线游戏后端、实时通信、Kubernetes
+              基础设施与 live service 稳定性。曾参与/主导多云迁移、战斗服托管平台、数据库异步同步等项目，
+              带来明确的降本和稳定性收益。
             </p>
             <nav class="actions" aria-label="Primary links">
               <a class="button primary" href="/profile/">查看完整简历</a>
               <a class="button" href="/game/">进入互动作品集</a>
               <a class="button" href="/blog/">阅读博客</a>
             </nav>
+            <div class="proof-points" aria-label="Key impact">
+              <div class="proof">
+                <strong>50%</strong>
+                <span>战斗服成本下降</span>
+              </div>
+              <div class="proof">
+                <strong>80%+</strong>
+                <span>数据库成本下降</span>
+              </div>
+              <div class="proof">
+                <strong>Live Ops</strong>
+                <span>长期线上稳定性支撑</span>
+              </div>
+            </div>
           </div>
 
           <aside class="panel" aria-label="SeanBan profile card">
             <img class="profile" src="/profile/profile.jpg" alt="SeanBan profile photo" />
             <div class="panel-body">
               <h2>Backend, cloud, realtime.</h2>
-              <p>把复杂系统做稳，把线上问题定位清楚，把作品讲得更像真正做过的人。</p>
+              <p>把复杂系统做稳，把线上问题定位清楚，把平台能力沉淀成能长期支撑项目增长的基础设施。</p>
             </div>
           </aside>
         </div>
@@ -235,7 +280,7 @@
           <a class="card" href="/profile/">
             <span>Profile</span>
             <h2>结构化简历</h2>
-            <p>项目经历、技术栈、游戏服务端工作记录，适合快速了解背景。</p>
+            <p>项目经历、技术栈、业务影响与工程成果，适合快速判断匹配度。</p>
           </a>
           <a class="card" href="/game/">
             <span>Interactive</span>
