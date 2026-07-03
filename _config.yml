@@ -30,11 +30,9 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - index.html
+  - profile/*
+  - profile/**/*
   - simplefolio/index.html
-  - simplefolio/index.css
-  - simplefolio/index.js
-  - simplefolio/profile.jpg
-  - simplefolio/project.jpg
   - game/*
   - game/**/*
 
