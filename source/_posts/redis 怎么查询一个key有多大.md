@@ -37,7 +37,7 @@ Value at:0x7f4f19e2b500 refcount:1 encoding:embstr serializedlength:15 lru:14327
 借助redis rdb tools工具，需要下载rdbtools，`pip install rdbtools`。
 
 ```bash
-banfushen@banfushen:~$ redis-memory-for-key -p 6006 testkey
+sean@sean:~$ redis-memory-for-key -p 6006 testkey
 Key                             testkey
 Bytes                           72
 Type                            string
@@ -56,6 +56,6 @@ print(rd.type('testkey'), rd.strlen('testkey'))
 ```
 
 ```bash
-banfushen@banfushen:~/gitlab/dbsync/test$ python redis_size.py 
+sean@sean:~/gitlab/dbsync/test$ python redis_size.py 
 (u'string', 14)
 ```

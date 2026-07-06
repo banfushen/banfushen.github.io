@@ -14,7 +14,7 @@ tags:
 直接查看node情况即可知道原因。
 
 ```bash
-banfushen@pro:~/helm-chart/prometheus-netease/templates$ kubectl describe nodes ip-xx-x-xxx-xxx.ap-northeast-1.compute.internal
+sean@pro:~/helm-chart/prometheus-netease/templates$ kubectl describe nodes ip-xx-x-xxx-xxx.ap-northeast-1.compute.internal
 Name:               ip-xx-x-xxx-xxx.ap-northeast-1.compute.internal
 Roles:              node
 Labels:             beta.kubernetes.io/arch=amd64

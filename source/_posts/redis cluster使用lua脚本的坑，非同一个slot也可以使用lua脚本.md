@@ -12,7 +12,7 @@ tags:
 在项目中，需要用lua脚本操作redis cluster中的多个key，但是非同slot的时候会报错，例如下面test3、test6在同一个node，但是却不是同一个slot。redis使用lua脚本可以这样`redis-cli -a xxxxx--eval demo.lua key1 key2 , val1 val2`
 
 ```bash
-banfushen@ma100:~/redis-cluster$ redis-cli -p 16380 -c
+sean@ma100:~/redis-cluster$ redis-cli -p 16380 -c
 192.168.88.7:6379> set test3 3333
 -> Redirected to slot [13026] located at 192.168.88.3:6379
 OK
@@ -34,7 +34,7 @@ OK
 一般在redis cluster中使用lua脚本，会碰到`(error) CROSSSLOT Keys in request don't hash to the same slot`
 
 ```bash
-banfushen@ma100:~/test$ cat get.lua
+sean@ma100:~/test$ cat get.lua
 local key1 = KEYS[1]
 local key1 = KEYS[2]
 
@@ -42,7 +42,7 @@ local value1 = redis.call("GET", key1)
 local value2 = redis.call("GET", key2)
 
 return {value1, value2}
-banfushen@ma100:~/test$  redis-cli -p 16380 -c --eval get.lua test3 test6
+sean@ma100:~/test$  redis-cli -p 16380 -c --eval get.lua test3 test6
 (error) CROSSSLOT Keys in request don't hash to the same slot
 ```
 
@@ -51,7 +51,7 @@ banfushen@ma100:~/test$  redis-cli -p 16380 -c --eval get.lua test3 test6
 在官方的说明中，redis 使用lua脚本是限制在用一个node上使用的，可是这里明明是同一个node，却无法使用，但是如果我们把脚本改成下面这样
 
 ```bash
-banfushen@ma100:~/test$ cat get.lua
+sean@ma100:~/test$ cat get.lua
 local key1 = ARGV[1]
 local key2 = ARGV[2]
 
@@ -59,7 +59,7 @@ local value1 = redis.call("GET", key1)
 local value2 = redis.call("GET", key2)
 
 return {value1, value2}
-banfushen@ma100:~/test$ redis-cli -p 16380 -c --eval get.lua  , test6 test3
+sean@ma100:~/test$ redis-cli -p 16380 -c --eval get.lua  , test6 test3
 1) "3333"
 2) "3333"
 ```

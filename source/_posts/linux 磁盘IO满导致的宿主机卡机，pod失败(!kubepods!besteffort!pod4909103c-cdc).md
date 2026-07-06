@@ -35,10 +35,10 @@ kubectl describe pod
 ```bash
 docker stats
 
-94ec0f757f48        banfushen6_elasticsearch_1         1.24%               1.653GiB / 4.657GiB   35.49%              9.15GB / 6.79GB     85.3MB / 38.6GB     205
-a57d56927433        banfushen6_dynamodb_1              17.73%              329.7MiB / 31.42GiB   1.02%               223MB / 188MB       17MB / 12.3kB       86
-6aa3384e7433        banfushen6_mongooseim_1            0.02%               287.6MiB / 31.42GiB   0.89%               4.22MB / 0B         19.3MB / 1.03MB     27
-6f8203c6c8bd        banfushen6_rabbitmq_1              0.11%               98.38MiB / 31.42GiB   0.31%               4.22MB / 0B         19.9MB / 3.94MB     307
+94ec0f757f48        sean6_elasticsearch_1         1.24%               1.653GiB / 4.657GiB   35.49%              9.15GB / 6.79GB     85.3MB / 38.6GB     205
+a57d56927433        sean6_dynamodb_1              17.73%              329.7MiB / 31.42GiB   1.02%               223MB / 188MB       17MB / 12.3kB       86
+6aa3384e7433        sean6_mongooseim_1            0.02%               287.6MiB / 31.42GiB   0.89%               4.22MB / 0B         19.3MB / 1.03MB     27
+6f8203c6c8bd        sean6_rabbitmq_1              0.11%               98.38MiB / 31.42GiB   0.31%               4.22MB / 0B         19.9MB / 3.94MB     307
 722f40c6405f        minikube                           205.57%             7.398GiB / 7.812GiB   94.69%              441MB / 8.04MB      4.08MB / 48.1kB     2218
 ```
 

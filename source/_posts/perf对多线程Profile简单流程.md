@@ -94,7 +94,7 @@ int main()
 #### 对还没启动的程序
 
 ```shell
-root@ma100:/home/banfushen/perf_cpu/multi_thread# perf record -h
+root@ma100:/home/sean/perf_cpu/multi_thread# perf record -h
 Usage: perf record [<options>] [<command>]
     or: perf record [<options>] -- <command> [<options>]
 
@@ -117,15 +117,15 @@ Usage: perf record [<options>] [<command>]
 `git clone https://github.com/brendangregg/FlameGraph.git`
 
 ```plaintext
-banfushen@ma100:~/perf_cpu/FlameGraph$ pwd
-/home/banfushen/perf_cpu/FlameGraph
+sean@ma100:~/perf_cpu/FlameGraph$ pwd
+/home/sean/perf_cpu/FlameGraph
 ```
 
 ### 生成火焰图
 
 #### 对perf.data生成火焰图(按照上面来说就是一个进程的)
 
-`perf script |/home/banfushen/perf_cpu/FlameGraph/stackcollapse-perf.pl|/home/banfushen/perf_cpu/FlameGraph/flamegraph.pl > output.svg`
+`perf script |/home/sean/perf_cpu/FlameGraph/stackcollapse-perf.pl|/home/sean/perf_cpu/FlameGraph/flamegraph.pl > output.svg`
 ![](/images/posts/perfprofile/cedfefcf300a468b9c32fc84ffc19bfb.png)
 
 #### 对单个线程生成火焰图
@@ -133,7 +133,7 @@ banfushen@ma100:~/perf_cpu/FlameGraph$ pwd
 要知道线程id
 
 ```shell
-root@ma100:/home/banfushen/perf_cpu/multi_thread# perf script -h
+root@ma100:/home/sean/perf_cpu/multi_thread# perf script -h
 
  Usage: perf script [<options>]
     or: perf script [<options>] record <script> [<record-options>] <command>
@@ -149,13 +149,13 @@ root@ma100:/home/banfushen/perf_cpu/multi_thread# perf script -h
 ```
 
 `perf script -v --tid <tid> 指定线程`
-`perf script -v --tid 2283471|/home/banfushen/perf_cpu/FlameGraph/stackcollapse-perf.pl|/home/banfushen/perf_cpu/FlameGraph/flamegraph.pl > output1.svg`
+`perf script -v --tid 2283471|/home/sean/perf_cpu/FlameGraph/stackcollapse-perf.pl|/home/sean/perf_cpu/FlameGraph/flamegraph.pl > output1.svg`
 ![](/images/posts/perfprofile/db320151507f4c3a8ecb2e5258e0e704.png)
 
 #### 对多个线程生成火焰图
 
 `perf script -v --tid <tid[,tid...]> 指定多个线程`
-`perf script -v --tid 2283472,2283471|/home/banfushen/perf_cpu/FlameGraph/stackcollapse-perf.pl|/home/banfushen/perf_cpu/FlameGraph/flamegraph.pl > output3.svg`
+`perf script -v --tid 2283472,2283471|/home/sean/perf_cpu/FlameGraph/stackcollapse-perf.pl|/home/sean/perf_cpu/FlameGraph/flamegraph.pl > output3.svg`
 ![](/images/posts/perfprofile/6fbc37032b3c4efba64387ab5f115c22.png)
 参考资料:
 [perf Examples](https://www.brendangregg.com/perf.html)

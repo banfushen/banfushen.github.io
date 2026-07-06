@@ -14,7 +14,7 @@ tags:
 tcpdump输出demo如下（这不是调试时的数据，只是demo）。这里我指定查看8060端口。
 
 ```bash
-root@mdev-2:/home/banfushen/webclient# tcpdump port 8060
+root@mdev-2:/home/sean/webclient# tcpdump port 8060
 tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
 listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
 17:41:07.061086 IP 10.xxx.xxx.xxx.51321 > 11.xxx.xxx.xxx.8060: Flags [.], seq 2312385062:2312385063, ack 2244282406, win 1021, length 1

@@ -16,7 +16,7 @@ tags:
 # 查看详细
 
 ```bash
-banfushen@banfushen:~/redis-cluster$ redis-cli -p 16379
+sean@sean:~/redis-cluster$ redis-cli -p 16379
 127.0.0.1:16379>
 127.0.0.1:16379>
 127.0.0.1:16379> CLUSTER info
@@ -35,7 +35,7 @@ Empty slot
 猜测就是slot分配的问题，进入具体container，重新分配slot
 
 ```bash
-banfushen@banfushen:~/redis-cluster$ docker exec -it redis-node-0 /bin/bash
+sean@sean:~/redis-cluster$ docker exec -it redis-node-0 /bin/bash
 root@a77b8222eba2:/#
 ## 先查看命令
 root@a77b8222eba2:/# redis-cli --cluster help
